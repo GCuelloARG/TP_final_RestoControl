@@ -1,6 +1,13 @@
 #ifndef CLIENTES_H_INCLUDED
 #define CLIENTES_H_INCLUDED
 
+#include <iostream>
+
+using namespace std;
+
+#include "globales.h"
+
+
 class Cliente{
 private:
     int id;
@@ -114,6 +121,47 @@ class archivoCliente{
             return reg;
         }
 
+        bool modificarRegistro(int pos, Cliente reg){
+
+            FILE pCliente=fopen(nombre, "rb+");
+            if(pCliente==NULL){
+                cout<<"ERROR DE ARCHIVO-mod"<<endl;
+                return false;
+            }
+
+            fseek(pCliente, sizeof (Cliente),pos, 0);
+            bool escribio=fwrite (&reg, sizeof(Cliente), 1, pCliente);
+            fclose(pCliente);
+
+            return escribio;
+        }
+
+        bool bajaLogica(){
+            archivoCliente archi("cliente.dat");
+            int id, pos;
+            cout << "Ingrese el ID a dar de baja: ";
+            cin >> id;
+            pos=archi.buscarRegistro(id);
+            if(pos==-1){
+                cout<<"No existe el producto con ese ID"<<endl;
+                return false;
+            } else {
+                if(pos==-2){
+                    cout<<"ERROR DE ARCHIVO"<<endl;
+                    return false;
+                }
+            }
+
+            Cliente reg=archi.leerRegistro(pos);
+            reg.setEstado(false);
+            bool quePaso=archi.modificarRegistro(pos, reg);
+            if(quePaso==true){
+                cout<<"Registro borrado con exito"<<endl;
+            }else{
+                cout<<"No se pudo borrar el registro"<<endl;
+            }
+            return true;
+        }
 
 };
 
