@@ -31,14 +31,26 @@ public:
             setId(id);
             cout << "Nombre: ";
             cargarCadena(nombre,29);
-            cout << "Tipo (1-21): ";
+            cout << "Direccion: ";
+            cargarCadena(direccion,29);
+            cout << "Telefono: ";
             cin >> t;
-            setTipo(t);
-            cout << "Anio de origen: ";
-            cin >> o;
-            setOrigen(o);
+            setTel(t);
             estado=(true);
         }
+
+    void Mostrar(){
+            cout << "ID Cliente: ";
+            cout << id << endl;
+            cout << "Nombre: ";
+            cout << nombre << endl;
+            cout << "Direccion: ";
+            cout << direccion << endl;
+            cout << "Telefono: ";
+            cout << tel << endl;
+            cout << endl;
+        }
+
 
 };
 
