@@ -93,8 +93,8 @@ public:
         return -1;
         }
 
-    Producto leerRegistro();
-        Producto Reg;
+    Producto leerRegistro(int pos){
+        Producto reg;
         FILE *p=fopen(nombre,"rb");
         if (p==NULL){
             cout <<"ERROR DE ARCHIVO"<<endl;
@@ -106,6 +106,53 @@ public:
         fclose(p);
 
         return reg;
+    }
+
+    //modificar
+    bool modificarRegistro(int pos, Producto reg){
+
+            FILE pProd=fopen("productos.dat", "rb+");
+            if(pProd==NULL){
+                cout<<"ERROR DE ARCHIVO"<<endl;
+                return false;
+            }
+
+            fseek(pProd, sizeof (Producto)pos, 0);
+            bool escribio=fwrite (&reg, sizeof(Producto), 1, pProd);
+            fclose(pProd);
+
+            return escribio;
+        }
+    //modificar
+
+    bool bajaLogica(){
+            ArchivoProducto arc ("productos.dat");
+            int id, pos;
+            cout << "Ingrese el ID a dar de baja: ";
+            cin >> id;
+            pos=arc.buscarRegistro(id);
+            if(pos==-1){
+                cout<<"No existe el producto con ese ID"<<endl;
+                return false;
+            } else {
+                if(pos==-2){
+                    cout<<"ERROR DE ARCHIVO"<<endl;
+                    return false;
+                }
+            }
+
+            Producto reg=arc.leerRegistro(pos);
+            reg.setEstado(false);
+            bool quePaso=arc.modificarRegistro(pos, reg);
+            if(quePaso==true){
+                cout<<"Registro borrado con exito"<<endl;
+            }else{
+                cout<<"No se pudo borrar el registro"<<endl;
+            }
+            return true;
+        }
+
+
 };
 
 #endif // PRODUCTOS_H_INCLUDED
