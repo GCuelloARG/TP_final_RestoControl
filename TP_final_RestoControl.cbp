@@ -37,9 +37,13 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="productos.h" />
 		<Unit filename="rep.h" />
+		<Unit filename="submenues.h" />
 		<Unit filename="ventas.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
+			<code_completion />
+			<envvars />
+			<debugger />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
