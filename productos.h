@@ -5,7 +5,7 @@
 #include <cstdio>
 #include <cstring>
 
-class Productos{
+class Producto{
     private:
         int id;
         char nombre[30];
@@ -27,30 +27,85 @@ class Productos{
         const char *getNombre(){return nombre;}
         const char *getDescripcion(){return descripcion;}
 
-        void Cargar(){
-        cout<<"Id"<<endl;
-        cin>>id;
+        void Cargar(int id){
+
+        setId(id);
         cout<<"Nombre"<<endl;
         cargarCadena(nombre,29);
         cout<<"Descripcion"<<endl;
         cargarCadena(nombre,29)
         cout<<"Precio unitario";
-        cin >> preciou;
-
+        cin >> precioU;
+        estado=(true);
         }
 
+
+        void Mostrar(){
+        cout << "ID Producto: "
+        cout << id << endl;
+        cout << "Nombre: "
+        cout << nombre << endl;
+        cout << "Descripcion"
+        cout << descripcion << endl;
+        cout << "Precio Unitario"
+        cout << precioU << endl;
+        }
 };
 
-class ArchivoProductos{
+class ArchivoProducto{
 private:
     char nombre[30];
 public:
-    agregarRegistro();
-    eliminarRegistro();
-    modificarRegistro();
-    buscarRegistro();
-    leerRegistro();
+    archivoProducto (const char *nomb){
+        strcpy(nombre, nomb);
+    }
 
+    bool agregarRegistro(Producto reg){
+            FILE *p=fopen(nombre,"ab");
+                if(p==NULL){
+                    cout<<"ERROR DE ARCHIVO-ag"<<endl;
+                    return false;
+                }
+
+            bool escribio=fwrite(&reg, sizeof reg, 1, p);
+            fclose(p);
+            return escribio;
+        }
+
+    int buscarRegistro(int id){
+        Producto reg;
+        FILE *p=fopen(nombre,"rb");
+        if(p==NULL){
+            cout<<"ERROR DE ARCHIVO - buscar"<<endl;
+            return -2;
+        }
+
+        int cont=0;
+
+        while(fread(&reg, sizeof reg,1,p)==1){
+            if(id==reg.getId()){
+                fclose(p);
+                return cont;
+                }
+                cont++;
+            }
+            fclose(p);
+        return -1;
+        }
+
+    Producto leerRegistro();
+        Producto Reg;
+        FILE *p=fopen(nombre,"rb");
+        if (p==NULL){
+            cout <<"ERROR DE ARCHIVO"<<endl;
+            return reg;
+        }
+
+        fseek(p,sizeof(Producto)*pos, 0):
+        fread(&reg, sizeof (Producto)1,p);
+        fclose(p);
+
+        return reg;
 };
 
 #endif // PRODUCTOS_H_INCLUDED
