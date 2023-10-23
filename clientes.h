@@ -1,7 +1,7 @@
 #ifndef CLIENTES_H_INCLUDED
 #define CLIENTES_H_INCLUDED
 
-class Clientes{
+class Cliente{
 private:
     int id;
     char nombre[30];
@@ -26,7 +26,7 @@ public:
 
     void Cargar(int id){
 
-            int t, o;
+            int t;
 
             setId(id);
             cout << "Nombre: ";
@@ -49,6 +49,69 @@ public:
             cout << "Telefono: ";
             cout << tel << endl;
             cout << endl;
+        }
+
+
+};
+
+class archivoCliente{
+    private:
+        char nombre[30];
+    public:
+        archivoCliente(const char *nomb){
+            strcpy(nombre, nomb);
+        }
+
+        bool agregarRegistro(Cliente reg){
+            FILE *p=fopen(nombre,"ab");
+                if(p==NULL){
+                    cout<<"ERROR DE ARCHIVO-ag"<<endl;
+                    return false;
+                }
+
+            bool escribio=fwrite(&reg, sizeof reg, 1, p);
+            fclose(p);
+            return escribio;
+        }
+
+
+
+        int buscarRegistro(int id){
+            Cliente reg;
+            FILE *p=fopen(nombre,"rb");
+            if(p==NULL){
+                cout<<"ERROR DE ARCHIVO - buscar"<<endl;
+                return -2;
+            }
+
+            int cont=0;
+
+            while(fread(&reg, sizeof reg,1,p)==1){
+                if(id==reg.getId()){
+                    fclose(p);
+                    return cont;
+                }
+                cont++;
+            }
+            fclose(p);
+        return -1;
+        }
+
+        Cliente leerRegistro(int pos){
+            Cliente reg;
+            //reg.setEstado(false);
+
+            FILE *p=fopen(nombre,"rb");
+            if(p==NULL){
+                cout<<"ERROR DE ARCHIVO-leer"<<endl;
+                return reg;
+            }
+
+            fseek(p,sizeof(Cliente)*pos,0);
+            fread(&reg, sizeof (Cliente),1,p);
+            fclose(p);
+
+            return reg;
         }
 
 
