@@ -39,7 +39,8 @@ public:
 
             int id, pos;
 
-            setNumVenta(nv);
+            setNumVenta(nv);   /// desarrollar
+
             cout << "Fecha: ";
             fechaVenta.Cargar();
             cout << "ID Cliente: ";
@@ -70,7 +71,6 @@ public:
             cout << precioTotal;
             cout << endl;
         }
-
 };
 
 
@@ -282,6 +282,8 @@ public:
 
             cout << "Restauracion de VENTAS realizada correctamente" << endl;
         }
+
+/// LISTAR REGISTROS >> para opc "VER" en menu (?)
 
 };
 

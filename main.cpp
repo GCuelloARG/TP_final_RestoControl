@@ -14,8 +14,9 @@ int main()
         cout << "2. PRODUCTOS               ." << endl;
         cout << "3. VENTAS                  ." << endl;
         cout << "4. REPORTES                ." << endl;
+        cout << "5. CONFIGURACION           ." << endl;
         cout << "----------------------------" << endl;
-        cout << "8. Salir" << endl;
+        cout << "6. Salir" << endl;
         cout << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
@@ -31,13 +32,18 @@ int main()
                 subMenuVentas();
                 break;
             case 4:
-                subMenuReportes();
+                subMenuConfiguracion();
                 break;
             case 5:
+                subMenuReportes();
+                break;
+            case 6:
                 cout << "Saliendo del programa. Hasta luego!" << endl;
+                system("pause");
                 return 0;
             default:
                 cout << "Opcion no valida." << endl;
+                system("pause");
                 break;
         }
     }
