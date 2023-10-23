@@ -76,40 +76,49 @@ void subMenuProductos(){
 }
 
 void subMenuVentas(){
+
+    ArchivoVenta archi("ventas.dat");
     int opc;
+    while(true){
+        cout << endl;
+        cout << "**     MENU VENTAS     **" << endl;
+        cout << endl;
+        cout << "1. CARGAR venta         ."<< endl;
+        cout << "2. BUSCAR venta         ."<< endl;
+        cout << "3. VER ventas           ."<< endl;
+        cout << "4. BORRAR venta         ."<< endl;
+        cout << "-------------------------" << endl;
+        cout << "5. Salir"<< endl;
+        cout << endl;
+        cout << "Elija una opcion: ";
+        cin >> opc;
 
-    system("cls");
-    cout << endl;
-    cout << "**    MENU VENTAS    **" << endl;
-    cout << endl;
-    cout << "1. CARGAR venta       ."<< endl;
-    cout << "2. BUSCAR venta      ."<< endl;
-    cout << "3. VER ventas         ."<< endl;
-    cout << "4. BORRAR venta       ."<< endl;
-    cout << "-----------------------" << endl;
-    cout << "5. Salir"<< endl;
-    cout << endl;
-    cout << "Elija una opcion: ";
-    cin >> opc;
-
-    switch(opc){
-        case 1:
-            break;
-        case 2:
-            break;
-        case 3:
-            break;
-        case 4:
-            break;
-        case 5:
-            cout << "Regresando al menu principal..." << endl;
-            system ("pause");
-            return;
-        default:
-            cout << "Opcion no valida." << endl;
-            break;
+        switch(opc){
+            case 1:
+                system("cls");
+                archi.agregarRegistro();
+                break;
+            case 2:
+                system("cls");
+                ///archi.listarPorNumero(nv);   >> desarrollar
+                break;
+            case 3:
+                system("cls");
+                /// archi.listarRegistros();    >> desarrollar
+                break;
+            case 4:
+                system("cls");
+                archi.bajaLogica();
+                break;
+            case 5:
+                cout << "Regresando al menu principal..." << endl;
+                system ("pause");
+                return;
+            default:
+                cout << "Opcion no valida." << endl;
+                break;
+        }
     }
-}
 
 void subMenuReportes(){
     int opc;
