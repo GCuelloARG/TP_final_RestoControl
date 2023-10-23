@@ -18,8 +18,7 @@ private:
         bool estado;
 
 public:
-
-        void setNumVenta(int nv) {numVenta=nv;} ///
+        void setNumVenta(int nv) {numVenta=nv;}
 
         void setFecha(Fecha f){fechaVenta=f;}
         void setCliente(Cliente c){cli=c;}
@@ -34,10 +33,9 @@ public:
         float getPrecioTotal(){return precioTotal;}
         bool getEstado(){return e;}
 
-        cont<<;
 
 
-        void Cargar(){
+        void Cargar(nv){
 
             int id, pos;
 
@@ -74,8 +72,6 @@ public:
         }
 
 };
-
-
 
 
 class ArchivoVenta{
@@ -128,8 +124,8 @@ public:
                 return reg;
             }
 
-            fseek(p, sizeof(Cliente)*pos, 0);
-            fread(&reg, sizeof (Cliente), 1, p);
+            fseek(p, sizeof reg*pos, 0);
+            fread(&reg, sizeof reg, 1, p);
             fclose(p);
 
             return reg;
