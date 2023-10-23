@@ -1,0 +1,6 @@
+#ifndef DETALLE_H_INCLUDED
+#define DETALLE_H_INCLUDED
+
+
+
+#endif // DETALLE_H_INCLUDED
