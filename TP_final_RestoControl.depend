@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1698090990 source:c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\main.cpp
+	<iostream>
+	"submenues.h"
+
+1698090990 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\submenues.h
+	<iostream>
+
