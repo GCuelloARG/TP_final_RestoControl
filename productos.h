@@ -109,7 +109,6 @@ public:
         return reg;
     }
 
-
     bool modificarRegistro(int pos, Producto reg){
 
             FILE pProd=fopen("productos.dat", "rb+");
@@ -126,6 +125,7 @@ public:
         }
 
     bool bajaLogica(){
+
             ArchivoProducto arc ("productos.dat");
             int id, pos;
             cout << "Ingrese el ID a dar de baja: ";
@@ -150,6 +150,62 @@ public:
                 cout<<"No se pudo borrar el registro"<<endl;
             }
             return true;
+        }
+
+    void copiaDeSeguridad (){
+        FILE* p;
+        FILE *pBackUp;
+
+        p=fopen("productos.dat". "rb");
+        if(p==NULL){
+            cout << "ERROR DE ARCHIVO" << endl;
+            return;
+        }
+
+        pBackUp = fopen ("productos_backup.bkp", "wb");
+        if (pBackUp==NULL){
+            cout << "ERROR DE ARCHIVO" << endl;
+            return;
+        }
+
+        Producto reg;
+        while (fread(&reg, sizeof reg, 1, p)==1){
+            if (reg.getEstado()==true){
+                fwrite(&reg, sizeof reg, 1, pBackUp);
+            }
+
+        }
+        fclose(p);
+        fclose(pBackUp);
+        cout << "copia de seguridad de PRODUCTOS realizada correctamente."
+    }
+
+    void restaurarVenta(){
+
+            FILE* p;
+            FILE* pBackUp;
+
+            p = fopen("productos.dat", "wb");
+            if (p == NULL) {
+                cout << "ERROR DE ARCHIVO" << endl;
+                return;
+            }
+
+            pBackUp = fopen("productos_backup.bkp", "rb");
+            if (pBackUp == NULL) {
+                cout << "ERROR DE ARCHIVO" << endl;
+                return;
+            }
+
+            Producto reg;
+            while (fread(&reg, sizeof reg, 1, pBackUp) == 1){
+                fwrite(&reg, sizeof reg, 1, p);
+            }
+
+            fclose(p);
+            fclose(pBackUp);
+
+            cout << "Restauracion de PRODUCTO realizada correctamente" << endl;
         }
 
 
