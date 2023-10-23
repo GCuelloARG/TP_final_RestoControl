@@ -227,8 +227,8 @@ public:
         }
 
         void copiaDeSeguridad(){
-            FILE* p; ///Pjug
-            FILE* pBackUp; ///pbakcup
+            FILE* p;
+            FILE* pBackUp;
 
             p = fopen("ventas.dat", "rb");
 
