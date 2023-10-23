@@ -35,7 +35,7 @@ int main()
                 break;
             case 5:
                 cout << "Saliendo del programa. Hasta luego!" << endl;
-                return;
+                return 0;
             default:
                 cout << "Opcion no valida." << endl;
                 break;
