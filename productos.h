@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdio>
 #include <cstring>
+#include "globales.h"
 
 class Producto{
     private:
@@ -108,7 +109,7 @@ public:
         return reg;
     }
 
-    //modificar
+
     bool modificarRegistro(int pos, Producto reg){
 
             FILE pProd=fopen("productos.dat", "rb+");
@@ -117,13 +118,12 @@ public:
                 return false;
             }
 
-            fseek(pProd, sizeof (Producto)pos, 0);
+            fseek(pProd, sizeof (Producto),pos, 0);
             bool escribio=fwrite (&reg, sizeof(Producto), 1, pProd);
             fclose(pProd);
 
             return escribio;
         }
-    //modificar
 
     bool bajaLogica(){
             ArchivoProducto arc ("productos.dat");
