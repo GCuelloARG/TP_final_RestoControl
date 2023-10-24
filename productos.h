@@ -6,6 +6,8 @@
 #include <cstring>
 #include "globales.h"
 
+using namespace std;
+
 class Producto{
     private:
         int id;
