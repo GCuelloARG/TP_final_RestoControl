@@ -13,8 +13,8 @@ class Detalle{
 	public:
             void setEstado(bool st){estado=st;}
             bool getEstado(){return estado;}
-            Cargar();
-            Mostrar();
+            void Cargar();
+            void Mostrar();
 };
 
 class ArchivoDetalle{

@@ -7,7 +7,7 @@ using namespace std;
 
 void subMenuClientes(){
 
-    ArchivoCliente archi("clientes.dat");
+    archivoCliente archi("clientes.dat");
     int opc;
 
     system("cls");
@@ -49,7 +49,7 @@ void subMenuClientes(){
 
 void subMenuProductos(){
 
-    ArchivoPrdocuto archi("productos.dat");
+    ArchivoProducto archi("productos.dat");
     int opc;
 
     system("cls");
@@ -133,6 +133,7 @@ void subMenuVentas(){
                 break;
         }
     }
+}
 
 void subMenuReportes(){
 

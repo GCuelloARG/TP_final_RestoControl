@@ -38,6 +38,7 @@ public:
         void Cargar(int nv){
 
             int id, pos;
+            float pt;
 
             setNumVenta(nv);   /// desarrollar
 
@@ -51,7 +52,7 @@ public:
             det.Cargar();
             cout << "Precio total: ";
             cin >> pt;
-            setPrecioTotal;
+            setPrecioTotal(pt);
             estado=(true);
         }
 
@@ -164,7 +165,7 @@ public:
 
             Venta reg=archi.leerRegistro(pos);
             reg.setEstado(false);
-            bool quePaso=arc.modificarRegistro(pos, reg);
+            bool quePaso=archi.modificarRegistro(pos, reg);
             if(quePaso==true){
                 cout<<"Venta eliminada con exito"<<endl;
             }else{
@@ -186,7 +187,7 @@ public:
             int tam=ftell(p);
             fclose(p);
 
-            return tam/sizeof reg;
+            return tam/sizeof (Detalle);
         }
 
         bool modificarFecha(){
@@ -213,7 +214,7 @@ public:
 
             cout<<"Ingrese la nueva fecha de venta: "<<endl;
             fec.Cargar();
-            reg.setFechaVenta(fec);
+            reg.setFecha(fec);
 
             bool whatPass=archi.modificarRegistro(pos, reg);
             if(whatPass==true){
