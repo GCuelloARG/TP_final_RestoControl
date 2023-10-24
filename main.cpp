@@ -1,5 +1,6 @@
 #include <iostream>
 #include "submenues.h"
+#include "ventas.h"
 
 using namespace std;
 
@@ -16,7 +17,7 @@ int main()
         cout << "4. REPORTES                ." << endl;
         cout << "5. CONFIGURACION           ." << endl;
         cout << "----------------------------" << endl;
-        cout << "6. Salir" << endl;
+        cout << "0. Salir" << endl;
         cout << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
@@ -37,7 +38,7 @@ int main()
             case 5:
                 subMenuReportes();
                 break;
-            case 6:
+            case 0:
                 cout << "Saliendo del programa. Hasta luego!" << endl;
                 system("pause");
                 return 0;

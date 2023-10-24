@@ -1,6 +1,7 @@
 #ifndef SUBMENUES_H_INCLUDED
 #define SUBMENUES_H_INCLUDED
 #include <iostream>
+#include "ventas.h"
 using namespace std;
 
 void subMenuClientes(){

@@ -2,6 +2,7 @@
 #define CLIENTES_H_INCLUDED
 
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
@@ -123,13 +124,13 @@ class archivoCliente{
 
         bool modificarRegistro(int pos, Cliente reg){
 
-            FILE pCliente=fopen(nombre, "rb+");
+            FILE *pCliente=fopen(nombre, "rb+");
             if(pCliente==NULL){
                 cout<<"ERROR DE ARCHIVO-mod"<<endl;
                 return false;
             }
 
-            fseek(pCliente, sizeof (Cliente),pos, 0);
+            fseek(pCliente, sizeof (Cliente)*pos, 0);
             bool escribio=fwrite (&reg, sizeof(Cliente), 1, pCliente);
             fclose(pCliente);
 

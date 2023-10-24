@@ -21,7 +21,7 @@ class Producto{
         void setDescripcion (const char *desc){
             strcpy (descripcion, desc);
         }
-        void setprecioUnitario (float n){precioUnitario=n}
+        void setprecioUnitario (float n){precioUnitario=n;}
         void setEstado (bool st){estado=st;}
 
         int getId(){return id;}
@@ -34,22 +34,22 @@ class Producto{
         cout<<"Nombre"<<endl;
         cargarCadena(nombre,29);
         cout<<"Descripcion"<<endl;
-        cargarCadena(nombre,29)
+        cargarCadena(descripcion,29);
         cout<<"Precio unitario";
-        cin >> precioU;
+        cin >> precioUnitario;
         estado=(true);
         }
 
 
         void Mostrar(){
-        cout << "ID Producto: "
+        cout << "ID Producto: ";
         cout << id << endl;
-        cout << "Nombre: "
+        cout << "Nombre: ";
         cout << nombre << endl;
-        cout << "Descripcion"
+        cout << "Descripcion: ";
         cout << descripcion << endl;
-        cout << "Precio Unitario"
-        cout << precioU << endl;
+        cout << "Precio Unitario: $";
+        cout << precioUnitario << endl;
         }
 };
 
@@ -57,7 +57,7 @@ class ArchivoProducto{
 private:
     char nombre[30];
 public:
-    archivoProducto (const char *nomb){
+    ArchivoProducto (const char *nomb){
         strcpy(nombre, nomb);
     }
 
@@ -102,8 +102,8 @@ public:
             return reg;
         }
 
-        fseek(p,sizeof(Producto)*pos, 0):
-        fread(&reg, sizeof (Producto)1,p);
+        fseek(p,sizeof(Producto)*pos, 0);
+        fread(&reg, sizeof (Producto),1,p);
         fclose(p);
 
         return reg;
@@ -112,13 +112,13 @@ public:
 
     bool modificarRegistro(int pos, Producto reg){
 
-            FILE pProd=fopen("productos.dat", "rb+");
+            FILE *pProd=fopen("productos.dat", "rb+");
             if(pProd==NULL){
                 cout<<"ERROR DE ARCHIVO"<<endl;
                 return false;
             }
 
-            fseek(pProd, sizeof (Producto),pos, 0);
+            fseek(pProd, sizeof (Producto)*pos, 0);
             bool escribio=fwrite (&reg, sizeof(Producto), 1, pProd);
             fclose(pProd);
 
@@ -126,7 +126,7 @@ public:
         }
 
     bool bajaLogica(){
-            ArchivoProducto arc ("productos.dat");
+            ArchivoProducto arc("productos.dat");
             int id, pos;
             cout << "Ingrese el ID a dar de baja: ";
             cin >> id;

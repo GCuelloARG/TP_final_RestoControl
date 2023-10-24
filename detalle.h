@@ -2,7 +2,7 @@
 #define DETALLE_H_INCLUDED
 #include "productos.h"
 
-class DetalleVenta{
+class Detalle{
 	private:
             Producto prod;
             int cant;
@@ -28,7 +28,6 @@ class ArchivoDetalle{
                 cout<<"ERROR DE ARCHIVO"<<endl;
                 return -2;
             }
-
             int cont=0;
             while(fread(&reg, sizeof reg, 1, p)==1){
                 if(id==reg.getId()){
@@ -60,7 +59,7 @@ class ArchivoDetalle{
 
             bool modificarRegistro(int pos, Detalle reg){
 
-                FILE *p=fopen("detelle_ventas.dat", "rb+");
+                FILE *p=fopen("detalle_ventas.dat", "rb+");
                 if(p==NULL){
                     cout<<"ERROR DE ARCHIVO"<<endl;
                     return false;
