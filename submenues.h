@@ -15,8 +15,8 @@ void subMenuClientes(){
     cout << "2. BUSCAR Cliente         ."<< endl;
     cout << "3. VER Clientes           ."<< endl;
     cout << "4. BORRAR Cliente         ."<< endl;
-    cout << "---------------------------" << endl;
-    cout << "5. Salir"<< endl;
+    cout << "---------------------------"<< endl;
+    cout << "0. Salir"<< endl;
     cout << endl;
     cout << "Elija una opcion: ";
     cin >> opc;
@@ -30,7 +30,7 @@ void subMenuClientes(){
             break;
         case 4:
             break;
-        case 5:
+        case 0:
             cout << "Regresando al menu principal..." << endl;
             system ("pause");
             return;
@@ -52,7 +52,7 @@ void subMenuProductos(){
     cout << "3. VER productos         ."<< endl;
     cout << "4. BORRAR producto       ."<< endl;
     cout << "--------------------------" << endl;
-    cout << "5. Salir"<< endl;
+    cout << "0. Salir"<< endl;
     cout << endl;
     cout << "Elija una opcion: ";
     cin >> opc;
@@ -66,7 +66,7 @@ void subMenuProductos(){
             break;
         case 4:
             break;
-        case 5:
+        case 0:
             cout << "Regresando al menu principal..." << endl;
             system ("pause");
             return;
@@ -89,7 +89,7 @@ void subMenuVentas(){
         cout << "3. VER ventas           ."<< endl;
         cout << "4. BORRAR venta         ."<< endl;
         cout << "-------------------------" << endl;
-        cout << "5. Salir"<< endl;
+        cout << "0. Salir"<< endl;
         cout << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
@@ -111,7 +111,7 @@ void subMenuVentas(){
                 system("cls");
                 archi.bajaLogica();
                 break;
-            case 5:
+            case 0:
                 cout << "Regresando al menu principal..." << endl;
                 system ("pause");
                 return;
@@ -132,7 +132,7 @@ void subMenuReportes(){
     cout << "3.                     ."<< endl;
     cout << "4.                     ."<< endl;
     cout << "------------------------" << endl;
-    cout << "5. Salir"<< endl;
+    cout << "0. Salir"<< endl;
     cout << endl;
     cout << "Elija una opcion: ";
     cin >> opc;
@@ -146,7 +146,7 @@ void subMenuReportes(){
             break;
         case 4:
             break;
-        case 5:
+        case 0:
             cout << "Regresando al menu principal..." << endl;
             system ("pause");
             return;
@@ -163,12 +163,17 @@ void subMenuConfiguracion(){
     cout << endl;
     cout << "**          MENU CONFIGURACION          **" << endl;
     cout << endl;
-    cout << "1. COPIAS de SEGURIDAD                   ."<< endl; /// que tal si lo hacemos asi, que entre a copias y elija copia de que?
-    cout << "2. RESTAURAR archivos                    ."<< endl; /// asi no aparece copia clientes, copia productos, copia ventas, restarurar.. etcs
-    cout << "3. BACK UP archivos                      ."<< endl;
-    cout << "4.                                       ."<< endl;
+    cout << "1. COPIA de SEGURIDAD: CLIENTES          ."<< endl;
+    cout << "2. COPIA de SEGURIDAD: PRODUCTOS         ."<< endl;
+    cout << "3. COPIA de SEGURIDAD: VENTAS            ."<< endl;
+    cout << "4. RESTAURAR archivo: CLIENTES           ."<< endl;
+    cout << "5. RESTAURAR archivo: PRODUCTOS          ."<< endl;
+    cout << "6. RESTAURAR archivo: VENTAS             ."<< endl;
+    cout << "7. BACK UP archivo: CLIENTES             ."<< endl;
+    cout << "8. BACK UP archivo: PRODUCTOS            ."<< endl;
+    cout << "9. BACK UP archivo: VENTAS               ."<< endl;
     cout << "------------------------------------------"<< endl;
-    cout << "5. Salir"<< endl;
+    cout << "0. Salir"<< endl;
     cout << endl;
     cout << "Elija una opcion: ";
     cin >> opc;
@@ -183,6 +188,16 @@ void subMenuConfiguracion(){
         case 4:
             break;
         case 5:
+            break;
+        case 6:
+            break;
+        case 7:
+            break;
+        case 8:
+            break;
+        case 9:
+            break;
+        case 0:
             cout << "Regresando al menu principal..." << endl;
             system ("pause");
             return;
