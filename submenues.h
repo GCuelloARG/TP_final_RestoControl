@@ -5,6 +5,8 @@
 using namespace std;
 
 void subMenuClientes(){
+
+    ArchivoCliente archi("clientes.dat");
     int opc;
 
     system("cls");
@@ -23,12 +25,16 @@ void subMenuClientes(){
 
     switch(opc){
         case 1:
+            system("cls");
+            archi.agregarRegistro();
             break;
         case 2:
             break;
         case 3:
             break;
         case 4:
+            system("cls");
+            archi.bajaLogica();
             break;
         case 0:
             cout << "Regresando al menu principal..." << endl;
@@ -41,6 +47,8 @@ void subMenuClientes(){
 }
 
 void subMenuProductos(){
+
+    ArchivoPrdocuto archi("productos.dat");
     int opc;
 
     system("cls");
@@ -59,12 +67,16 @@ void subMenuProductos(){
 
     switch(opc){
         case 1:
+            system("cls");
+            archi.agregarRegistro();
             break;
         case 2:
             break;
         case 3:
             break;
         case 4:
+            system("cls");
+            archi.bajaLogica();
             break;
         case 0:
             cout << "Regresando al menu principal..." << endl;
@@ -122,6 +134,7 @@ void subMenuVentas(){
     }
 
 void subMenuReportes(){
+
     int opc;
 
     system("cls");

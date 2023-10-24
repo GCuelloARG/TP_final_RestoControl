@@ -33,10 +33,10 @@ int main()
                 subMenuVentas();
                 break;
             case 4:
-                subMenuConfiguracion();
+                subMenuReportes();
                 break;
             case 5:
-                subMenuReportes();
+                subMenuConfiguracion();
                 break;
             case 0:
                 cout << "Saliendo del programa. Hasta luego!" << endl;
