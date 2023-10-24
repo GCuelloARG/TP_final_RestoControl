@@ -65,4 +65,13 @@ class Fecha{
         }
 };
 
+void fechaActual(Fecha& reg) {
+        time_t tiempo = time(nullptr);
+        tm* fecha = localtime(&tiempo);
+
+    reg.setAnio(fecha->tm_year + 1900);
+    reg.setMes(fecha->tm_mon + 1);
+    reg.setDia(fecha->tm_mday);
+}
+
 #endif // UNTITLED_H_INCLUDED
