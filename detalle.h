@@ -9,6 +9,7 @@ class Detalle{
             float subTotal;
             bool estado;
 	public:
+
             Cargar();
             Mostrar();
 };

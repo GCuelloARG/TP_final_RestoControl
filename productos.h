@@ -27,6 +27,7 @@ class Producto{
         int getId(){return id;}
         const char *getNombre(){return nombre;}
         const char *getDescripcion(){return descripcion;}
+        bool getEstado(){return estado;}
 
         void Cargar(int id){
 
@@ -152,10 +153,10 @@ public:
         }
 
     void copiaDeSeguridad (){
-        FILE* p;
+        FILE *p;
         FILE *pBackUp;
 
-        p=fopen("productos.dat". "rb");
+        p=fopen("productos.dat","rb");
         if(p==NULL){
             cout << "ERROR DE ARCHIVO" << endl;
             return;
@@ -176,7 +177,7 @@ public:
         }
         fclose(p);
         fclose(pBackUp);
-        cout << "copia de seguridad de PRODUCTOS realizada correctamente."
+        cout << "copia de seguridad de PRODUCTOS realizada correctamente.";
     }
 
     void restaurarVenta(){
