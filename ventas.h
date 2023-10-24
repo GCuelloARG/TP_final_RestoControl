@@ -8,7 +8,7 @@
 using namespace std;
 
 
-class venta{
+class Venta{
 private:
         int numVenta;
         Fecha fechaVenta;
@@ -45,7 +45,7 @@ public:
             fechaVenta.Cargar();
             cout << "ID Cliente: ";
             cin >> id;
-            pos=Cliente.buscarRegistro(id);
+            pos=cli.buscarRegistro(id);
             cli.leerRegistro(pos);
             cout << "Detalle: ";
             det.Cargar();
@@ -104,7 +104,7 @@ public:
 
             int cont=0;
             while(fread(&reg, sizeof reg, 1, p)==1){
-                if(id==reg.getId()){
+                if(id==reg.getNumVenta()){
                     fclose(p);
                     return cont;
                 }
