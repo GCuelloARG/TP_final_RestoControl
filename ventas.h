@@ -31,11 +31,11 @@ public:
         Cliente getCliente(){return cli;}
         Detalle getDetalle(){return det;}
         float getPrecioTotal(){return precioTotal;}
-        bool getEstado(){return e;}
+        bool getEstado(){return estado;}
 
 
 
-        void Cargar(nv){
+        void Cargar(int nv){
 
             int id, pos;
 
