@@ -1,6 +1,7 @@
 #ifndef UNTITLED_H_INCLUDED
 #define UNTITLED_H_INCLUDED
 #include <iostream>
+#include <ctime>
 
 using namespace std;
 

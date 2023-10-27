@@ -33,6 +33,7 @@ class Producto{
 
         void Cargar(int id){
 
+
         setId(id);
         cout<<"Nombre"<<endl;
         cargarCadena(nombre,29);
@@ -43,8 +44,7 @@ class Producto{
         estado=(true);
         }
 
-
-        void Mostrar(){
+        void MostrarId(){
         cout << "ID Producto: ";
         cout << id << endl;
         cout << "Nombre: ";
@@ -52,7 +52,16 @@ class Producto{
         cout << "Descripcion: ";
         cout << descripcion << endl;
         cout << "Precio Unitario: $";
-        cout << precioUnitario << endl;
+        cout << precioUnitario << endl<<endl;
+        }
+
+        void Mostrar(){
+        cout << "ID Producto: ";
+        cout << id << endl;
+        cout << "Nombre: ";
+        cout << nombre << endl;
+        cout << "Precio Unitario: $";
+        cout << precioUnitario << endl<<endl;
         }
 };
 
@@ -95,6 +104,22 @@ public:
             }
             fclose(p);
         return -1;
+        }
+
+    int contarRegistros(){
+
+            FILE *p=fopen(nombre, "rb");
+            if(p==NULL){
+                cout << "ERROR DE ARCHIVO" <<endl;
+                system("pause");
+                return -2;
+            }
+
+            fseek(p, 0,2);
+            int tam=ftell(p);
+            fclose(p);
+
+            return tam/sizeof (Producto);
         }
 
     Producto leerRegistro(int pos){
@@ -213,4 +238,42 @@ public:
 
 };
 
+void nuevoProd(){
+    Producto prod;
+    ArchivoProducto arcProd("productos.dat");
+    int id;
+    cout<<"ID :";
+    cin>>id;
+    int pos=arcProd.buscarRegistro(id);
+    if(pos==-1){
+    prod.Cargar(id);
+    bool escribio=arcProd.agregarRegistro(prod);
+    if(escribio==true)cout<<"Producto agregado con exito.";
+    }else{cout<<"Ya existe un producto con ese numero de ID";}
+}
+
+void MostrarListaProductos(){
+    Producto prod;
+    ArchivoProducto arcProd("productos.dat");
+    int cantReg=arcProd.contarRegistros();
+    for(int i=0;i<cantReg;i++){
+        prod=arcProd.leerRegistro(i);
+        prod.Mostrar();
+    }
+
+}
+
+void MostrarID(){
+    Producto prod;
+    ArchivoProducto arcProd("productos.dat");
+    int id;
+    cout<<"Ingrese el id del producto: ";
+    cin>>id;
+    int pos=arcProd.buscarRegistro(id);
+    if(pos>0){
+    prod=arcProd.leerRegistro(pos);
+    prod.MostrarId();
+    }else{cout<<"No existe producto con este ID";}
+
+}
 #endif // PRODUCTOS_H_INCLUDED

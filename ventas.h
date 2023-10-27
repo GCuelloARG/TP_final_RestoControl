@@ -36,24 +36,6 @@ public:
 
 
         void Cargar(int nv){
-
-            int id, pos;
-            float pt;
-
-            setNumVenta(nv);   /// desarrollar
-
-            cout << "Fecha: ";
-            fechaVenta.Cargar();
-            cout << "ID Cliente: ";
-            cin >> id;
-            pos=cli.buscarRegistro(id);
-            cli.leerRegistro(pos);
-            cout << "Detalle: ";
-            det.Cargar();
-            cout << "Precio total: ";
-            cin >> pt;
-            setPrecioTotal(pt);
-            estado=(true);
         }
 
         void Mostrar(){

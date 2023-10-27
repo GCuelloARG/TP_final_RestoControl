@@ -23,18 +23,18 @@ void subMenuClientes(){
     cout << endl;
     cout << "Elija una opcion: ";
     cin >> opc;
+    system("cls");
 
     switch(opc){
         case 1:
-            system("cls");
-            archi.agregarRegistro();
+            nuevoCliente();
             break;
         case 2:
             break;
         case 3:
+            MostrarListaClientes();
             break;
         case 4:
-            system("cls");
             archi.bajaLogica();
             break;
         case 0:
@@ -65,18 +65,23 @@ void subMenuProductos(){
     cout << endl;
     cout << "Elija una opcion: ";
     cin >> opc;
+    system("cls");
 
     switch(opc){
         case 1:
-            system("cls");
-            archi.agregarRegistro();
+
+            nuevoProd();
             break;
         case 2:
+
+            MostrarID();
             break;
         case 3:
+
+            MostrarListaProductos();
             break;
         case 4:
-            system("cls");
+
             archi.bajaLogica();
             break;
         case 0:
@@ -110,7 +115,6 @@ void subMenuVentas(){
         switch(opc){
             case 1:
                 system("cls");
-                archi.agregarRegistro();
                 break;
             case 2:
                 system("cls");

@@ -82,11 +82,9 @@ class archivoCliente{
             return escribio;
         }
 
-
-
         int buscarRegistro(int id){
             Cliente reg;
-            FILE *p=fopen(nombre,"rb");
+            FILE *p=fopen(nombre,"ab+");
             if(p==NULL){
                 cout<<"ERROR DE ARCHIVO - buscar"<<endl;
                 return -2;
@@ -166,5 +164,28 @@ class archivoCliente{
 
 };
 
+void nuevoCliente(){
+    Cliente cli;
+    archivoCliente arcCli("clientes.dat");
+    int id;
+    cout<<"ID :";
+    cin>>id;
+    int pos=arcCli.buscarRegistro(id);
+    if(pos==-1){
+    cli.Cargar(id);
+    bool escribio=arcCli.agregarRegistro(cli);
+    if(escribio==true)cout<<"Cliente agregado con exito.";
+    }else{cout<<"Ya existe un cliente con ese numero de ID";}
+}
 
+void MostrarListaClientes(){///corregir!!!
+    Cliente cli;
+    archivoCliente arcCli("clientes.dat");
+    int cantReg=arcCli.contarRegistros();
+    for(int i=0;i<cantReg;i++){
+        cli=arcProd.leerRegistro(i);
+        cli.Mostrar();
+    }
+
+}
 #endif // CLIENTES_H_INCLUDED
