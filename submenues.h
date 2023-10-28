@@ -7,7 +7,7 @@ using namespace std;
 
 void subMenuClientes(){
 
-    archivoCliente archi("clientes.dat");
+    ArchivoCliente archi("clientes.dat");
     int opc;
 
     system("cls");
@@ -49,7 +49,6 @@ void subMenuClientes(){
 
 void subMenuProductos(){
 
-    ArchivoProducto archi("productos.dat");
     int opc;
 
     system("cls");
@@ -73,16 +72,12 @@ void subMenuProductos(){
             nuevoProd();
             break;
         case 2:
-
             MostrarID();
             break;
         case 3:
-
             MostrarListaProductos();
             break;
         case 4:
-
-            archi.bajaLogica();
             break;
         case 0:
             cout << "Regresando al menu principal..." << endl;
@@ -96,7 +91,7 @@ void subMenuProductos(){
 
 void subMenuVentas(){
 
-    ArchivoVenta archi("ventas.dat");
+    Venta venta;
     int opc;
     while(true){
         cout << endl;
@@ -115,18 +110,18 @@ void subMenuVentas(){
         switch(opc){
             case 1:
                 system("cls");
+                /// nuevaVenta(); >> desarrollar
                 break;
             case 2:
                 system("cls");
-                ///archi.listarPorNumero(nv);   >> desarrollar
+                ///listarPorNumVen();  >> desarrollar
                 break;
             case 3:
                 system("cls");
-                /// archi.listarRegistros();    >> desarrollar
+                ///MostrarListaVentas();
                 break;
             case 4:
                 system("cls");
-                archi.bajaLogica();
                 break;
             case 0:
                 cout << "Regresando al menu principal..." << endl;
@@ -176,6 +171,7 @@ void subMenuReportes(){
 }
 
 void subMenuConfiguracion(){
+    /// aca vamos a tener que operar solamente sobre archivos; crear un obj de cada ArchivoClase
     int opc;
 
     system("cls");
@@ -199,6 +195,7 @@ void subMenuConfiguracion(){
 
     switch(opc){
         case 1:
+
             break;
         case 2:
             break;

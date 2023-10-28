@@ -33,13 +33,12 @@ class Producto{
 
         void Cargar(int id){
 
-
         setId(id);
-        cout<<"Nombre"<<endl;
+        cout<<"Nombre: ";
         cargarCadena(nombre,29);
-        cout<<"Descripcion"<<endl;
+        cout<<"Descripcion: ";
         cargarCadena(descripcion,29);
-        cout<<"Precio unitario";
+        cout<<"Precio unitario: $";
         cin >> precioUnitario;
         estado=(true);
         }
@@ -207,20 +206,20 @@ public:
         cout << "copia de seguridad de PRODUCTOS realizada correctamente.";
     }
 
-    void restaurarVenta(){
+    void restaurarProducto(){
 
             FILE* p;
             FILE* pBackUp;
 
             p = fopen("productos.dat", "wb");
             if (p == NULL) {
-                cout << "ERROR DE ARCHIVO" << endl;
+                cout << "ERROR DE ARCHIVO - abrir" << endl;
                 return;
             }
 
             pBackUp = fopen("productos_backup.bkp", "rb");
             if (pBackUp == NULL) {
-                cout << "ERROR DE ARCHIVO" << endl;
+                cout << "ERROR DE ARCHIVO - abrir bkp" << endl;
                 return;
             }
 
@@ -242,8 +241,8 @@ void nuevoProd(){
     Producto prod;
     ArchivoProducto arcProd("productos.dat");
     int id;
-    cout<<"ID :";
-    cin>>id;
+    cout << "ID Producto: ";
+    cin >> id;
     int pos=arcProd.buscarRegistro(id);
     if(pos==-1){
     prod.Cargar(id);
@@ -260,7 +259,6 @@ void MostrarListaProductos(){
         prod=arcProd.leerRegistro(i);
         prod.Mostrar();
     }
-
 }
 
 void MostrarID(){

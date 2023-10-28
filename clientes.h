@@ -31,6 +31,7 @@ public:
     const char *getNombre(){return nombre;}
     const char *getDireccion(){return direccion;}
     int getTel(){return tel;}
+    bool getEstado(){return estado;}
 
     void Cargar(int id){
 
@@ -62,11 +63,11 @@ public:
 
 };
 
-class archivoCliente{
+class ArchivoCliente{
     private:
         char nombre[30];
     public:
-        archivoCliente(const char *nomb){
+        ArchivoCliente(const char *nomb){
             strcpy(nombre, nomb);
         }
 
@@ -105,7 +106,7 @@ class archivoCliente{
 
         Cliente leerRegistro(int pos){
             Cliente reg;
-            //reg.setEstado(false);
+            reg.setEstado(false);
 
             FILE *p=fopen(nombre,"rb");
             if(p==NULL){
@@ -136,7 +137,7 @@ class archivoCliente{
         }
 
         bool bajaLogica(){
-            archivoCliente archi("cliente.dat");
+            ArchivoCliente archi("cliente.dat");
             int id, pos;
             cout << "Ingrese el ID a dar de baja: ";
             cin >> id;
@@ -162,11 +163,85 @@ class archivoCliente{
             return true;
         }
 
+        int contarRegistros(){
+
+            FILE *p=fopen("clientes.dat", "rb");
+            if(p==NULL){
+                cout << "ERROR DE ARCHIVO" <<endl;
+                system("pause");
+                return -2;
+            }
+
+            fseek(p, 0,2);
+            int tam=ftell(p);
+            fclose(p);
+
+            return tam/sizeof (Cliente);
+        }
+
+        /*void restaurarClientes(){
+
+            FILE* p;
+            FILE* pBackUp;
+
+            p = fopen("clientes.dat", "wb");
+            if (p == NULL) {
+                cout << "ERROR DE ARCHIVO - abrir" << endl;
+                return;
+            }
+
+            pBackUp = fopen("clientes_backup.bkp", "rb");
+            if (pBackUp == NULL) {
+                cout << "ERROR DE ARCHIVO - abrir bkp" << endl;
+                return;
+            }
+
+            Cliente reg;
+            while (fread(&reg, sizeof reg, 1, pBackUp) == 1){
+                fwrite(&reg, sizeof reg, 1, p);
+            }
+
+            fclose(p);
+            fclose(pBackUp);
+
+            cout << "Restauracion de CLIENTES realizada correctamente" << endl;
+        }
+
+        void copiaDeSeguridad(){
+            FILE* p;
+            FILE* pBackUp;
+
+            p = fopen("clientes.dat", "rb");
+
+            if (p == NULL) {
+                cout << "ERROR DE ARCHIVO - abrir" << endl;
+                return;
+            }
+
+            pBackUp = fopen("clientes_backup.bkp", "wb");
+            if (pBackUp == NULL) {
+                cout << "ERROR DE ARCHIVO - abrir bkp" << endl;
+                return;
+            }
+
+            Cliente reg;
+            while (fread(&reg, sizeof reg, 1, p) == 1) {
+                if(reg.getEstado()==true){
+                    fwrite(&reg, sizeof reg, 1, pBackUp);
+                }
+            }
+
+            fclose(p);
+            fclose(pBackUp);
+            cout << "Copia de seguridad de CLIENTES realizada correctamente" << endl;
+        }*/
+
+
 };
 
 void nuevoCliente(){
     Cliente cli;
-    archivoCliente arcCli("clientes.dat");
+    ArchivoCliente arcCli("clientes.dat");
     int id;
     cout<<"ID :";
     cin>>id;
@@ -178,14 +253,15 @@ void nuevoCliente(){
     }else{cout<<"Ya existe un cliente con ese numero de ID";}
 }
 
-void MostrarListaClientes(){///corregir!!!
+void MostrarListaClientes(){
     Cliente cli;
-    archivoCliente arcCli("clientes.dat");
+    ArchivoCliente arcCli("clientes.dat");
     int cantReg=arcCli.contarRegistros();
     for(int i=0;i<cantReg;i++){
-        cli=arcProd.leerRegistro(i);
+        cli=arcCli.leerRegistro(i);
         cli.Mostrar();
     }
 
 }
+
 #endif // CLIENTES_H_INCLUDED

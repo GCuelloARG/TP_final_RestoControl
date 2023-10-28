@@ -39,3 +39,36 @@
 	<cstring>
 	"globales.h"
 
+1698507324 source:/Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/main.cpp
+	<iostream>
+	"submenues.h"
+	"ventas.h"
+
+1698509767 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/submenues.h
+	<iostream>
+	"ventas.h"
+
+1698509767 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/ventas.h
+	<iostream>
+	"globales.h"
+	"clientes.h"
+	"detalle.h"
+
+1698509747 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/globales.h
+	<iostream>
+	<ctime>
+
+1698509437 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/clientes.h
+	<iostream>
+	<cstring>
+	"globales.h"
+
+1698506579 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/detalle.h
+	"productos.h"
+
+1698509962 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/productos.h
+	<iostream>
+	<cstdio>
+	<cstring>
+	"globales.h"
+

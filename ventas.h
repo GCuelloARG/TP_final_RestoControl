@@ -268,6 +268,20 @@ public:
 
 /// LISTAR REGISTROS >> para opc "VER" en menu (?)
 
+
+
 };
+
+/*void MostrarListaVentas(){
+    Venta ven;
+    ArchivoVenta arcVen("ventas.dat");
+    int cantReg=arcVen.contarRegistros();
+    for(int i=0;i<cantReg;i++){
+        ven=arcVen.leerRegistro(i);
+        ven.Mostrar();
+    }
+
+}*/
+
 
 #endif // VENTAS_H_INCLUDED

@@ -75,4 +75,7 @@ void fechaActual(Fecha& reg) {
     reg.setDia(fecha->tm_mday);
 }
 
+
+
+
 #endif // UNTITLED_H_INCLUDED
