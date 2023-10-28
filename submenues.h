@@ -125,7 +125,10 @@ void subMenuVentas(){
         switch(opc){
             case 1:
                 system("cls");
-                /// nuevaVenta(); >> desarrollar
+                //numero de venta viene de la cantidad de registros en archivoVenta+1
+                //preguntar por cliente, si no existe dejarlo en blanco
+                cargarDetalle(); //>> desarrollar falta subtotal >> pasar por parametro numero de venta para identificar al detalle
+                //leer archivo detalle>> calcular total
                 break;
             case 2:
                 system("cls");

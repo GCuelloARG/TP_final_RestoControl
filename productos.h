@@ -30,6 +30,7 @@ class Producto{
         const char *getNombre(){return nombre;}
         const char *getDescripcion(){return descripcion;}
         bool getEstado(){return estado;}
+        float getPrecio(){return precioUnitario;}
 
         void Cargar(int id){
 

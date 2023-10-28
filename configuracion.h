@@ -44,7 +44,7 @@ void copiaDeSeguridadProductos(){
     int cantReg;
     Producto reg;
     cantReg=archi.contarRegistros();
-    ArchivoProducto archibkp("productos.bkp")
+    ArchivoProducto archibkp("productos.bkp");
     for(int x=0;x<cantReg;x++){
         reg=archi.leerRegistro(x);
         if(reg.getEstado()==true){

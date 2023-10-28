@@ -13,9 +13,10 @@
 	"submenues.h"
 	"ventas.h"
 
-1698524584 c:\users\gonza\desktop\tp_final_restocontrol\submenues.h
+1698529483 c:\users\gonza\desktop\tp_final_restocontrol\submenues.h
 	<iostream>
 	"ventas.h"
+	"configuracion.h"
 
 1698522298 c:\users\gonza\desktop\tp_final_restocontrol\ventas.h
 	<iostream>
@@ -27,15 +28,15 @@
 	<iostream>
 	<ctime>
 
-1698524584 c:\users\gonza\desktop\tp_final_restocontrol\clientes.h
+1698527732 c:\users\gonza\desktop\tp_final_restocontrol\clientes.h
 	<iostream>
 	<cstring>
 	"globales.h"
 
-1698435526 c:\users\gonza\desktop\tp_final_restocontrol\detalle.h
+1698529903 c:\users\gonza\desktop\tp_final_restocontrol\detalle.h
 	"productos.h"
 
-1698524584 c:\users\gonza\desktop\tp_final_restocontrol\productos.h
+1698528522 c:\users\gonza\desktop\tp_final_restocontrol\productos.h
 	<iostream>
 	<cstdio>
 	<cstring>
@@ -100,6 +101,11 @@
 	"globales.h"
 
 1698526681 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/configuracion.h
+	<iostream>
+	"clientes.h"
+	"productos.h"
+
+1698529380 c:\users\gonza\desktop\tp_final_restocontrol\configuracion.h
 	<iostream>
 	"clientes.h"
 	"productos.h"
