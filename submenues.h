@@ -37,10 +37,11 @@ void subMenuClientes(){
                 mostrarListaClientes();
                 break;
             case 4:
-                archi.bajaLogica();
+                bajaLogicaCli();
                 break;
             case 5:
                 limpiarArchivoClientes(); /// OCULTO / Para limpiar todos los registros del archivo
+                break;
             case 0:
                 cout << "Regresando al menu principal..." << endl;
                 system ("pause");
@@ -83,7 +84,10 @@ void subMenuProductos(){
                 mostrarListaProductos();
                 break;
             case 4:
-                archi.bajaLogica();
+                bajaLogicaProd();
+                break;
+            case 5:
+                limpiarArchivoProductos();
                 break;
             case 0:
                 cout << "Regresando al menu principal..." << endl;

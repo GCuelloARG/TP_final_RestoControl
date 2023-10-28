@@ -150,33 +150,6 @@ class ArchivoProducto{
             return escribio;
         }
 
-        bool bajaLogica(){
-            ArchivoProducto arc ("productos.dat");
-            int id, pos;
-            cout << "Ingrese el ID a dar de baja: ";
-            cin >> id;
-            pos=arc.buscarRegistro(id);
-            if(pos==-1){
-                cout<<endl<<"No existe el PRODUCTO con ese ID"<<endl;
-                return false;
-            } else {
-                if(pos==-2){
-                    cout<<endl<<"ERROR DE ARCHIVO - baja"<<endl;
-                    return false;
-                }
-            }
-
-            Producto reg=arc.leerRegistro(pos);
-            reg.setEstado(false);
-            bool quePaso=arc.modificarRegistro(pos, reg);
-            if(quePaso==true){
-                cout<<endl<<"PRODUCTO borrado con exito"<<endl;
-            }else{
-                cout<<endl<<"No se pudo borrar el PRODUCTO"<<endl;
-            }
-            return true;
-        }
-
         void copiaDeSeguridad (){
             FILE *p;
             FILE *pBackUp;
@@ -236,6 +209,12 @@ class ArchivoProducto{
 
 };
 
+void limpiarArchivoProductos(){
+    FILE *p=fopen("productos.dat","wb");
+    cout<<endl<<"Archivo BORRADO"<<endl;
+    fclose(p);
+}
+
 void nuevoProd(){
     Producto prod;
     ArchivoProducto arcProd("productos.dat");
@@ -270,7 +249,6 @@ void mostrarListaProductos(){
 }
 
 bool mostrarIDProd(){
-
     int id;
     bool existe=false;
 
@@ -318,4 +296,32 @@ bool mostrarIDProd(){
     }else{cout<<"No existe producto con este ID";}*/
 
 }
+
+void bajaLogicaProd(){
+    ArchivoProducto arc ("productos.dat");
+    int id, pos;
+    cout << "Ingrese el ID a dar de baja: ";
+    cin >> id;
+    pos=arc.buscarRegistro(id);
+    if(pos==-1){
+        cout<<endl<<"No existe el PRODUCTO con ese ID"<<endl;
+        return;
+    } else {
+        if(pos==-2){
+            cout<<endl<<"ERROR DE ARCHIVO - baja"<<endl;
+            return;
+        }
+    }
+
+    Producto reg=arc.leerRegistro(pos);
+    reg.setEstado(false);
+    bool quePaso=arc.modificarRegistro(pos, reg);
+    if(quePaso==true){
+        cout<<endl<<"PRODUCTO borrado con exito"<<endl;
+    }else{
+        cout<<endl<<"No se pudo borrar el PRODUCTO"<<endl;
+    }
+    return;
+}
+
 #endif // PRODUCTOS_H_INCLUDED

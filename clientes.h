@@ -146,36 +146,6 @@ class ArchivoCliente{
             return escribio;
         }
 
-        bool bajaLogica(){
-            ArchivoCliente archi("clientes.dat");
-            int id, pos;
-            cout << "Ingrese el ID a dar de baja: ";
-            cin >> id;
-            pos=archi.buscarRegistro(id);
-            cout << "pos: " << pos << endl;
-
-            if(pos==-1){
-                cout<<"No existe CLIENTE con ese ID"<<endl;
-                return false;
-            } else {
-                if(pos==-2){
-                    cout<<"ERROR DE ARCHIVO - baja"<<endl;
-                    return false;
-                }
-            }
-
-            Cliente reg=archi.leerRegistro(pos);
-            reg.setEstado(false);
-
-            bool quePaso=archi.modificarRegistro(pos, reg);
-            if(quePaso==true){
-                cout<<endl<<"CLIENTE borrado con exito"<<endl;
-            }else{
-                cout<<endl<<"No se pudo borrar el CLIENTE"<<endl;
-            }
-
-            return true;
-        }
 
         int contarRegistros(){
 
@@ -289,10 +259,9 @@ void mostrarListaClientes(){
 
 void limpiarArchivoClientes(){
     FILE *p=fopen("clientes.dat","wb");
-    cout<<"Archivo BORRADO"<<endl;
+    cout<<endl<<"Archivo BORRADO"<<endl;
     fclose(p);
 }
-
 
 bool mostrarIDCli(){
 
@@ -330,6 +299,35 @@ bool mostrarIDCli(){
         cout << endl << "No hay CLIENTE con ese ID"<<endl;
     }
     return existe;
+}
+
+void bajaLogicaCli(){
+    ArchivoCliente archi("clientes.dat");
+    int id, pos;
+    cout << "Ingrese el ID a dar de baja: ";
+    cin >> id;
+    pos=archi.buscarRegistro(id);
+    cout << "pos: " << pos << endl;
+
+    if(pos==-1){
+        cout<<"No existe CLIENTE con ese ID"<<endl;
+        return;
+    } else {
+        if(pos==-2){
+            cout<<"ERROR DE ARCHIVO - baja"<<endl;
+            return;
+        }
+    }
+
+    Cliente reg=archi.leerRegistro(pos);
+    reg.setEstado(false);
+
+    bool quePaso=archi.modificarRegistro(pos, reg);
+    if(quePaso==true){
+        cout<<endl<<"CLIENTE borrado con exito"<<endl;
+    }else{
+        cout<<endl<<"No se pudo borrar el CLIENTE"<<endl;
+    }
 }
 
 #endif // CLIENTES_H_INCLUDED
