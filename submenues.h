@@ -19,6 +19,7 @@ void subMenuClientes(){
     cout << "3. VER Clientes             ."<< endl;
     cout << "4. BORRAR Cliente           ."<< endl;
     cout << "_____________________________"<< endl;
+    cout << endl;
     cout << "0. VOLVER AL MENU PRINCIPAL"<< endl;
     cout << endl;
     cout << "Elija una opcion: ";
@@ -62,7 +63,8 @@ void subMenuProductos(){
     cout << "3. VER productos           ."<< endl;
     cout << "4. BORRAR producto         ."<< endl;
     cout << "____________________________"<< endl;
-    cout << "0. VOLVER AL MENU PRINCIPAL"<< endl;
+    cout << endl;
+    cout << "0. VOLVER AL MENU PRINCIPAL "<< endl;
     cout << endl;
     cout << "Elija una opcion: ";
     cin >> opc;
@@ -70,11 +72,10 @@ void subMenuProductos(){
 
     switch(opc){
         case 1:
-
             nuevoProd();
             break;
         case 2:
-            MostrarID();
+            mostrarID();
             break;
         case 3:
             MostrarListaProductos();
@@ -105,6 +106,7 @@ void subMenuVentas(){
         cout << "3. VER ventas               ."<< endl;
         cout << "4. BORRAR venta             ."<< endl;
         cout << "_____________________________" << endl;
+        cout << endl;
         cout << "0. VOLVER AL MENU PRINCIPAL"<< endl;
         cout << endl;
         cout << "Elija una opcion: ";
@@ -150,6 +152,7 @@ void subMenuReportes(){
     cout << "3.                        ."<< endl;
     cout << "4.                        ."<< endl;
     cout << "___________________________"<< endl;
+    cout << endl;
     cout << "0. VOLVER AL MENU PRINCIPAL"<< endl;
     cout << endl;
     cout << "Elija una opcion: ";
@@ -191,6 +194,7 @@ void subMenuConfiguracion(){
     cout << "6. RESTAURAR archivo: VENTAS             ."<< endl;
     cout << "7. ESTABLECER DATOS INICIO               ."<< endl;
     cout << "__________________________________________"<< endl;
+    cout << endl;
     cout << "0. VOLVER AL MENU PRINCIPAL"<< endl;
     cout << endl;
     cout << "Elija una opcion: ";
