@@ -44,23 +44,24 @@ class Producto{
         }
 
         void MostrarId(){
-        cout << "ID Producto: ";
-        cout << id << endl;
-        cout << "Nombre: ";
-        cout << nombre << endl;
-        cout << "Descripcion: ";
-        cout << descripcion << endl;
-        cout << "Precio Unitario: $";
-        cout << precioUnitario << endl<<endl;
+            cout << endl;
+            cout << "ID Producto: ";
+            cout << id << endl;
+            cout << "Nombre: ";
+            cout << nombre << endl;
+            cout << "Descripcion: ";
+            cout << descripcion << endl;
+            cout << "Precio Unitario: $";
+            cout << precioUnitario << endl << endl;
         }
 
         void Mostrar(){
-        cout << "ID Producto: ";
-        cout << id << endl;
-        cout << "Nombre: ";
-        cout << nombre << endl;
-        cout << "Precio Unitario: $";
-        cout << precioUnitario << endl<<endl;
+            cout << "ID Producto: ";
+            cout << id << endl;
+            cout << "Nombre: ";
+            cout << nombre << endl;
+            cout << "Precio Unitario: $";
+            cout << precioUnitario << endl<<endl;
         }
 };
 
@@ -101,31 +102,30 @@ class ArchivoProducto{
                     }
                     cont++;
                 }
-                fclose(p);
+            fclose(p);
             return -1;
             }
 
         int contarRegistros(){
-
-                FILE *p=fopen(nombre, "rb");
-                if(p==NULL){
-                    cout << "ERROR DE ARCHIVO" <<endl;
-                    system("pause");
-                    return -2;
-                }
-
-                fseek(p, 0,2);
-                int tam=ftell(p);
-                fclose(p);
-
-                return tam/sizeof (Producto);
+            FILE *p=fopen(nombre, "rb");
+            if(p==NULL){
+                cout << "ERROR DE ARCHIVO -contar" <<endl;
+                system("pause");
+                return -2;
             }
+
+            fseek(p, 0,2);
+            int tam=ftell(p);
+            fclose(p);
+
+            return tam/sizeof (Producto);
+        }
 
         Producto leerRegistro(int pos){
             Producto reg;
             FILE *p=fopen(nombre,"rb");
             if (p==NULL){
-                cout <<"ERROR DE ARCHIVO"<<endl;
+                cout <<"ERROR DE ARCHIVO -leer"<<endl;
                 return reg;
             }
 
@@ -137,46 +137,45 @@ class ArchivoProducto{
         }
 
         bool modificarRegistro(int pos, Producto reg){
-
-                FILE *pProd=fopen("productos.dat", "rb+");
-                if(pProd==NULL){
-                    cout<<"ERROR DE ARCHIVO"<<endl;
-                    return false;
-                }
-
-                fseek(pProd, sizeof (Producto)*pos, 0);
-                bool escribio=fwrite (&reg, sizeof(Producto), 1, pProd);
-                fclose(pProd);
-
-                return escribio;
+            FILE *pProd=fopen("productos.dat", "rb+");
+            if(pProd==NULL){
+                cout<<"ERROR DE ARCHIVO -modif"<<endl;
+                return false;
             }
+
+            fseek(pProd, sizeof (Producto)*pos, 0);
+            bool escribio=fwrite (&reg, sizeof(Producto), 1, pProd);
+            fclose(pProd);
+
+            return escribio;
+        }
 
         bool bajaLogica(){
-                ArchivoProducto arc ("productos.dat");
-                int id, pos;
-                cout << "Ingrese el ID a dar de baja: ";
-                cin >> id;
-                pos=arc.buscarRegistro(id);
-                if(pos==-1){
-                    cout<<"No existe el producto con ese ID"<<endl;
+            ArchivoProducto arc ("productos.dat");
+            int id, pos;
+            cout << "Ingrese el ID a dar de baja: ";
+            cin >> id;
+            pos=arc.buscarRegistro(id);
+            if(pos==-1){
+                cout<<endl<<"No existe el PRODUCTO con ese ID"<<endl;
+                return false;
+            } else {
+                if(pos==-2){
+                    cout<<endl<<"ERROR DE ARCHIVO - baja"<<endl;
                     return false;
-                } else {
-                    if(pos==-2){
-                        cout<<"ERROR DE ARCHIVO"<<endl;
-                        return false;
-                    }
                 }
-
-                Producto reg=arc.leerRegistro(pos);
-                reg.setEstado(false);
-                bool quePaso=arc.modificarRegistro(pos, reg);
-                if(quePaso==true){
-                    cout<<"Registro borrado con exito"<<endl;
-                }else{
-                    cout<<"No se pudo borrar el registro"<<endl;
-                }
-                return true;
             }
+
+            Producto reg=arc.leerRegistro(pos);
+            reg.setEstado(false);
+            bool quePaso=arc.modificarRegistro(pos, reg);
+            if(quePaso==true){
+                cout<<endl<<"PRODUCTO borrado con exito"<<endl;
+            }else{
+                cout<<endl<<"No se pudo borrar el PRODUCTO"<<endl;
+            }
+            return true;
+        }
 
         void copiaDeSeguridad (){
             FILE *p;
@@ -245,19 +244,26 @@ void nuevoProd(){
     cin >> id;
     int pos=arcProd.buscarRegistro(id);
     if(pos==-1){
-    prod.Cargar(id);
-    bool escribio=arcProd.agregarRegistro(prod);
-    if(escribio==true)cout<<"Producto agregado con exito.";
-    }else{cout<<"Ya existe un producto con ese numero de ID";}
+        prod.Cargar(id);
+        bool escribio=arcProd.agregarRegistro(prod);
+
+        if(escribio==true){
+            cout<<endl<<"PRODUCTO agregado con exito.";
+        }else{
+            cout<<endl<<"Ya existe un PRODUCTO con ese ID";
+        }
+    }
 }
 
-void MostrarListaProductos(){
+void mostrarListaProductos(){
     Producto prod;
     ArchivoProducto arcProd("productos.dat");
     int cantReg=arcProd.contarRegistros();
     for(int i=0;i<cantReg;i++){
         prod=arcProd.leerRegistro(i);
-        prod.Mostrar();
+        if(prod.getEstado()==true){
+            prod.Mostrar();
+        }
     }
 }
 
@@ -270,7 +276,7 @@ bool mostrarID(){
     FILE *p=fopen("productos.dat", "rb");
 
     if(p==NULL){
-        cout << "ERROR DE ARCHIVO - abrir";
+        cout << "ERROR DE ARCHIVO - mostrar";
         return false;
     }
     cout << "Ingrese ID: ";
@@ -279,13 +285,13 @@ bool mostrarID(){
     while (fread(&reg, sizeof reg, 1,p)==1){
         if(id == reg.getId()){
             if(reg.getEstado()==true){
-            reg.Mostrar();
+            reg.MostrarId();
             cout<<endl;
             existe=true;
             system("pause");
             system("cls");
         }else{
-            cout << "El PRODUCTO fue dado de baja" << endl;
+            cout << endl << "El PRODUCTO fue dado de baja" << endl;
             existe=true;
             }
         }
@@ -294,7 +300,7 @@ bool mostrarID(){
     fclose(p);
 
     if(existe==false){
-        cout << "No hay PRODUCTO con ese ID"<<endl;
+        cout << endl << "No hay PRODUCTO con ese ID"<<endl;
     }
     return existe;
 

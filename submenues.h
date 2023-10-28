@@ -51,7 +51,7 @@ void subMenuClientes(){
 }
 
 void subMenuProductos(){
-
+    ArchivoProducto archi("productos.dat");
     int opc;
 
     system("cls");
@@ -78,9 +78,10 @@ void subMenuProductos(){
             mostrarID();
             break;
         case 3:
-            MostrarListaProductos();
+            mostrarListaProductos();
             break;
         case 4:
+            archi.bajaLogica();
             break;
         case 0:
             cout << "Regresando al menu principal..." << endl;

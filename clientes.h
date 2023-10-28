@@ -135,12 +135,10 @@ class ArchivoCliente{
         }
 
         bool bajaLogica(){
-            ArchivoCliente archi("cliente.dat");
+            ArchivoCliente archi("clientes.dat");
             int id, pos;
-
             cout << "Ingrese el ID a dar de baja: ";
             cin >> id;
-
             pos=archi.buscarRegistro(id);
             cout << "pos: " << pos << endl;
 
@@ -159,9 +157,9 @@ class ArchivoCliente{
 
             bool quePaso=archi.modificarRegistro(pos, reg);
             if(quePaso==true){
-                cout<<"CLIENTE borrado con exito"<<endl;
+                cout<<endl<<"CLIENTE borrado con exito"<<endl;
             }else{
-                cout<<"No se pudo borrar el CLIENTE"<<endl;
+                cout<<endl<<"No se pudo borrar el CLIENTE"<<endl;
             }
 
             return true;
@@ -257,9 +255,9 @@ void nuevoCliente(){
 
     bool escribio=arcCli.agregarRegistro(cli);
     if(escribio==true){
-        cout<<"CLIENTE agregado con exito";
+        cout<<endl<<"CLIENTE agregado con exito";
     }else{
-        cout<<"Ya existe un CLIENTE con ese ID";
+        cout<<endl<<"Ya existe un CLIENTE con ese ID";
     }
 }
 
@@ -268,8 +266,8 @@ void mostrarListaClientes(){
     ArchivoCliente arcCli("clientes.dat");
     int cantReg=arcCli.contarRegistros();
     for(int i=0;i<cantReg;i++){
-        if(cli.getEstado()==true){          /// agregue este if para que slo muestre los estado true.
         cli=arcCli.leerRegistro(i);
+        if(cli.getEstado()==true){          /// agregue este if para que slo muestre los estado true.
         cli.Mostrar();
         }
     }
