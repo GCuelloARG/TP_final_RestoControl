@@ -61,7 +61,7 @@
 	<iostream>
 	<ctime>
 
-1698525668 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/clientes.h
+1698526618 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/clientes.h
 	<iostream>
 	<cstring>
 	"globales.h"
@@ -99,7 +99,7 @@
 	<cstring>
 	"globales.h"
 
-1698525668 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/configuracion.h
+1698526681 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/configuracion.h
 	<iostream>
 	"clientes.h"
 	"productos.h"

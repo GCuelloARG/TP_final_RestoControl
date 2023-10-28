@@ -163,35 +163,6 @@ class ArchivoCliente{
             return tam/sizeof (Cliente);
         }
 
-        /*void restaurarClientes(){
-
-            FILE* p;
-            FILE* pBackUp;
-
-            p = fopen("clientes.dat", "wb");
-            if (p == NULL) {
-                cout << "ERROR DE ARCHIVO - abrir" << endl;
-                return;
-            }
-
-            pBackUp = fopen("clientes_backup.bkp", "rb");
-            if (pBackUp == NULL) {
-                cout << "ERROR DE ARCHIVO - abrir bkp" << endl;
-                return;
-            }
-
-            Cliente reg;
-            while (fread(&reg, sizeof reg, 1, pBackUp) == 1){
-                fwrite(&reg, sizeof reg, 1, p);
-            }
-
-            fclose(p);
-            fclose(pBackUp);
-
-            cout << "Restauracion de CLIENTES realizada correctamente" << endl;
-        }*/
-
-
 };
 
 void nuevoCliente(){
