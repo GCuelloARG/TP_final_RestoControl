@@ -12,14 +12,14 @@ void subMenuClientes(){
 
     system("cls");
     cout << endl;
-    cout << "**     MENU CLIENTES     **" << endl;
-    cout << endl;
-    cout << "1. CARGAR Cliente         ."<< endl;
-    cout << "2. BUSCAR Cliente         ."<< endl;
-    cout << "3. VER Clientes           ."<< endl;
-    cout << "4. BORRAR Cliente         ."<< endl;
-    cout << "---------------------------"<< endl;
-    cout << "0. Salir"<< endl;
+    cout << "**      MENU CLIENTES      **"<< endl;
+    cout << "_____________________________"<< endl;
+    cout << "1. CARGAR Cliente           ."<< endl;
+    cout << "2. BUSCAR Cliente           ."<< endl;
+    cout << "3. VER Clientes             ."<< endl;
+    cout << "4. BORRAR Cliente           ."<< endl;
+    cout << "_____________________________"<< endl;
+    cout << "0. VOLVER AL MENU PRINCIPAL"<< endl;
     cout << endl;
     cout << "Elija una opcion: ";
     cin >> opc;
@@ -53,14 +53,14 @@ void subMenuProductos(){
 
     system("cls");
     cout << endl;
-    cout << "**    MENU PRODUCTOS    **" << endl;
-    cout << endl;
-    cout << "1. CARGAR producto       ."<< endl;
-    cout << "2. BUSCAR producto       ."<< endl;
-    cout << "3. VER productos         ."<< endl;
-    cout << "4. BORRAR producto       ."<< endl;
-    cout << "--------------------------" << endl;
-    cout << "0. Salir"<< endl;
+    cout << "**     MENU PRODUCTOS     **"<< endl;
+    cout << "____________________________"<< endl;
+    cout << "1. CARGAR producto         ."<< endl;
+    cout << "2. BUSCAR producto         ."<< endl;
+    cout << "3. VER productos           ."<< endl;
+    cout << "4. BORRAR producto         ."<< endl;
+    cout << "____________________________"<< endl;
+    cout << "0. VOLVER AL MENU PRINCIPAL"<< endl;
     cout << endl;
     cout << "Elija una opcion: ";
     cin >> opc;
@@ -95,14 +95,15 @@ void subMenuVentas(){
     int opc;
     while(true){
         cout << endl;
-        cout << "**     MENU VENTAS     **" << endl;
+        cout << "**       MENU VENTAS       **"<< endl;
+        cout << "_____________________________"<< endl;
         cout << endl;
-        cout << "1. CARGAR venta         ."<< endl;
-        cout << "2. BUSCAR venta         ."<< endl;
-        cout << "3. VER ventas           ."<< endl;
-        cout << "4. BORRAR venta         ."<< endl;
-        cout << "-------------------------" << endl;
-        cout << "0. Salir"<< endl;
+        cout << "1. CARGAR venta             ."<< endl;
+        cout << "2. BUSCAR venta             ."<< endl;
+        cout << "3. VER ventas               ."<< endl;
+        cout << "4. BORRAR venta             ."<< endl;
+        cout << "_____________________________" << endl;
+        cout << "0. VOLVER AL MENU PRINCIPAL"<< endl;
         cout << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
@@ -139,14 +140,15 @@ void subMenuReportes(){
     int opc;
 
     system("cls");
+    cout << "**     MENU REPORTES     **"<< endl;
+    cout << "___________________________"<< endl;
     cout << endl;
-    cout << "**    MENU REPORTES    **" << endl;
-    cout << "1.                     ."<< endl;
-    cout << "2.                     ."<< endl;
-    cout << "3.                     ."<< endl;
-    cout << "4.                     ."<< endl;
-    cout << "------------------------" << endl;
-    cout << "0. Salir"<< endl;
+    cout << "1.                        ."<< endl;
+    cout << "2.                        ."<< endl;
+    cout << "3.                        ."<< endl;
+    cout << "4.                        ."<< endl;
+    cout << "___________________________"<< endl;
+    cout << "0. VOLVER AL MENU PRINCIPAL"<< endl;
     cout << endl;
     cout << "Elija una opcion: ";
     cin >> opc;
@@ -171,12 +173,13 @@ void subMenuReportes(){
 }
 
 void subMenuConfiguracion(){
-    /// aca vamos a tener que operar solamente sobre archivos; crear un obj de cada ArchivoClase
+    /// aca vamos a tener que operar solamente sobre archivos, salvo case 7; crear un obj de cada ArchivoClase
     int opc;
 
     system("cls");
     cout << endl;
-    cout << "**          MENU CONFIGURACION          **" << endl;
+    cout << "**          MENU CONFIGURACION          **"<< endl;
+    cout << "__________________________________________"<< endl;
     cout << endl;
     cout << "1. COPIA de SEGURIDAD: CLIENTES          ."<< endl;
     cout << "2. COPIA de SEGURIDAD: PRODUCTOS         ."<< endl;
@@ -184,34 +187,34 @@ void subMenuConfiguracion(){
     cout << "4. RESTAURAR archivo: CLIENTES           ."<< endl;
     cout << "5. RESTAURAR archivo: PRODUCTOS          ."<< endl;
     cout << "6. RESTAURAR archivo: VENTAS             ."<< endl;
-    cout << "7. BACK UP archivo: CLIENTES             ."<< endl;
-    cout << "8. BACK UP archivo: PRODUCTOS            ."<< endl;
-    cout << "9. BACK UP archivo: VENTAS               ."<< endl;
-    cout << "------------------------------------------"<< endl;
-    cout << "0. Salir"<< endl;
+    cout << "7. ESTABLECER DATOS INICIO               ."<< endl;
+    cout << "__________________________________________"<< endl;
+    cout << "0. VOLVER AL MENU PRINCIPAL"<< endl;
     cout << endl;
     cout << "Elija una opcion: ";
     cin >> opc;
 
     switch(opc){
         case 1:
-
+            //archiCli.copiaDeSeguridad();
             break;
         case 2:
+            //archiProd.copiaDeSeguridad();
             break;
         case 3:
+            //archiVen.copiaDeSeguridad();
             break;
         case 4:
+            //archiCli.restaurarClientes();
             break;
         case 5:
+            //archiProd.restaurarProductos();
             break;
         case 6:
+            //archiVen.restaurarVentas();
             break;
         case 7:
-            break;
-        case 8:
-            break;
-        case 9:
+            //establecerInicio();
             break;
         case 0:
             cout << "Regresando al menu principal..." << endl;
