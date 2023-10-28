@@ -10,33 +10,31 @@ using namespace std;
 
 
 class Cliente{
-private:
-    int id;
-    char nombre[30];
-    char direccion[30];
-    int tel;
-    bool estado;
-public:
-    void setId(int n){id=n;}
-    void setNombre(const char *nomb){
-        strcpy(nombre,nomb);
-    }
-    void setDireccion(const char *dir){
-        strcpy(direccion, dir);
-    }
-    void setTel(int t){tel=t;}
-    void setEstado(bool st){estado=st;}
+    private:
+        int id;
+        char nombre[30];
+        char direccion[30];
+        int tel;
+        bool estado;
+    public:
+        void setId(int n){id=n;}
+        void setNombre(const char *nomb){
+            strcpy(nombre, nomb);
+        }
+        void setDireccion(const char *dir){
+            strcpy(direccion, dir);
+        }
+        void setTel(int t){tel=t;}
+        void setEstado(bool st){estado=st;}
 
-    int getId(){return id;}
-    const char *getNombre(){return nombre;}
-    const char *getDireccion(){return direccion;}
-    int getTel(){return tel;}
-    bool getEstado(){return estado;}
+        int getId(){return id;}
+        const char *getNombre(){return nombre;}
+        const char *getDireccion(){return direccion;}
+        int getTel(){return tel;}
+        bool getEstado(){return estado;}
 
-    void Cargar(int id){
-
+        void Cargar(int id){
             int t;
-
             setId(id);
             cout << "Nombre: ";
             cargarCadena(nombre,29);
@@ -48,7 +46,7 @@ public:
             estado=(true);
         }
 
-    void Mostrar(){
+        void Mostrar(){
             cout << "ID Cliente: ";
             cout << id << endl;
             cout << "Nombre: ";
@@ -101,7 +99,7 @@ class ArchivoCliente{
                 cont++;
             }
             fclose(p);
-        return -1;
+            return -1;
         }
 
         Cliente leerRegistro(int pos){
@@ -243,17 +241,23 @@ void nuevoCliente(){
     Cliente cli;
     ArchivoCliente arcCli("clientes.dat");
     int id;
-    cout<<"ID :";
+    cout<<"ID de CLIENTE: ";
     cin>>id;
     int pos=arcCli.buscarRegistro(id);
+
     if(pos==-1){
-    cli.Cargar(id);
+        cli.Cargar(id);
+    }
+
     bool escribio=arcCli.agregarRegistro(cli);
-    if(escribio==true)cout<<"Cliente agregado con exito.";
-    }else{cout<<"Ya existe un cliente con ese numero de ID";}
+    if(escribio==true){
+        cout<<"CLIENTE agregado con exito";
+    }else{
+        cout<<"Ya existe un CLIENTE con ese ID";
+    }
 }
 
-void MostrarListaClientes(){
+void mostrarListaClientes(){
     Cliente cli;
     ArchivoCliente arcCli("clientes.dat");
     int cantReg=arcCli.contarRegistros();
@@ -262,6 +266,12 @@ void MostrarListaClientes(){
         cli.Mostrar();
     }
 
+}
+
+void limpiarArchivoClientes(){
+    FILE *p=fopen("clientes.dat","wb");
+    cout<<"Archivo BORRADO"<<endl;
+    fclose(p);
 }
 
 #endif // CLIENTES_H_INCLUDED

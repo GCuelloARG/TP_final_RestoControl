@@ -39,12 +39,12 @@
 	<cstring>
 	"globales.h"
 
-1698507324 source:/Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/main.cpp
+1698515162 source:/Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/main.cpp
 	<iostream>
 	"submenues.h"
 	"ventas.h"
 
-1698514355 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/submenues.h
+1698515400 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/submenues.h
 	<iostream>
 	"ventas.h"
 
@@ -58,7 +58,7 @@
 	<iostream>
 	<ctime>
 
-1698509437 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/clientes.h
+1698515271 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/clientes.h
 	<iostream>
 	<cstring>
 	"globales.h"

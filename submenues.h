@@ -32,11 +32,13 @@ void subMenuClientes(){
         case 2:
             break;
         case 3:
-            MostrarListaClientes();
+            mostrarListaClientes();
             break;
         case 4:
             archi.bajaLogica();
             break;
+        case 5:
+            limpiarArchivoClientes(); /// OCULTO / Para limpiar todos los registros del archivo
         case 0:
             cout << "Regresando al menu principal..." << endl;
             system ("pause");

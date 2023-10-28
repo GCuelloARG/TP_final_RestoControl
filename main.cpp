@@ -10,15 +10,16 @@ int main()
     int opc;
     while (true) {
         cout << endl;
-        cout << "***    MENU PRINCIPAL    ***" << endl;
+        cout << "***     MENU PRINCIPAL     ***"<< endl;
+        cout << "______________________________"<< endl;
         cout << endl;
-        cout << "1. CLIENTES                ." << endl;
-        cout << "2. PRODUCTOS               ." << endl;
-        cout << "3. VENTAS                  ." << endl;
-        cout << "4. REPORTES                ." << endl;
-        cout << "5. CONFIGURACION           ." << endl;
-        cout << "----------------------------" << endl;
-        cout << "0. Salir" << endl;
+        cout << "1. CLIENTES                  ."<< endl;
+        cout << "2. PRODUCTOS                 ."<< endl;
+        cout << "3. VENTAS                    ."<< endl;
+        cout << "4. REPORTES                  ."<< endl;
+        cout << "5. CONFIGURACION             ."<< endl;
+        cout << "______________________________"<< endl;
+        cout << "0. SALIR" << endl;
         cout << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
