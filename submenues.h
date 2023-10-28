@@ -31,7 +31,7 @@ void subMenuClientes(){
                 nuevoCliente();
                 break;
             case 2:
-
+                mostrarIDCli();
                 break;
             case 3:
                 mostrarListaClientes();
@@ -77,7 +77,7 @@ void subMenuProductos(){
                 nuevoProd();
                 break;
             case 2:
-                mostrarID();
+                mostrarIDProd();
                 break;
             case 3:
                 mostrarListaProductos();

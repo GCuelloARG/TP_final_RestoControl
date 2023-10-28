@@ -265,9 +265,11 @@ void mostrarListaProductos(){
             prod.Mostrar();
         }
     }
+    system("pause");
+    system("cls");
 }
 
-bool mostrarID(){
+bool mostrarIDProd(){
 
     int id;
     bool existe=false;

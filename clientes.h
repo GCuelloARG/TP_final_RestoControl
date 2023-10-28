@@ -46,6 +46,19 @@ class Cliente{
             estado=(true);
         }
 
+        void MostrarId(){
+            cout << endl;
+            cout << "ID Cliente: ";
+            cout << id << endl;
+            cout << "Nombre: ";
+            cout << nombre << endl;
+            cout << "Direccion: ";
+            cout << direccion << endl;
+            cout << "Telefono: ";
+            cout << tel << endl;
+            cout << endl;
+        }
+
         void Mostrar(){
             cout << "ID Cliente: ";
             cout << id << endl;
@@ -270,13 +283,53 @@ void mostrarListaClientes(){
         cli.Mostrar();
         }
     }
-
+    system("pause");
+    system("cls");
 }
 
 void limpiarArchivoClientes(){
     FILE *p=fopen("clientes.dat","wb");
     cout<<"Archivo BORRADO"<<endl;
     fclose(p);
+}
+
+
+bool mostrarIDCli(){
+
+    int id;
+    bool existe=false;
+
+    Cliente reg;
+    FILE *p=fopen("clientes.dat", "rb");
+
+    if(p==NULL){
+        cout << "ERROR DE ARCHIVO - mostrar";
+        return false;
+    }
+    cout << "Ingrese ID: ";
+    cin >> id;
+
+    while (fread(&reg, sizeof reg, 1,p)==1){
+        if(id == reg.getId()){
+            if(reg.getEstado()==true){
+            reg.MostrarId();
+            cout<<endl;
+            existe=true;
+            system("pause");
+            system("cls");
+        }else{
+            cout << endl << "El CLIENTE fue dado de baja" << endl;
+            existe=true;
+            }
+        }
+    }
+
+    fclose(p);
+
+    if(existe==false){
+        cout << endl << "No hay CLIENTE con ese ID"<<endl;
+    }
+    return existe;
 }
 
 #endif // CLIENTES_H_INCLUDED
