@@ -189,35 +189,6 @@ class ArchivoCliente{
             fclose(pBackUp);
 
             cout << "Restauracion de CLIENTES realizada correctamente" << endl;
-        }
-
-        void copiaDeSeguridad(){
-            FILE* p;
-            FILE* pBackUp;
-
-            p = fopen("clientes.dat", "rb");
-
-            if (p == NULL) {
-                cout << "ERROR DE ARCHIVO - abrir" << endl;
-                return;
-            }
-
-            pBackUp = fopen("clientes_backup.bkp", "wb");
-            if (pBackUp == NULL) {
-                cout << "ERROR DE ARCHIVO - abrir bkp" << endl;
-                return;
-            }
-
-            Cliente reg;
-            while (fread(&reg, sizeof reg, 1, p) == 1) {
-                if(reg.getEstado()==true){
-                    fwrite(&reg, sizeof reg, 1, pBackUp);
-                }
-            }
-
-            fclose(p);
-            fclose(pBackUp);
-            cout << "Copia de seguridad de CLIENTES realizada correctamente" << endl;
         }*/
 
 

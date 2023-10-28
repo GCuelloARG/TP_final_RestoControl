@@ -2,6 +2,8 @@
 #define SUBMENUES_H_INCLUDED
 #include <iostream>
 #include "ventas.h"
+#include "configuracion.h"
+
 
 using namespace std;
 
@@ -187,6 +189,7 @@ void subMenuReportes(){
 }
 
 void subMenuConfiguracion(){
+
     /// aca vamos a tener que operar solamente sobre archivos, salvo case 7; crear un obj de cada ArchivoClase
     int opc;
 
@@ -211,13 +214,13 @@ void subMenuConfiguracion(){
 
         switch(opc){
             case 1:
-                //archiCli.copiaDeSeguridad();
+                copiaDeSeguridadClientes();
                 break;
             case 2:
-                //archiProd.copiaDeSeguridad();
+                //archiProd.copiaDeSeguridadProductos();
                 break;
             case 3:
-                //archiVen.copiaDeSeguridad();
+                //archiVen.copiaDeSeguridadVentas();
                 break;
             case 4:
                 //archiCli.restaurarClientes();
