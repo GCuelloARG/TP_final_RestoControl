@@ -217,13 +217,13 @@ void subMenuConfiguracion(){
                 copiaDeSeguridadClientes();
                 break;
             case 2:
-                //archiProd.copiaDeSeguridadProductos();
+                //copiaDeSeguridadProductos();
                 break;
             case 3:
-                //archiVen.copiaDeSeguridadVentas();
+                //copiaDeSeguridadVentas();
                 break;
             case 4:
-                //archiCli.restaurarClientes();
+                restaurarClientes();
                 break;
             case 5:
                 //archiProd.restaurarProductos();
