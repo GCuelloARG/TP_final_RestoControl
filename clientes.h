@@ -83,7 +83,7 @@ class ArchivoCliente{
 
         int buscarRegistro(int id){
             Cliente reg;
-            FILE *p=fopen(nombre,"ab+");
+            FILE *p=fopen(nombre,"rb");
             if(p==NULL){
                 cout<<"ERROR DE ARCHIVO - buscar"<<endl;
                 return -2;
@@ -120,7 +120,6 @@ class ArchivoCliente{
         }
 
         bool modificarRegistro(int pos, Cliente reg){
-
             FILE *pCliente=fopen(nombre, "rb+");
             if(pCliente==NULL){
                 cout<<"ERROR DE ARCHIVO-mod"<<endl;
