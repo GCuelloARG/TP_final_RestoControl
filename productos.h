@@ -75,16 +75,15 @@ class ArchivoProducto{
         }
 
         bool agregarRegistro(Producto reg){
-                FILE *p=fopen(nombre,"ab");
-                    if(p==NULL){
-                        cout<<"ERROR DE ARCHIVO-ag"<<endl;
-                        return false;
-                    }
-
-                bool escribio=fwrite(&reg, sizeof reg, 1, p);
-                fclose(p);
-                return escribio;
-            }
+            FILE *p=fopen(nombre,"ab");
+                if(p==NULL){
+                    cout<<"ERROR DE ARCHIVO-ag"<<endl;
+                    return false;
+                }
+            bool escribio=fwrite(&reg, sizeof reg, 1, p);
+            fclose(p);
+            return escribio;
+        }
 
         int buscarRegistro(int id){
             Producto reg;
@@ -93,9 +92,7 @@ class ArchivoProducto{
                 cout<<"ERROR DE ARCHIVO - buscar"<<endl;
                 return -2;
             }
-
             int cont=0;
-
             while(fread(&reg, sizeof reg,1,p)==1){
                 if(id==reg.getId()){
                     fclose(p);
@@ -114,12 +111,10 @@ class ArchivoProducto{
                 system("pause");
                 return -2;
             }
-
-            fseek(p, 0,2);
+            fseek(p, 0, 2);
             int tam=ftell(p);
             fclose(p);
-
-            return tam/sizeof (Producto);
+            return tam/sizeof(Producto);
         }
 
         Producto leerRegistro(int pos){
@@ -129,11 +124,9 @@ class ArchivoProducto{
                 cout <<"ERROR DE ARCHIVO -leer"<<endl;
                 return reg;
             }
-
-            fseek(p,sizeof(Producto)*pos, 0);
-            fread(&reg, sizeof (Producto),1,p);
+            fseek(p, sizeof(Producto)*pos, 0);
+            fread(&reg, sizeof(Producto), 1, p);
             fclose(p);
-
             return reg;
         }
 
@@ -143,70 +136,11 @@ class ArchivoProducto{
                 cout<<"ERROR DE ARCHIVO -modif"<<endl;
                 return false;
             }
-
             fseek(pProd, sizeof (Producto)*pos, 0);
             bool escribio=fwrite (&reg, sizeof(Producto), 1, pProd);
             fclose(pProd);
-
             return escribio;
         }
-
-        void copiaDeSeguridad (){
-            FILE *p;
-            FILE *pBackUp;
-
-            p=fopen("productos.dat","rb");
-            if(p==NULL){
-                cout << "ERROR DE ARCHIVO" << endl;
-                return;
-            }
-
-            pBackUp = fopen ("productos_backup.bkp", "wb");
-            if (pBackUp==NULL){
-                cout << "ERROR DE ARCHIVO" << endl;
-                return;
-            }
-
-            Producto reg;
-            while (fread(&reg, sizeof reg, 1, p)==1){
-                if (reg.getEstado()==true){
-                    fwrite(&reg, sizeof reg, 1, pBackUp);
-                }
-
-            }
-            fclose(p);
-            fclose(pBackUp);
-            cout << "copia de seguridad de PRODUCTOS realizada correctamente.";
-        }
-
-        void restaurarProducto(){
-
-                FILE* p;
-                FILE* pBackUp;
-
-                p = fopen("productos.dat", "wb");
-                if (p == NULL) {
-                    cout << "ERROR DE ARCHIVO - abrir" << endl;
-                    return;
-                }
-
-                pBackUp = fopen("productos_backup.bkp", "rb");
-                if (pBackUp == NULL) {
-                    cout << "ERROR DE ARCHIVO - abrir bkp" << endl;
-                    return;
-                }
-
-                Producto reg;
-                while (fread(&reg, sizeof reg, 1, pBackUp) == 1){
-                    fwrite(&reg, sizeof reg, 1, p);
-                }
-
-                fclose(p);
-                fclose(pBackUp);
-
-                cout << "Restauracion de PRODUCTO realizada correctamente" << endl;
-            }
-
 
 };
 

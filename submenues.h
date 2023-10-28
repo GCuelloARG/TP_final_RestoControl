@@ -3,6 +3,7 @@
 #include <iostream>
 #include "ventas.h"
 #include "configuracion.h"
+#include "detalle.h"
 
 
 using namespace std;
@@ -103,8 +104,6 @@ void subMenuProductos(){
 }
 
 void subMenuVentas(){
-
-    Venta venta;
     int opc;
     while(true){
         cout << endl;
@@ -114,7 +113,7 @@ void subMenuVentas(){
         cout << "1. CARGAR venta             ."<< endl;
         cout << "2. BUSCAR venta             ."<< endl;
         cout << "3. VER ventas               ."<< endl;
-        cout << "4. BORRAR venta             ."<< endl;
+        cout << "4. BORRAR venta (limpiar)   ."<< endl;
         cout << "_____________________________" << endl;
         cout << endl;
         cout << "0. VOLVER AL MENU PRINCIPAL"<< endl;
@@ -126,8 +125,18 @@ void subMenuVentas(){
             case 1:
                 system("cls");
                 //numero de venta viene de la cantidad de registros en archivoVenta+1
+                cout<<traerNumeroVenta();
+
+
                 //preguntar por cliente, si no existe dejarlo en blanco
-                cargarDetalle(); //>> desarrollar falta subtotal >> pasar por parametro numero de venta para identificar al detalle
+                int ic;
+                cout << "ID CLIENTE: ";
+                cin >> ic;
+                cout<<endl<<"Cliente: (Nombre)"<<endl;
+
+                cargarDetalle(); //>> desarrollar falta subtotal
+
+                //>> pasar por parametro numero de venta para identificar al detalle
                 //leer archivo detalle>> calcular total
                 break;
             case 2:
@@ -136,10 +145,15 @@ void subMenuVentas(){
                 break;
             case 3:
                 system("cls");
-                ///MostrarListaVentas();
+                mostrarListaDetalles();
                 break;
             case 4:
                 system("cls");
+                limpiarArchivoDetalles();
+                break;
+            case 5:
+                system("cls");
+                limpiarArchivoVentas();
                 break;
             case 0:
                 cout << "Regresando al menu principal..." << endl;
@@ -192,8 +206,6 @@ void subMenuReportes(){
 }
 
 void subMenuConfiguracion(){
-
-    /// aca vamos a tener que operar solamente sobre archivos, salvo case 7; crear un obj de cada ArchivoClase
     int opc;
 
     while(true){
@@ -207,7 +219,6 @@ void subMenuConfiguracion(){
         cout << "4. RESTAURAR archivo: CLIENTES           ."<< endl;
         cout << "5. RESTAURAR archivo: PRODUCTOS          ."<< endl;
         cout << "6. RESTAURAR archivo: VENTAS             ."<< endl;
-        cout << "7. ESTABLECER DATOS INICIO               ."<< endl;
         cout << "__________________________________________"<< endl;
         cout << endl;
         cout << "0. VOLVER AL MENU PRINCIPAL"<< endl;
@@ -229,13 +240,10 @@ void subMenuConfiguracion(){
                 restaurarClientes();
                 break;
             case 5:
-                //archiProd.restaurarProductos();
+                //restaurarProductos();
                 break;
             case 6:
-                //archiVen.restaurarVentas();
-                break;
-            case 7:
-                //establecerInicio();
+                //restaurarVentas();
                 break;
             case 0:
                 cout << "Regresando al menu principal..." << endl;

@@ -148,7 +148,6 @@ class ArchivoCliente{
 
 
         int contarRegistros(){
-
             FILE *p=fopen("clientes.dat", "rb");
             if(p==NULL){
                 cout << "ERROR DE ARCHIVO" <<endl;
@@ -206,7 +205,6 @@ void limpiarArchivoClientes(){
 }
 
 bool mostrarIDCli(){
-
     int id;
     bool existe=false;
 
