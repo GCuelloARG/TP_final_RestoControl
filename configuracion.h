@@ -39,4 +39,21 @@ void restaurarClientes(){
     cout << "Restauracion de CLIENTES desde copia de seguridad realizada correctamente" << endl;
 }
 
+void copiaDeSeguridadProductos(){
+    ArchivoProducto archi("productos.dat");
+    int cantReg;
+    Producto reg;
+    cantReg=archi.contarRegistros();
+    ArchivoProducto archibkp("productos.bkp")
+    for(int x=0;x<cantReg;x++){
+        reg=archi.leerRegistro(x);
+        if(reg.getEstado()==true){
+        archibkp.agregarRegistro(reg);
+        }
+    }
+    cout << "Copia de seguridad de CLIENTES realizada correctamente" << endl;
+
+}
+
+
 #endif // CONFIGURACION_H_INCLUDED

@@ -217,7 +217,7 @@ void subMenuConfiguracion(){
                 copiaDeSeguridadClientes();
                 break;
             case 2:
-                //copiaDeSeguridadProductos();
+                copiaDeSeguridadProductos();
                 break;
             case 3:
                 //copiaDeSeguridadVentas();
