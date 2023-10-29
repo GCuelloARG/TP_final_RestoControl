@@ -217,16 +217,16 @@ void subMenuConfiguracion(){
                 copiaDeSeguridadProductos();
                 break;
             case 3:
-                //copiaDeSeguridadVentas();
+                copiaDeSeguridadVentas();
                 break;
             case 4:
                 restaurarClientes();
                 break;
             case 5:
-                //restaurarProductos();
+                restaurarProductos();
                 break;
             case 6:
-                //restaurarVentas();
+                restaurarVentas();
                 break;
             case 0:
                 cout << "Regresando al menu principal..." << endl;
