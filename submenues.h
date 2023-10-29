@@ -127,7 +127,7 @@ void subMenuVentas(){
                 nuevaVenta();
                 break;
             case 2:
-                ///listarPorNumVen();  >> desarrollar
+                listarPorNumVenta();
                 break;
             case 3:
                 mostrarListaDetalles();

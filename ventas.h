@@ -45,7 +45,7 @@ public:
             cout << numVenta;
             cout << "Fecha: ";
             fechaVenta.Mostrar();
-            cout << "Cliente ";
+            cout << "Cliente: ";
             id=cli.getId();
             cout << id << endl;
             cout << "Detalle: ";
@@ -270,7 +270,6 @@ void limpiarArchivoVentas(){
 }
 
 void nuevaVenta(){
-
     int nv=traerNumeroVenta();//numero de venta viene de la cantidad de registros en archivoVenta+1
     cout<<"Comanda n"<<(char)167<<": "<<nv;
     //preguntar por cliente, si no existe dejarlo en blanco
@@ -286,5 +285,31 @@ void nuevaVenta(){
     //>> pasar por parametro numero de venta para identificar al detalle
     //leer archivo detalle>> calcular total
 }
+
+bool listarPorNumVenta(){
+    Venta ven;
+    ArchivoVenta arcVen("ventas.dat");
+    int nv;
+    cout<<endl<<"Ingrese el NUMERO DE VENTA: ";
+    cin>>nv;
+    int pos=arcVen.buscarRegistro(nv);
+    if(pos>0){
+        ven=arcVen.leerRegistro(pos);
+        if (ven.getEstado()==true){
+            cout<<endl<< "Detalle venta no. "<<nv<<":"<<endl;
+            ven.Mostrar();
+            return true;
+        }else{
+            cout<<endl<<"Esta venta fue dada de baja."<<endl;
+            cout<<"Detalle venta no. "<<nv<<":"<<endl;
+            ven.Mostrar();
+            return true;
+        }
+    }else{
+        cout<<endl<<"No existe una venta con ese NUMERO DE VENTA";
+        return false;
+    }
+}
+
 
 #endif // VENTAS_H_INCLUDED

@@ -131,7 +131,8 @@ void cargarDetalle(){
         cin>>id;
     }
 
-
+    cout<<endl<<" ** Venta cargada con exito **";
+    cout<<endl;
 }
 
 void mostrarListaDetalles(){

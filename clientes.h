@@ -204,41 +204,24 @@ void limpiarArchivoClientes(){
     fclose(p);
 }
 
-bool mostrarIDCli(){
+void mostrarIDCli(){
+    Cliente cli;
+    ArchivoCliente arcCli("clientes.dat");
     int id;
-    bool existe=false;
+    cout<<endl<<"Ingrese el ID del CLIENTE: ";
+    cin>>id;
 
-    Cliente reg;
-    FILE *p=fopen("clientes.dat", "rb");
-
-    if(p==NULL){
-        cout << "ERROR DE ARCHIVO - mostrar";
-        return false;
-    }
-    cout << "Ingrese ID: ";
-    cin >> id;
-
-    while (fread(&reg, sizeof reg, 1,p)==1){
-        if(id == reg.getId()){
-            if(reg.getEstado()==true){
-            reg.MostrarId();
-            cout<<endl;
-            existe=true;
-            system("pause");
-            system("cls");
+    int pos=arcCli.buscarRegistro(id);
+    if(pos>0){
+        cli=arcCli.leerRegistro(pos);
+        if(cli.getEstado()==true){
+            cli.Mostrar();
         }else{
-            cout << endl << "El CLIENTE fue dado de baja" << endl;
-            existe=true;
-            }
+            cout<<endl<<"El CLIENTE fue dado de baja"<<endl;
+            cli.Mostrar();
         }
-    }
-
-    fclose(p);
-
-    if(existe==false){
-        cout << endl << "No hay CLIENTE con ese ID"<<endl;
-    }
-    return existe;
+    }else{
+        cout<<endl<<"No existe CLIENTE con este ID";}
 }
 
 void bajaLogicaCli(){
@@ -248,7 +231,6 @@ void bajaLogicaCli(){
     cin >> id;
     pos=archi.buscarRegistro(id);
     cout << "pos: " << pos << endl;
-
     if(pos==-1){
         cout<<"No existe CLIENTE con ese ID"<<endl;
         return;
@@ -258,10 +240,8 @@ void bajaLogicaCli(){
             return;
         }
     }
-
     Cliente reg=archi.leerRegistro(pos);
     reg.setEstado(false);
-
     bool quePaso=archi.modificarRegistro(pos, reg);
     if(quePaso==true){
         cout<<endl<<"CLIENTE borrado con exito"<<endl;
@@ -282,4 +262,6 @@ void traerNombreCliente(int ic, char *vec){
         }
     }
 }
+
+
 #endif // CLIENTES_H_INCLUDED

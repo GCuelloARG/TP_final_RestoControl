@@ -183,53 +183,24 @@ void mostrarListaProductos(){
     system("cls");
 }
 
-bool mostrarIDProd(){
-    int id;
-    bool existe=false;
-
-    Producto reg;
-    FILE *p=fopen("productos.dat", "rb");
-
-    if(p==NULL){
-        cout << "ERROR DE ARCHIVO - mostrar";
-        return false;
-    }
-    cout << "Ingrese ID: ";
-    cin >> id;
-
-    while (fread(&reg, sizeof reg, 1,p)==1){
-        if(id == reg.getId()){
-            if(reg.getEstado()==true){
-            reg.MostrarId();
-            cout<<endl;
-            existe=true;
-            system("pause");
-            system("cls");
-        }else{
-            cout << endl << "El PRODUCTO fue dado de baja" << endl;
-            existe=true;
-            }
-        }
-    }
-
-    fclose(p);
-
-    if(existe==false){
-        cout << endl << "No hay PRODUCTO con ese ID"<<endl;
-    }
-    return existe;
-
-    /*Producto prod;
+void mostrarIDProd(){
+    Producto prod;
     ArchivoProducto arcProd("productos.dat");
     int id;
-    cout<<"Ingrese el ID del producto: ";
+    cout<<endl<<"Ingrese el ID del PRODUCTO: ";
     cin>>id;
+
     int pos=arcProd.buscarRegistro(id);
     if(pos>0){
-    prod=arcProd.leerRegistro(pos);
-    prod.Mostrar();
-    }else{cout<<"No existe producto con este ID";}*/
-
+        prod=arcProd.leerRegistro(pos);
+        if(prod.getEstado()==true){
+            prod.Mostrar();
+        }else{
+            cout<<endl<<"El PRODUCTO fue dado de baja"<<endl;
+            prod.Mostrar();
+        }
+    }else{
+        cout<<endl<<"No existe PROODUCTO con este ID";}
 }
 
 void bajaLogicaProd(){
@@ -247,7 +218,6 @@ void bajaLogicaProd(){
             return;
         }
     }
-
     Producto reg=arc.leerRegistro(pos);
     reg.setEstado(false);
     bool quePaso=arc.modificarRegistro(pos, reg);
