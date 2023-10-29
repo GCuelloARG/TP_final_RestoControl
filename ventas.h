@@ -1,11 +1,14 @@
 #ifndef VENTAS_H_INCLUDED
 #define VENTAS_H_INCLUDED
 #include <iostream>
+#include <cstring>
 #include "globales.h"
 #include "clientes.h"
 #include "detalle.h"
 
 using namespace std;
+
+int traerNumeroVenta();
 
 
 class Venta{
@@ -33,7 +36,7 @@ public:
         bool getEstado(){return estado;}
 
 
-        void Cargar(int nv){
+        void Cargar(){
         }
 
         void Mostrar(){
@@ -152,7 +155,7 @@ class ArchivoVenta{
             }
 
             int contarRegistros(){
-                FILE *p=fopen("ventas.dat", "rb");
+                FILE *p=fopen("ventas.dat", "ab");
                 if(p==NULL){
                     cout << "ERROR DE ARCHIVO" <<endl;
                     system("pause");
@@ -251,7 +254,7 @@ int traerNumeroVenta(){
     int numVen;
     numVen=arcVen.contarRegistros();
 
-    return numVen;
+    return numVen+1;
 }
 
 void limpiarArchivoDetalles(){
@@ -266,5 +269,22 @@ void limpiarArchivoVentas(){
     fclose(p);
 }
 
+void nuevaVenta(){
+
+    int nv=traerNumeroVenta();//numero de venta viene de la cantidad de registros en archivoVenta+1
+    cout<<"Comanda n"<<(char)167<<": "<<nv;
+    //preguntar por cliente, si no existe dejarlo en blanco
+    int ic;
+    char nombre[30];
+    cout << "\nID CLIENTE: ";
+    cin >> ic;
+    traerNombreCliente(ic, nombre);
+    cout<<endl<<"Cliente: "<< nombre;
+
+    cargarDetalle(); //>> desarrollar falta subtotal
+
+    //>> pasar por parametro numero de venta para identificar al detalle
+    //leer archivo detalle>> calcular total
+}
 
 #endif // VENTAS_H_INCLUDED

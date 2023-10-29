@@ -104,25 +104,24 @@ void cargarDetalle(){
     ArchivoProducto arcProd("productos.dat");
     ArchivoDetalle arcDet("detalles.dat");
 
-    Detalle* det;
+    Detalle det;
     Producto prod;
     int id, cant;
-    float sb;
     cout<<endl<<"ID PRODUCTO: ";
     cin>>id;
     while(id!=0){
-        det->setID(id);
-        int pos=arcProd.buscarRegistro(det->getId());
+        det.setID(id);
+        int pos=arcProd.buscarRegistro(id);
         prod=arcProd.leerRegistro(pos);
         cout<<prod.getNombre()<<endl;
         cout<<"CANTIDAD: ";
         cin>>cant;
-        det->setCant(cant);
-        det->setEstado(true);
+        det.setCant(cant);
+        det.setEstado(true);
         cout<<endl;
 
         //agregar a archivo
-        arcDet.agregarRegistro(*det);
+        arcDet.agregarRegistro(det);
 
         /*
         //destruir obj detalle >> REVISAR. SALE ERROR CUANDO LLEGA A ESTA PARTE. QUIZAS SI USA PUNTERO NO HACE FALTA DESTRUIRLO

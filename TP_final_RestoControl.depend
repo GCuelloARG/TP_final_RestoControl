@@ -13,13 +13,15 @@
 	"submenues.h"
 	"ventas.h"
 
-1698529483 c:\users\gonza\desktop\tp_final_restocontrol\submenues.h
+1698553878 c:\users\gonza\desktop\tp_final_restocontrol\submenues.h
 	<iostream>
 	"ventas.h"
 	"configuracion.h"
+	"detalle.h"
 
-1698522298 c:\users\gonza\desktop\tp_final_restocontrol\ventas.h
+1698555244 c:\users\gonza\desktop\tp_final_restocontrol\ventas.h
 	<iostream>
+	<cstring>
 	"globales.h"
 	"clientes.h"
 	"detalle.h"
@@ -28,15 +30,15 @@
 	<iostream>
 	<ctime>
 
-1698527732 c:\users\gonza\desktop\tp_final_restocontrol\clientes.h
+1698554502 c:\users\gonza\desktop\tp_final_restocontrol\clientes.h
 	<iostream>
 	<cstring>
 	"globales.h"
 
-1698529903 c:\users\gonza\desktop\tp_final_restocontrol\detalle.h
+1698552643 c:\users\gonza\desktop\tp_final_restocontrol\detalle.h
 	"productos.h"
 
-1698528522 c:\users\gonza\desktop\tp_final_restocontrol\productos.h
+1698552370 c:\users\gonza\desktop\tp_final_restocontrol\productos.h
 	<iostream>
 	<cstdio>
 	<cstring>

@@ -120,39 +120,22 @@ void subMenuVentas(){
         cout << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
+        system("cls");
 
         switch(opc){
             case 1:
-                system("cls");
-                //numero de venta viene de la cantidad de registros en archivoVenta+1
-                cout<<traerNumeroVenta();
-
-
-                //preguntar por cliente, si no existe dejarlo en blanco
-                int ic;
-                cout << "ID CLIENTE: ";
-                cin >> ic;
-                cout<<endl<<"Cliente: (Nombre)"<<endl;
-
-                cargarDetalle(); //>> desarrollar falta subtotal
-
-                //>> pasar por parametro numero de venta para identificar al detalle
-                //leer archivo detalle>> calcular total
+                nuevaVenta();
                 break;
             case 2:
-                system("cls");
                 ///listarPorNumVen();  >> desarrollar
                 break;
             case 3:
-                system("cls");
                 mostrarListaDetalles();
                 break;
             case 4:
-                system("cls");
                 limpiarArchivoDetalles();
                 break;
             case 5:
-                system("cls");
                 limpiarArchivoVentas();
                 break;
             case 0:

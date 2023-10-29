@@ -270,4 +270,16 @@ void bajaLogicaCli(){
     }
 }
 
+
+void traerNombreCliente(int ic, char *vec){
+    ArchivoCliente arcCli("clientes.dat");
+    Cliente reg;
+    int cant=arcCli.contarRegistros();
+    for(int i=0; i<cant;i++){
+        reg=arcCli.leerRegistro(i);
+        if(reg.getId()==ic){
+            strcpy(vec, reg.getNombre());
+        }
+    }
+}
 #endif // CLIENTES_H_INCLUDED
