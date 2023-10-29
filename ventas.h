@@ -286,7 +286,7 @@ void nuevaVenta(){
     //leer archivo detalle>> calcular total
 }
 
-bool listarPorNumVenta(){
+void listarPorNumVenta(){
     Venta ven;
     ArchivoVenta arcVen("ventas.dat");
     int nv;
@@ -298,16 +298,13 @@ bool listarPorNumVenta(){
         if (ven.getEstado()==true){
             cout<<endl<< "Detalle venta no. "<<nv<<":"<<endl;
             ven.Mostrar();
-            return true;
         }else{
             cout<<endl<<"Esta venta fue dada de baja."<<endl;
             cout<<"Detalle venta no. "<<nv<<":"<<endl;
             ven.Mostrar();
-            return true;
         }
     }else{
         cout<<endl<<"No existe una venta con ese NUMERO DE VENTA";
-        return false;
     }
 }
 

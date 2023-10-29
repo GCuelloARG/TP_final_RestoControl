@@ -189,7 +189,6 @@ void mostrarIDProd(){
     int id;
     cout<<endl<<"Ingrese el ID del PRODUCTO: ";
     cin>>id;
-
     int pos=arcProd.buscarRegistro(id);
     if(pos>0){
         prod=arcProd.leerRegistro(pos);

@@ -62,48 +62,46 @@ class ArchivoDetalle{
             return -1;
             }
 
-        int contarRegistros(){
-            FILE *p=fopen(nombre, "rb");
-            if(p==NULL){
-                cout << "ERROR DE ARCHIVO -contar" <<endl;
-                system("pause");
-                return -2;
+            int contarRegistros(){
+                FILE *p=fopen(nombre, "rb");
+                if(p==NULL){
+                    cout << "ERROR DE ARCHIVO -contar" <<endl;
+                    system("pause");
+                    return -2;
+                }
+                fseek(p, 0,2);
+                int tam=ftell(p);
+                fclose(p);
+                return tam/sizeof(Detalle);
             }
-            fseek(p, 0,2);
-            int tam=ftell(p);
-            fclose(p);
-            return tam/sizeof(Detalle);
-        }
-
-        Detalle leerRegistro(int pos){
-            Detalle reg;
-            FILE *p=fopen(nombre,"rb");
-            if (p==NULL){
-                cout <<"ERROR DE ARCHIVO -leer"<<endl;
+            Detalle leerRegistro(int pos){
+                Detalle reg;
+                FILE *p=fopen(nombre,"rb");
+                if (p==NULL){
+                    cout <<"ERROR DE ARCHIVO -leer"<<endl;
+                    return reg;
+                }
+                fseek(p,sizeof(Detalle)*pos, 0);
+                fread(&reg, sizeof (Detalle),1,p);
+                fclose(p);
                 return reg;
             }
-            fseek(p,sizeof(Detalle)*pos, 0);
-            fread(&reg, sizeof (Detalle),1,p);
-            fclose(p);
-            return reg;
-        }
 
-        bool agregarRegistro(Detalle reg){
-            FILE *p=fopen(nombre,"ab");
-                if(p==NULL){
-                    cout<<"ERROR DE ARCHIVO-ag"<<endl;
-                    return false;
-                }
-            bool escribio=fwrite(&reg, sizeof reg, 1, p);
-            fclose(p);
-            return escribio;
-        }
-    };
+            bool agregarRegistro(Detalle reg){
+                FILE *p=fopen(nombre,"ab");
+                    if(p==NULL){
+                        cout<<"ERROR DE ARCHIVO-ag"<<endl;
+                        return false;
+                    }
+                bool escribio=fwrite(&reg, sizeof reg, 1, p);
+                fclose(p);
+                return escribio;
+            }
+};
 
 void cargarDetalle(){
     ArchivoProducto arcProd("productos.dat");
     ArchivoDetalle arcDet("detalles.dat");
-
     Detalle det;
     Producto prod;
     int id, cant;
@@ -130,7 +128,6 @@ void cargarDetalle(){
         cout<<"ID PRODUCTO: ";
         cin>>id;
     }
-
     cout<<endl<<" ** Venta cargada con exito **";
     cout<<endl;
 }
