@@ -26,18 +26,23 @@ int main()
 
         switch (opc) {
             case 1:
+                system("cls");
                 subMenuClientes();
                 break;
             case 2:
+                system("cls");
                 subMenuProductos();
                 break;
             case 3:
+                system("cls");
                 subMenuVentas();
                 break;
             case 4:
+                system("cls");
                 subMenuReportes();
                 break;
             case 5:
+                system("cls");
                 subMenuConfiguracion();
                 break;
             case 0:
