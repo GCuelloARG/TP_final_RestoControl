@@ -2,6 +2,43 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+	<File name="globales.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1658" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="clientes.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6451" topLine="213" />
+		</Cursor>
+	</File>
+	<File name="submenues.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5615" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="10" />
+			<Collapse line="55" />
+			<Collapse line="100" />
+			<Collapse line="150" />
+			<Collapse line="187" />
+		</Folding>
+	</File>
+	<File name="ventas.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8351" topLine="264" />
+		</Cursor>
+	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="771" topLine="11" />
+		</Cursor>
+	</File>
+	<File name="detalle.h" open="1" top="1" tabpos="5" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4719" topLine="137" />
+		</Cursor>
+	</File>
 	<File name="configuracion.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="6" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="2406" topLine="0" />
@@ -19,42 +56,5 @@
 		<Cursor>
 			<Cursor1 position="726" topLine="6" />
 		</Cursor>
-	</File>
-	<File name="clientes.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6451" topLine="213" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="771" topLine="11" />
-		</Cursor>
-	</File>
-	<File name="globales.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1658" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="detalle.h" open="1" top="1" tabpos="5" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3963" topLine="106" />
-		</Cursor>
-	</File>
-	<File name="ventas.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="527" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="submenues.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5615" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="10" />
-			<Collapse line="55" />
-			<Collapse line="100" />
-			<Collapse line="150" />
-			<Collapse line="187" />
-		</Folding>
 	</File>
 </CodeBlocks_layout_file>

@@ -274,7 +274,7 @@ void nuevaVenta(){
     char nombre[30];
     cout << "\nID CLIENTE: ";
     cin >> ic;
-    traerNombreCliente(ic, nombre); ///Quizas habria que mostrar solo el nombre, pero traer el cliente entero, para despues setCliente en obj venta
+    traerNombreCliente(ic, nombre); ///Quizas habria que mostrar solo el nombre, pero traer el cliente entero, para despues setCliente en obj venta << no creo que haga falta, si traer direccion "ponele" en caso de envios, pero no lo se
     cout<<endl<<"Cliente: "<< nombre;
 
     cargarDetalle(); //>> desarrollar falta subtotal
@@ -306,7 +306,7 @@ void nuevaVenta(){
     arcVen.agregarRegistro(reg);*/
 }
 
-void listarPorNumVenta(){
+void listarPorNumVenta(){//incompleta, el archivo venta solo mostraria una parte, falta mostrar el detalle y eso se hace reccoriendo det.dat y trayendo lo que coincida con el nv
     Venta ven;
     ArchivoVenta arcVen("ventas.dat");
     int nv;
@@ -328,7 +328,7 @@ void listarPorNumVenta(){
     }
 }
 
-void bajaLogicaVenta(){
+void bajaLogicaVenta(){//no creo que haga falta, uno no deberia poder alterar las ventas que hizo, es evasion de impuestos-- tener en cuenta
     ArchivoVenta archi ("ventas.dat");
     int nv, pos;
     cout<<"Ingrese el NUMERO DE VENTA a eliminar: ";

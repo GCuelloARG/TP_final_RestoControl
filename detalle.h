@@ -123,7 +123,7 @@ void cargarDetalle(){
         int pos=arcProd.buscarRegistro(id);
         prod=arcProd.leerRegistro(pos);
         det.setNombre(prod.getNombre());
-        cout<<det.getNombre()<<endl; /// o prod.getNombre()
+        cout<<det.getNombre()<<endl; /// o prod.getNombre() << para mi directo del detalle que es el objeto en cuestion
         cout<<"CANTIDAD: ";
         cin>>cant;
         det.setCant(cant);
@@ -145,7 +145,7 @@ void cargarDetalle(){
     cout<<endl;
 }
 
-void mostrarListaDetalles(){
+void mostrarListaDetalles(){// es por numero de venta
     Detalle det;
     ArchivoDetalle arcDet("detalles.dat");
     int cantReg=arcDet.contarRegistros();
@@ -159,7 +159,7 @@ void mostrarListaDetalles(){
     system("cls");
 }
 
-void limpiarArchivoDetalles(){
+void limpiarArchivoDetalles(){// funcion solo de control >> deberia borrarse para la entrega, o comentarla por las dudas
     FILE *p=fopen("detalles.dat","wb");
     cout<<endl<<"Archivo BORRADO"<<endl;
     fclose(p);
