@@ -9,10 +9,7 @@
 using namespace std;
 
 void subMenuClientes(){
-
-    ArchivoCliente archi("clientes.dat");
     int opc;
-
     while(true){
         cout << endl;
         cout << "**      MENU CLIENTES      **"<< endl;
@@ -57,9 +54,7 @@ void subMenuClientes(){
 }
 
 void subMenuProductos(){
-    ArchivoProducto archi("productos.dat");
     int opc;
-
     while(true){
         cout << endl;
         cout << "**     MENU PRODUCTOS     **"<< endl;
@@ -90,7 +85,7 @@ void subMenuProductos(){
                 bajaLogicaProd();
                 break;
             case 5:
-                limpiarArchivoProductos();
+                limpiarArchivoProductos(); /// OCULTO - Para limpiar todos los registros del archivo.
                 break;
             case 0:
                 cout << "Regresando al menu principal..." << endl;
@@ -113,7 +108,7 @@ void subMenuVentas(){
         cout << "1. CARGAR venta             ."<< endl;
         cout << "2. BUSCAR venta             ."<< endl;
         cout << "3. VER ventas               ."<< endl;
-        cout << "4. BORRAR venta (limpiar)   ."<< endl;
+        cout << "4. BORRAR venta             ."<< endl;
         cout << "_____________________________" << endl;
         cout << endl;
         cout << "0. VOLVER AL MENU PRINCIPAL"<< endl;
@@ -131,12 +126,16 @@ void subMenuVentas(){
                 break;
             case 3:
                 mostrarListaDetalles();
+                ///mostrarListaVentas(); (?)
                 break;
             case 4:
-                limpiarArchivoDetalles();
+                bajaLogicaVenta();
                 break;
             case 5:
-                limpiarArchivoVentas();
+                limpiarArchivoDetalles(); /// OCULTO - Limpia registros del archivo detalles
+                break;
+            case 6:
+                limpiarArchivoVentas(); /// OCULTO - Limpia registros del archivo ventas
                 break;
             case 0:
                 cout << "Regresando al menu principal..." << endl;
@@ -150,9 +149,7 @@ void subMenuVentas(){
 }
 
 void subMenuReportes(){
-
     int opc;
-
     while(true){
         cout << "**     MENU REPORTES     **"<< endl;
         cout << "___________________________"<< endl;
@@ -190,7 +187,6 @@ void subMenuReportes(){
 
 void subMenuConfiguracion(){
     int opc;
-
     while(true){
         cout << endl;
         cout << "**          MENU CONFIGURACION          **"<< endl;

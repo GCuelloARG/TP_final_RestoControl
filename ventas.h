@@ -8,9 +8,6 @@
 
 using namespace std;
 
-int traerNumeroVenta();
-
-
 class Venta{
 private:
         int numVenta;
@@ -238,13 +235,17 @@ class ArchivoVenta{
     /// LISTAR REGISTROS >> para opc "VER" en menu (?)
 };
 
-/*void MostrarListaVentas(){
+/*void mostrarListaVentas(){
     Venta ven;
     ArchivoVenta arcVen("ventas.dat");
     int cantReg=arcVen.contarRegistros();
     for(int i=0;i<cantReg;i++){
         ven=arcVen.leerRegistro(i);
-        ven.Mostrar();
+        if (ven.getEstado()==true){
+            ven.Mostrar();
+        }else{
+            cout<<endl<<"VENTA eliminada"<<cout;
+            ven.Mostrar();
     }
 
 }*/
@@ -257,12 +258,6 @@ int traerNumeroVenta(){
     return numVen+1;
 }
 
-void limpiarArchivoDetalles(){
-    FILE *p=fopen("detalles.dat","wb");
-    cout<<endl<<"Archivo BORRADO"<<endl;
-    fclose(p);
-}
-
 void limpiarArchivoVentas(){
     FILE *p=fopen("ventas.dat","wb");
     cout<<endl<<"Archivo BORRADO"<<endl;
@@ -270,20 +265,45 @@ void limpiarArchivoVentas(){
 }
 
 void nuevaVenta(){
-    int nv=traerNumeroVenta();//numero de venta viene de la cantidad de registros en archivoVenta+1
+    int nv=traerNumeroVenta();
+    Fecha fec;
+    fechaActual(fec);
     cout<<"Comanda n"<<(char)167<<": "<<nv;
-    //preguntar por cliente, si no existe dejarlo en blanco
+    //preguntar por cliente, si no existe dejarlo en blanco > lo tre, todavia no lo escribe
     int ic;
     char nombre[30];
     cout << "\nID CLIENTE: ";
     cin >> ic;
-    traerNombreCliente(ic, nombre);
+    traerNombreCliente(ic, nombre); ///Quizas habria que mostrar solo el nombre, pero traer el cliente entero, para despues setCliente en obj venta
     cout<<endl<<"Cliente: "<< nombre;
 
     cargarDetalle(); //>> desarrollar falta subtotal
 
     //>> pasar por parametro numero de venta para identificar al detalle
     //leer archivo detalle>> calcular total
+
+
+    /*ArchivoDetalle arcDet("detalles.dat");
+    ArchivoVenta arcVen("ventas.dat")
+    float total;
+    Venta reg;
+    reg.Cargar(); ///(aun vacia) Pensar si hace falta cargar algo
+
+    reg.setNumVenta(nv);
+    reg.setFecha(fec);
+    reg.setCliente(cli); /// no hay obj cli aun. Traerlo entero en vez de solo nombre?
+    reg.setEstado(true);
+
+    int cantReg=arcDet.contarRegistros();
+    for(i=0;i<cantReg;i++){
+        det=arcDet.leerRegistros(i);
+        if(nv=det.getNumeroVenta()){    /// numero de venta en det aun no esta
+            reg.setDetalle(det);        ///resolver vector, o no guardarlo, y que no este en archivo ventas
+            total+=det.getSubt();
+        }
+    }
+    reg.setPrecioTotal(total)
+    arcVen.agregarRegistro(reg);*/
 }
 
 void listarPorNumVenta(){
@@ -308,5 +328,30 @@ void listarPorNumVenta(){
     }
 }
 
+void bajaLogicaVenta(){
+    ArchivoVenta archi ("ventas.dat");
+    int nv, pos;
+    cout<<"Ingrese el NUMERO DE VENTA a eliminar: ";
+    cin>>nv;
+    pos=archi.buscarRegistro(nv);
+    if(pos==-1){
+        cout<<endl<<"No existe VENTA con ese numero"<<endl;
+        return;
+    } else {
+        if(pos==-2){
+            cout<<endl<<"ERROR DE ARCHIVO - baja"<<endl;
+            return;
+        }
+    }
+    Venta reg=archi.leerRegistro(pos);
+    reg.setEstado(false);
+    bool quePaso=archi.modificarRegistro(pos, reg);
+    if(quePaso==true){
+        cout<<endl<<"VENTA eliminada con exito"<<endl;
+    }else{
+        cout<<endl<<"No se pudo eliminar la VENTA"<<endl;
+    }
+    return;
+}
 
 #endif // VENTAS_H_INCLUDED

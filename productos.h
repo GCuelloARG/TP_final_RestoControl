@@ -162,9 +162,9 @@ void nuevoProd(){
         bool escribio=arcProd.agregarRegistro(prod);
 
         if(escribio==true){
-            cout<<endl<<"PRODUCTO agregado con exito.";
+            cout<<endl<<"PRODUCTO agregado con exito."<<endl;
         }else{
-            cout<<endl<<"Ya existe un PRODUCTO con ese ID";
+            cout<<endl<<"Ya existe un PRODUCTO con ese ID"<<endl;
         }
     }
 }

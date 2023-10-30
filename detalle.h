@@ -8,22 +8,33 @@ class Detalle{
 	private:
             int id;
             int cant;
-            //agregar nombre y setearlo desde producto
+            //agregar numero de venta
+            char nombre[30];
             float subTotal;
             bool estado;
 	public:
 
             void setID(int i){id=i;}
-            void setEstado(bool st){estado=st;}
             void setCant(int c){cant=c;}
+            ///void setNumVen(int nv){numVen=nv;}
+            void setNombre(const char *nomb){
+                strcpy(nombre,nomb);
+            }
+            void setSubTotal(float st){subTotal=st;}
+            void setEstado(bool e){estado=e;}
+
             int getId(){return id;}
             int getCant(){return cant;}
-            bool getEstado(){return estado;}
+            ///int getNumVen(){return numVen;}
+            const char *getNombre(){return nombre;}
             float getSubt(){return subTotal;}
+            bool getEstado(){return estado;}
+
+
             void Cargar(){
-               cout<<"ID";
+               cout<<"ID: ";
                cin>>id;
-               cout<<"Cant";
+               cout<<"Cantidad: ";
                cin>>cant;
             }
 
@@ -111,7 +122,8 @@ void cargarDetalle(){
         det.setID(id);
         int pos=arcProd.buscarRegistro(id);
         prod=arcProd.leerRegistro(pos);
-        cout<<prod.getNombre()<<endl;
+        det.setNombre(prod.getNombre());
+        cout<<det.getNombre()<<endl; /// o prod.getNombre()
         cout<<"CANTIDAD: ";
         cin>>cant;
         det.setCant(cant);
@@ -121,13 +133,14 @@ void cargarDetalle(){
         //agregar a archivo
         arcDet.agregarRegistro(det);
 
-        /*
-        //destruir obj detalle >> REVISAR. SALE ERROR CUANDO LLEGA A ESTA PARTE. QUIZAS SI USA PUNTERO NO HACE FALTA DESTRUIRLO
+        /*//destruir obj detalle >> REVISAR. SALE ERROR CUANDO LLEGA A ESTA PARTE.
+        QUIZAS SI USA PUNTERO NO HACE FALTA DESTRUIRLO
         delete det;*/
 
         cout<<"ID PRODUCTO: ";
         cin>>id;
     }
+
     cout<<endl<<" ** Venta cargada con exito **";
     cout<<endl;
 }
@@ -144,6 +157,12 @@ void mostrarListaDetalles(){
     }
     system("pause");
     system("cls");
+}
+
+void limpiarArchivoDetalles(){
+    FILE *p=fopen("detalles.dat","wb");
+    cout<<endl<<"Archivo BORRADO"<<endl;
+    fclose(p);
 }
 
 

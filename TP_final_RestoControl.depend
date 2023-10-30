@@ -51,13 +51,13 @@
 	"submenues.h"
 	"ventas.h"
 
-1698615893 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/submenues.h
+1698627577 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/submenues.h
 	<iostream>
 	"ventas.h"
 	"configuracion.h"
 	"detalle.h"
 
-1698616620 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/ventas.h
+1698631188 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/ventas.h
 	<iostream>
 	<cstring>
 	"globales.h"
@@ -68,15 +68,15 @@
 	<iostream>
 	<ctime>
 
-1698616620 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/clientes.h
+1698627696 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/clientes.h
 	<iostream>
 	<cstring>
 	"globales.h"
 
-1698616063 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/detalle.h
+1698631932 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/detalle.h
 	"productos.h"
 
-1698616620 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/productos.h
+1698631622 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/productos.h
 	<iostream>
 	<cstdio>
 	<cstring>

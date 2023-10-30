@@ -88,7 +88,6 @@ class ArchivoCliente{
                     cout<<"ERROR DE ARCHIVO-ag"<<endl;
                     return false;
                 }
-
             bool escribio=fwrite(&reg, sizeof reg, 1, p);
             fclose(p);
             return escribio;
@@ -103,7 +102,6 @@ class ArchivoCliente{
             }
 
             int cont=0;
-
             while(fread(&reg, sizeof reg,1,p)==1){
                 if(id==reg.getId()){
                     fclose(p);
@@ -118,17 +116,14 @@ class ArchivoCliente{
         Cliente leerRegistro(int pos){
             Cliente reg;
             reg.setEstado(false);
-
             FILE *p=fopen(nombre,"rb");
             if(p==NULL){
                 cout<<"ERROR DE ARCHIVO-leer"<<endl;
                 return reg;
             }
-
             fseek(p,sizeof(Cliente)*pos,0);
             fread(&reg, sizeof (Cliente),1,p);
             fclose(p);
-
             return reg;
         }
 
@@ -138,11 +133,9 @@ class ArchivoCliente{
                 cout<<"ERROR DE ARCHIVO-mod"<<endl;
                 return false;
             }
-
             fseek(pCliente, sizeof (Cliente)*pos, 0);
             bool escribio=fwrite (&reg, sizeof(Cliente), 1, pCliente);
             fclose(pCliente);
-
             return escribio;
         }
 
@@ -154,11 +147,9 @@ class ArchivoCliente{
                 system("pause");
                 return -2;
             }
-
             fseek(p, 0,2);
             int tam=ftell(p);
             fclose(p);
-
             return tam/sizeof (Cliente);
         }
 
@@ -171,11 +162,9 @@ void nuevoCliente(){
     cout<<"ID de CLIENTE: ";
     cin>>id;
     int pos=arcCli.buscarRegistro(id);
-
     if(pos==-1){
         cli.Cargar(id);
     }
-
     bool escribio=arcCli.agregarRegistro(cli);
     if(escribio==true){
         cout<<endl<<"CLIENTE agregado con exito";
@@ -210,7 +199,6 @@ void mostrarIDCli(){
     int id;
     cout<<endl<<"Ingrese el ID del CLIENTE: ";
     cin>>id;
-
     int pos=arcCli.buscarRegistro(id);
     if(pos>0){
         cli=arcCli.leerRegistro(pos);
