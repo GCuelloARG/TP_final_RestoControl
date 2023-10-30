@@ -14,7 +14,6 @@ class Detalle{
             float subTotal;
             bool estado;
 	public:
-
             void setID(int i){id=i;}
             void setCant(int c){cant=c;}
             void setNumVen(int nv){numVen=nv;}
@@ -31,7 +30,6 @@ class Detalle{
             float getSubt(){return subTotal;}
             bool getEstado(){return estado;}
 
-
             void Cargar(){
                cout<<"ID: ";
                cin>>id;
@@ -42,7 +40,6 @@ class Detalle{
             void Mostrar(){
                 cout << id<<"\t"<<nombre<<"\t\t"<<cant<<"\t\t"<<subTotal<< endl;
             }
-
 };
 
 class ArchivoDetalle{
@@ -54,36 +51,41 @@ class ArchivoDetalle{
             }
 
             int buscarRegistro(int id){
-            Detalle reg;
-            FILE *p=fopen(nombre,"rb");
-            if(p==NULL){
-                cout<<"ERROR DE ARCHIVO - buscar"<<endl;
-                return -2;
-            }
-            int cont=0;
-            while(fread(&reg, sizeof reg,1,p)==1){
-                if(id==reg.getId()){
-                    fclose(p);
-                    return cont;
-                    }
-                    cont++;
+                Detalle reg;
+                FILE *p=fopen(nombre,"rb");
+                if(p==NULL){
+                    cout<<"ERROR DE ARCHIVO - buscar"<<endl;
+                    return -2;
                 }
-            fclose(p);
-            return -1;
+                int cont=0;
+                while(fread(&reg, sizeof reg,1,p)==1){
+                    if(id==reg.getId()){
+                        fclose(p);
+                        return cont;
+                    }
+                        cont++;
+                }
+                fclose(p);
+                return -1;
             }
 
             int contarRegistros(){
                 FILE *p=fopen(nombre, "rb");
                 if(p==NULL){
-                    cout << "ERROR DE ARCHIVO -contar" <<endl;
-                    system("pause");
-                    return -2;
+                    FILE *p=fopen("detalles.dat", "wb");
+                    return 0;
+                    if(p==NULL){
+                        cout << "ERROR DE ARCHIVO -contar" <<endl;
+                        system("pause");
+                        return -2;
+                    }
                 }
                 fseek(p, 0,2);
                 int tam=ftell(p);
                 fclose(p);
                 return tam/sizeof(Detalle);
             }
+
             Detalle leerRegistro(int pos){
                 Detalle reg;
                 FILE *p=fopen(nombre,"rb");
@@ -123,31 +125,24 @@ float cargarDetalle(int nv){
         det.setID(id);
         int pos=arcProd.buscarRegistro(id);
         if(pos>=0){
-        prod=arcProd.leerRegistro(pos);
-        //falta validar prod
-        det.setNombre(prod.getNombre());
-        cout<<det.getNombre()<<endl;
-        cout<<"CANTIDAD: ";
-        cin>>cant;
-        det.setCant(cant);
-        det.setEstado(true);
-        subtotal=prod.getPrecio()*cant;
-        det.setSubTotal(subtotal);
-        totalCompra+=subtotal;
+            prod=arcProd.leerRegistro(pos);
+            //falta validar prod
+            det.setNombre(prod.getNombre());
+            cout<<det.getNombre()<<endl;
+            cout<<"CANTIDAD: ";
+            cin>>cant;
+            det.setCant(cant);
+            det.setEstado(true);
+            subtotal=prod.getPrecio()*cant;
+            det.setSubTotal(subtotal);
+            totalCompra+=subtotal;
+            cout<<"Importe: $"<<subtotal<<endl;
+            cout<<endl;
+            arcDet.agregarRegistro(det);
 
-        cout<<"Importe: $"<<subtotal<<endl;
-        cout<<endl;
-
-        //agregar a archivo
-        bool grabo=arcDet.agregarRegistro(det);
-        cout<<endl<<grabo<<endl;                //CONTROL
-
-        /*//destruir obj detalle >> REVISAR. SALE ERROR CUANDO LLEGA A ESTA PARTE.
-        QUIZAS SI USA PUNTERO NO HACE FALTA DESTRUIRLO
-        delete det;*/
         }else{cout<<"No existe producto con ese ID";}
-        cout<<"ID PRODUCTO: ";
-        cin>>id;
+            cout<<"ID PRODUCTO: ";
+            cin>>id;
     }
     cout<<endl<<" ** Venta cargada con exito **";
     return totalCompra;

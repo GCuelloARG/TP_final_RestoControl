@@ -25,7 +25,6 @@ void subMenuClientes(){
         cout << "Elija una opcion: ";
         cin >> opc;
         system("cls");
-
         switch(opc){
             case 1:
                 nuevoCliente();
@@ -71,7 +70,6 @@ void subMenuProductos(){
         cout << "Elija una opcion: ";
         cin >> opc;
         system("cls");
-
         switch(opc){
             case 1:
                 nuevoProd();
@@ -110,7 +108,7 @@ void subMenuVentas(){
         cout << "1. CARGAR venta             ."<< endl;
         cout << "2. BUSCAR venta             ."<< endl;
         cout << "3. VER ventas               ."<< endl;
-        cout << "4. BORRAR venta             ."<< endl;
+        cout << "4. ANULAR venta             ."<< endl;
         cout << "_____________________________" << endl;
         cout << endl;
         cout << "0. VOLVER AL MENU PRINCIPAL"<< endl;
@@ -118,7 +116,6 @@ void subMenuVentas(){
         cout << "Elija una opcion: ";
         cin >> opc;
         system("cls");
-
         switch(opc){
             case 1:
                 nuevaVenta();
@@ -195,12 +192,12 @@ void subMenuConfiguracion(){
         cout << "**          MENU CONFIGURACION          **"<< endl;
         cout << "__________________________________________"<< endl;
         cout << endl;
-        cout << "1. COPIA de SEGURIDAD: CLIENTES          ."<< endl;
-        cout << "2. COPIA de SEGURIDAD: PRODUCTOS         ."<< endl;
-        cout << "3. COPIA de SEGURIDAD: VENTAS            ."<< endl;
-        cout << "4. RESTAURAR archivo: CLIENTES           ."<< endl;
-        cout << "5. RESTAURAR archivo: PRODUCTOS          ."<< endl;
-        cout << "6. RESTAURAR archivo: VENTAS             ."<< endl;
+        cout << "1. COPIA de SEGURIDAD: Ventas            ."<< endl;
+        cout << "2. COPIA de SEGURIDAD: Clientes          ."<< endl;
+        cout << "3. COPIA de SEGURIDAD: Productos         ."<< endl;
+        cout << "4. RESTAURAR Ventas                      ."<< endl;
+        cout << "5. RESTAURAR Clientes                    ."<< endl;
+        cout << "6. RESTAURAR Productos                   ."<< endl;
         cout << "__________________________________________"<< endl;
         cout << endl;
         cout << "0. VOLVER AL MENU PRINCIPAL"<< endl;
@@ -208,25 +205,24 @@ void subMenuConfiguracion(){
         cout << "Elija una opcion: ";
         cin >> opc;
         system("cls");
-
         switch(opc){
             case 1:
-                copiaDeSeguridadClientes();
-                break;
-            case 2:
-                copiaDeSeguridadProductos();
-                break;
-            case 3:
                 copiaDeSeguridadVentas();
                 break;
+            case 2:
+                copiaDeSeguridadClientes();
+                break;
+            case 3:
+                copiaDeSeguridadProductos();
+                break;
             case 4:
-                restaurarClientes();
+                restaurarVentas();
                 break;
             case 5:
-                restaurarProductos();
+                restaurarClientes();
                 break;
             case 6:
-                restaurarVentas();
+                restaurarProductos();
                 break;
             case 0:
                 cout << "Regresando al menu principal..." << endl;

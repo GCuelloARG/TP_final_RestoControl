@@ -70,8 +70,6 @@ class Cliente{
             cout << tel << endl;
             cout << endl;
         }
-
-
 };
 
 class ArchivoCliente{
@@ -100,7 +98,6 @@ class ArchivoCliente{
                 cout<<"ERROR DE ARCHIVO - buscar"<<endl;
                 return -2;
             }
-
             int cont=0;
             while(fread(&reg, sizeof reg,1,p)==1){
                 if(id==reg.getId()){
@@ -139,20 +136,22 @@ class ArchivoCliente{
             return escribio;
         }
 
-
         int contarRegistros(){
-            FILE *p=fopen("clientes.dat", "rb");
+            FILE *p=fopen(nombre, "rb");
             if(p==NULL){
-                cout << "ERROR DE ARCHIVO" <<endl;
-                system("pause");
-                return -2;
+                FILE *p=fopen("clientes.dat", "wb");
+                return 0;
+                if(p==NULL){
+                    cout << "ERROR DE ARCHIVO -contar" <<endl;
+                    system("pause");
+                    return -2;
+                }
             }
             fseek(p, 0,2);
             int tam=ftell(p);
             fclose(p);
-            return tam/sizeof (Cliente);
+            return tam/sizeof(Cliente);
         }
-
 };
 
 void nuevoCliente(){
@@ -184,7 +183,7 @@ void mostrarListaClientes(){
     int cantReg=arcCli.contarRegistros();
     for(int i=0;i<cantReg;i++){
         cli=arcCli.leerRegistro(i);
-        if(cli.getEstado()==true){          /// agregue este if para que slo muestre los estado true.
+        if(cli.getEstado()==true){
         cli.Mostrar();
         }
     }
@@ -196,6 +195,21 @@ void limpiarArchivoClientes(){
     FILE *p=fopen("clientes.dat","wb");
     cout<<endl<<"Archivo BORRADO"<<endl;
     fclose(p);
+}
+
+void darAltaCli(int num, Cliente cl, ArchivoCliente archi){
+    char letra;
+    int pos;
+    cout<<"Quiere dar de alta el CLIENTE?    Y/N: ";
+    cin>>letra;
+    if(letra=='Y'||letra=='y'){
+        cl.setEstado(true);
+        pos=archi.buscarRegistro(num);
+        archi.modificarRegistro(pos, cl);
+        cout<<endl<<"El producto fue dado de alta"<<endl;
+    }else if(letra=='N'||letra=='n'){
+        cout<<endl<<"El producto no fue modificado"<<endl;
+    }
 }
 
 void mostrarIDCli(){
@@ -212,9 +226,11 @@ void mostrarIDCli(){
         }else{
             cout<<endl<<"El CLIENTE fue dado de baja"<<endl;
             cli.Mostrar();
+            darAltaCli(id, cli, arcCli);
         }
     }else{
-        cout<<endl<<"No existe CLIENTE con este ID";}
+        cout<<endl<<"No existe CLIENTE con este ID";
+    }
 }
 
 void bajaLogicaCli(){

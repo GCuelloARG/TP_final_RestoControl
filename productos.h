@@ -33,15 +33,14 @@ class Producto{
         float getPrecio(){return precioUnitario;}
 
         void Cargar(int id){
-
-        setId(id);
-        cout<<"Nombre: ";
-        cargarCadena(nombre,29);
-        cout<<"Descripcion: ";
-        cargarCadena(descripcion,29);
-        cout<<"Precio unitario: $";
-        cin >> precioUnitario;
-        estado=(true);
+            setId(id);
+            cout<<"Nombre: ";
+            cargarCadena(nombre,29);
+            cout<<"Descripcion: ";
+            cargarCadena(descripcion,29);
+            cout<<"Precio unitario: $";
+            cin >> precioUnitario;
+            estado=(true);
         }
 
         void MostrarId(){
@@ -107,9 +106,13 @@ class ArchivoProducto{
         int contarRegistros(){
             FILE *p=fopen(nombre, "rb");
             if(p==NULL){
-                cout << "ERROR DE ARCHIVO -contar" <<endl;
-                system("pause");
-                return -2;
+                FILE *p=fopen("productos.dat", "wb");
+                return 0;
+                if(p==NULL){
+                    cout << "ERROR DE ARCHIVO -contar" <<endl;
+                    system("pause");
+                    return -2;
+                }
             }
             fseek(p, 0, 2);
             int tam=ftell(p);
@@ -141,7 +144,6 @@ class ArchivoProducto{
             fclose(pProd);
             return escribio;
         }
-
 };
 
 void limpiarArchivoProductos(){
@@ -192,9 +194,9 @@ void darAltaProd(int num, Producto pr, ArchivoProducto archi){
         pr.setEstado(true);
         pos=archi.buscarRegistro(num);
         archi.modificarRegistro(pos, pr);
-        cout<<"El producto fue dado de alta";
+        cout<<endl<<"El producto fue dado de alta"<<endl;
     }else if(letra=='N'||letra=='n'){
-        cout<<"El producto no fue modificado";
+        cout<<endl<<"El producto no fue modificado"<<endl;
     }
 }
 
@@ -215,7 +217,8 @@ void mostrarIDProd(){
             darAltaProd(id, prod, arcProd);
         }
     }else{
-        cout<<endl<<"No existe PROODUCTO con este ID";}
+        cout<<endl<<"No existe PROODUCTO con este ID"<<endl;
+    }
 }
 
 void bajaLogicaProd(){
