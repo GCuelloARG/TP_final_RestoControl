@@ -28,26 +28,21 @@ void subMenuClientes(){
 
         switch(opc){
             case 1:
-                system("cls");
                 nuevoCliente();
                 break;
             case 2:
-                system("cls");
                 mostrarIDCli();
                 break;
             case 3:
-                system("cls");
                 mostrarListaClientes();
                 break;
             case 4:
-                system("cls");
                 bajaLogicaCli();
                 break;
             case 5:
                 limpiarArchivoClientes(); /// OCULTO / Para limpiar todos los registros del archivo
                 break;
             case 0:
-                system("cls");
                 cout << "Regresando al menu principal..." << endl;
                 system ("pause");
                 system("cls");
@@ -79,29 +74,24 @@ void subMenuProductos(){
 
         switch(opc){
             case 1:
-                system("cls");
                 nuevoProd();
                 break;
             case 2:
-                system("cls");
                 mostrarIDProd();
                 break;
             case 3:
-                system("cls");
                 mostrarListaProductos();
                 break;
             case 4:
-                system("cls");
                 bajaLogicaProd();
                 break;
             case 5:
                 limpiarArchivoProductos(); /// OCULTO - Para limpiar todos los registros del archivo.
                 break;
             case 0:
-                system("cls");
                 cout << "Regresando al menu principal..." << endl;
                 system ("pause");
-                system("cls");
+                system ("cls");
                 return;
             default:
                 cout << "Opcion no valida." << endl;
@@ -150,10 +140,8 @@ void subMenuVentas(){
                 limpiarArchivoVentas(); /// OCULTO - Limpia registros del archivo ventas
                 break;
             case 0:
-                system("cls");
                 cout << "Regresando al menu principal..." << endl;
                 system ("pause");
-                system("cls");
                 return;
             default:
                 cout << "Opcion no valida." << endl;
@@ -178,6 +166,7 @@ void subMenuReportes(){
         cout << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
+        system("cls");
 
         switch(opc){
             case 1:
@@ -191,6 +180,7 @@ void subMenuReportes(){
             case 0:
                 cout << "Regresando al menu principal..." << endl;
                 system ("pause");
+                system("cls");
                 return;
             default:
                 cout << "Opcion no valida." << endl;
@@ -218,6 +208,7 @@ void subMenuConfiguracion(){
         cout << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
+        system("cls");
 
         switch(opc){
             case 1:
@@ -239,7 +230,6 @@ void subMenuConfiguracion(){
                 restaurarVentas();
                 break;
             case 0:
-                system("cls");
                 cout << "Regresando al menu principal..." << endl;
                 system ("pause");
                 system("cls");

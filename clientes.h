@@ -162,14 +162,19 @@ void nuevoCliente(){
     cout<<"ID de CLIENTE: ";
     cin>>id;
     int pos=arcCli.buscarRegistro(id);
+    bool escribio=false;
     if(pos==-1){
         cli.Cargar(id);
+        escribio=arcCli.agregarRegistro(cli);
     }
-    bool escribio=arcCli.agregarRegistro(cli);
     if(escribio==true){
-        cout<<endl<<"CLIENTE agregado con exito";
+        cout<<endl<<"CLIENTE agregado con exito"<<endl;
+        system("pause");
+        system("cls");
     }else{
-        cout<<endl<<"Ya existe un CLIENTE con ese ID";
+        cout<<endl<<"Ya existe un CLIENTE con ese ID"<<endl;
+        system("pause");
+        system("cls");
     }
 }
 
@@ -215,10 +220,9 @@ void mostrarIDCli(){
 void bajaLogicaCli(){
     ArchivoCliente archi("clientes.dat");
     int id, pos;
-    cout << "Ingrese el ID a dar de baja: ";
+    cout << "Ingrese el ID del CLIENTE a borrar: ";
     cin >> id;
     pos=archi.buscarRegistro(id);
-    cout << "pos: " << pos << endl;
     if(pos==-1){
         cout<<"No existe CLIENTE con ese ID"<<endl;
         return;
@@ -233,8 +237,12 @@ void bajaLogicaCli(){
     bool quePaso=archi.modificarRegistro(pos, reg);
     if(quePaso==true){
         cout<<endl<<"CLIENTE borrado con exito"<<endl;
+        system("pause");
+        system("cls");
     }else{
         cout<<endl<<"No se pudo borrar el CLIENTE"<<endl;
+        system("pause");
+        system("cls");
     }
 }
 

@@ -13,9 +13,9 @@ int main()
         cout << "***     MENU PRINCIPAL     ***"<< endl;
         cout << "______________________________"<< endl;
         cout << endl;
-        cout << "1. CLIENTES                  ."<< endl;
-        cout << "2. PRODUCTOS                 ."<< endl;
-        cout << "3. VENTAS                    ."<< endl;
+        cout << "1. VENTAS                    ."<< endl;
+        cout << "2. CLIENTES                  ."<< endl;
+        cout << "3. PRODUCTOS                 ."<< endl;
         cout << "4. REPORTES                  ."<< endl;
         cout << "5. CONFIGURACION             ."<< endl;
         cout << "______________________________"<< endl;
@@ -23,26 +23,21 @@ int main()
         cout << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
-
+        system("cls");
         switch (opc) {
             case 1:
-                system("cls");
-                subMenuClientes();
-                break;
-            case 2:
-                system("cls");
-                subMenuProductos();
-                break;
-            case 3:
-                system("cls");
                 subMenuVentas();
                 break;
+            case 2:
+                subMenuClientes();
+                break;
+            case 3:
+                subMenuProductos();
+                break;
             case 4:
-                system("cls");
                 subMenuReportes();
                 break;
             case 5:
-                system("cls");
                 subMenuConfiguracion();
                 break;
             case 0:

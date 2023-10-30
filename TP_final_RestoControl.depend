@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
-1698684633 source:c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\main.cpp
+1698689941 source:c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\main.cpp
 	<iostream>
 	"submenues.h"
 	"ventas.h"
 
-1698684864 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\submenues.h
+1698690130 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\submenues.h
 	<iostream>
 	"ventas.h"
 	"configuracion.h"
@@ -95,7 +95,7 @@
 	<iostream>
 	<ctime>
 
-1698670213 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\clientes.h
+1698690368 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\clientes.h
 	<iostream>
 	<cstring>
 	"globales.h"
