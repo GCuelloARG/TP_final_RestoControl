@@ -115,7 +115,9 @@ void cargarDetalle(){
     ArchivoDetalle arcDet("detalles.dat");
     Detalle det;
     Producto prod;
-    int id, cant;
+    int id, cant, totalcompra;
+    float subtotal, acum;
+    acum=0;
     cout<<endl<<"ID PRODUCTO: ";
     cin>>id;
     while(id!=0){
@@ -128,6 +130,10 @@ void cargarDetalle(){
         cin>>cant;
         det.setCant(cant);
         det.setEstado(true);
+        subtotal=prod.getPrecio()*cant;
+        cout<<"Importe: $"<<subtotal<<endl;
+        acum=acum+subtotal;
+        totalcompra=acum;
         cout<<endl;
 
         //agregar a archivo
@@ -140,7 +146,8 @@ void cargarDetalle(){
         cout<<"ID PRODUCTO: ";
         cin>>id;
     }
-
+    cout<<endl;
+    cout<<"Total venta: $"<<totalcompra<<endl;
     cout<<endl<<" ** Venta cargada con exito **";
     cout<<endl;
 }

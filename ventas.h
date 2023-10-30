@@ -268,6 +268,7 @@ void nuevaVenta(){
     int nv=traerNumeroVenta();
     Fecha fec;
     fechaActual(fec);
+    float acum;
     cout<<"Comanda n"<<(char)167<<": "<<nv;
     //preguntar por cliente, si no existe dejarlo en blanco > lo tre, todavia no lo escribe
     int ic;

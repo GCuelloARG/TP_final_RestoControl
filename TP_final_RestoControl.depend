@@ -4,7 +4,7 @@
 	"submenues.h"
 	"ventas.h"
 
-1698605505 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\submenues.h
+1698670213 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\submenues.h
 	<iostream>
 	"ventas.h"
 	"configuracion.h"
@@ -82,7 +82,7 @@
 	<cstring>
 	"globales.h"
 
-1698605456 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\ventas.h
+1698672217 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\ventas.h
 	<iostream>
 	<cstring>
 	"globales.h"
@@ -93,15 +93,15 @@
 	<iostream>
 	<ctime>
 
-1698605456 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\clientes.h
+1698670213 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\clientes.h
 	<iostream>
 	<cstring>
 	"globales.h"
 
-1698605456 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\detalle.h
+1698674047 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\detalle.h
 	"productos.h"
 
-1698605456 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\productos.h
+1698671254 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\productos.h
 	<iostream>
 	<cstdio>
 	<cstring>
@@ -117,7 +117,7 @@
 	"clientes.h"
 	"productos.h"
 
-1698605505 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\configuracion.h
+1698670213 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\configuracion.h
 	<iostream>
 	"clientes.h"
 	"productos.h"

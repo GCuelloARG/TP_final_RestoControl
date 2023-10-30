@@ -23,7 +23,7 @@ class Producto{
         void setDescripcion (const char *desc){
             strcpy (descripcion, desc);
         }
-        void setprecioUnitario (float n){precioUnitario=n;}
+        void setPrecioUnitario (float n){precioUnitario=n;}
         void setEstado (bool st){estado=st;}
 
         int getId(){return id;}
