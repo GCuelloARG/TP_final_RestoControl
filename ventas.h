@@ -34,13 +34,14 @@ public:
         }
 
         void Mostrar(){
-            int id;
-            cout << "Numero de venta: ";
-            cout << numVenta;
+            cout << "Comanda n: ";
+            cout << numVenta<<endl;
+            cout << "Id del cliente: ";
+            cout << idCli<<endl;
             cout << "Fecha: ";
             fechaVenta.Mostrar();
             cout << "Precio total: $";
-            cout << precioTotal;
+            cout << precioTotal<<endl;
             cout << endl;
         }
 };
@@ -346,4 +347,16 @@ void bajaLogicaVenta(){//no creo que haga falta, uno no deberia poder alterar la
     return;
 }
 
+void mostrarListaVentas(){
+    Venta ven;
+    ArchivoVenta arcVen("ventas.dat");
+    int cantReg, i;
+    cantReg=arcVen.contarRegistros();
+    for(i=0;i<cantReg;i++){
+        ven=arcVen.leerRegistro(i);
+        if(ven.getEstado()==true){
+            ven.Mostrar();
+        }
+    }
+}
 #endif // VENTAS_H_INCLUDED
