@@ -40,11 +40,7 @@ class Detalle{
             }
 
             void Mostrar(){
-                cout << "ID PROD:" << id << endl;
-                cout << "NOMBRE: " << nombre << endl;
-                cout << "CANT:" << cant << endl;
-                cout << "SUBTOTAL: $" << subTotal << endl;
-                cout << endl;
+                cout << id<<"\t"<<nombre<<"\t\t"<<cant<<"\t\t"<<subTotal<< endl;
             }
 
 };
@@ -157,19 +153,6 @@ float cargarDetalle(int nv){
     return totalCompra;
 }
 
-void mostrarListaDetalles(){    // es por numero de venta
-    Detalle det;
-    ArchivoDetalle arcDet("detalles.dat");
-    int cantReg=arcDet.contarRegistros();
-    for(int i=0;i<cantReg;i++){
-        det=arcDet.leerRegistro(i);
-        if(det.getEstado()==true){
-            det.Mostrar();
-        }
-    }
-    system("pause");
-    system("cls");
-}
 
 void limpiarArchivoDetalles(){  // BORRAR/COMENTAR
     FILE *p=fopen("detalles.dat","wb");

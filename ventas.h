@@ -27,6 +27,7 @@ public:
         Fecha getFechaVenta(){return fechaVenta;}
         float getPrecioTotal(){return precioTotal;}
         bool getEstado(){return estado;}
+        int getCliente(){return idCli;}
 
 
         void Cargar(){
@@ -143,18 +144,21 @@ class ArchivoVenta{
             }
 
             int contarRegistros(){
-                FILE *p=fopen("ventas.dat", "ab");
+                FILE *p=fopen("ventas.dat", "rb");
                 if(p==NULL){
+                    FILE *p=fopen("ventas.dat", "wb");
+                    return 0;
+                    if(p==NULL){
                     cout << "ERROR DE ARCHIVO" <<endl;
                     system("pause");
                     return -2;
+                    }
                 }
-
                 fseek(p, 0,2);
                 int tam=ftell(p);
                 fclose(p);
 
-                return tam/sizeof (Detalle);
+                return tam/sizeof (Venta);
             }
 
             bool modificarFecha(){
@@ -244,9 +248,8 @@ class ArchivoVenta{
 int traerNumeroVenta(){
     ArchivoVenta arcVen("ventas.dat");
     int numVen;
-    numVen=arcVen.contarRegistros();
-
-    return numVen+1;
+    numVen=arcVen.contarRegistros()+1;
+    return numVen;
 }
 
 void limpiarArchivoVentas(){
@@ -277,6 +280,7 @@ void nuevaVenta(){
     total=cargarDetalle(nv); //>> desarrollar falta subtotal < OK
     reg.setPrecioTotal(total);
     reg.setEstado(true);
+    arcVen.agregarRegistro(reg);
     cout<<"Total: $"<<total;
     //>> pasar por parametro numero de venta para identificar al detalle OK
     //leer archivo detalle>> calcular total
@@ -285,24 +289,35 @@ void nuevaVenta(){
 
 void listarPorNumVenta(){//incompleta, el archivo venta solo mostraria una parte, falta mostrar el detalle y eso se hace reccoriendo det.dat y trayendo lo que coincida con el nv
     Venta ven;
+    Detalle det;
+    Cliente cli;
+    Fecha fec;
+    char nombre[30];
     ArchivoVenta arcVen("ventas.dat");
-    int nv;
+    ArchivoDetalle arcDet("detalles.dat");
+    ArchivoCliente arcCli("clientes.dat");
+    int nv, cantDet, i;
     cout<<endl<<"Ingrese el NUMERO DE VENTA: ";
     cin>>nv;
     int pos=arcVen.buscarRegistro(nv);
-    if(pos>0){
-        ven=arcVen.leerRegistro(pos);
-        if (ven.getEstado()==true){
-            cout<<endl<< "Detalle venta no. "<<nv<<":"<<endl;
-            ven.Mostrar();
-        }else{
-            cout<<endl<<"Esta venta fue dada de baja."<<endl;
-            cout<<"Detalle venta no. "<<nv<<":"<<endl;
-            ven.Mostrar();
+    ven=arcVen.leerRegistro(pos);
+    cout << "Detalle comanda n "<<nv<<endl;
+    cout << "Fecha operacion: ";
+    fec=ven.getFechaVenta();
+    fec.Mostrar();
+    cout << "Numero de cliente: "<<ven.getCliente()<<endl;
+    traerNombreCliente(ven.getCliente(),nombre);
+    cout << "Nombre del cliente: "<<nombre<<endl<<endl;
+    cout << "---- Detalle ---- "<<endl;
+    cout << "ID     Nombre      Cant    Subtotal"<<endl;
+    cantDet=arcDet.contarRegistros();
+    for(i=0;i<cantDet;i++){
+        det=arcDet.leerRegistro(i);
+        if(det.getNumVen()==nv){
+            det.Mostrar();
         }
-    }else{
-        cout<<endl<<"No existe una venta con ese NUMERO DE VENTA";
     }
+    cout <<"Importe total: "<<ven.getPrecioTotal()<<endl;
 }
 
 void bajaLogicaVenta(){//no creo que haga falta, uno no deberia poder alterar las ventas que hizo, es evasion de impuestos-- tener en cuenta
