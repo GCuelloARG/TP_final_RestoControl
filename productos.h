@@ -183,6 +183,21 @@ void mostrarListaProductos(){
     system("cls");
 }
 
+void darAltaProd(int num, Producto pr, ArchivoProducto archi){
+    char letra;
+    int pos;
+    cout<<"Quiere dar de alta el producto? Y/N"<<endl;
+    cin>>letra;
+    if(letra=='Y'||letra=='y'){
+        pr.setEstado(true);
+        pos=archi.buscarRegistro(num);
+        archi.modificarRegistro(pos, pr);
+        cout<<"El producto fue dado de alta";
+    }else if(letra=='N'||letra=='n'){
+        cout<<"El producto no fue modificado";
+    }
+}
+
 void mostrarIDProd(){
     Producto prod;
     ArchivoProducto arcProd("productos.dat");
@@ -197,6 +212,7 @@ void mostrarIDProd(){
         }else{
             cout<<endl<<"El PRODUCTO fue dado de baja"<<endl;
             prod.Mostrar();
+            darAltaProd(id, prod, arcProd);
         }
     }else{
         cout<<endl<<"No existe PROODUCTO con este ID";}
@@ -227,5 +243,7 @@ void bajaLogicaProd(){
     }
     return;
 }
+
+
 
 #endif // PRODUCTOS_H_INCLUDED

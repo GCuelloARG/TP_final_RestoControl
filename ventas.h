@@ -21,6 +21,7 @@ public:
         void setFecha(Fecha f){fechaVenta=f;}
         void setPrecioTotal(float pt){precioTotal=pt;}
         void setEstado(bool e){estado=e;}
+        void setCliente(int i){idCli=i;}
 
         int getNumVenta(){return numVenta;}
         Fecha getFechaVenta(){return fechaVenta;}
@@ -37,11 +38,6 @@ public:
             cout << numVenta;
             cout << "Fecha: ";
             fechaVenta.Mostrar();
-            cout << "Cliente: ";
-            id=cli.getId();             ///si no lee pasamos cliente entero.
-            cout << id << endl;
-            cout << "Detalle: ";
-            det.Mostrar();
             cout << "Precio total: $";
             cout << precioTotal;
             cout << endl;
@@ -260,45 +256,31 @@ void limpiarArchivoVentas(){
 }
 
 void nuevaVenta(){
+    ArchivoVenta arcVen("ventas.dat");
+    Venta reg;
     int nv=traerNumeroVenta();
+    reg.setNumVenta(nv);
+    float total;
     Fecha fec;
     fechaActual(fec);
+    reg.setFecha(fec);
     cout<<"Comanda n"<<(char)167<<": "<<nv;
     //preguntar por cliente, si no existe dejarlo en blanco > lo trae, todavia no lo escribe
     int ic;
     char nombre[30];
     cout << "\nID CLIENTE: ";
     cin >> ic;
+    reg.setCliente(ic);
     traerNombreCliente(ic, nombre); ///Quizas habria que mostrar solo el nombre, pero traer el cliente entero, para despues setCliente en obj venta << no creo que haga falta, si traer direccion "ponele" en caso de envios, pero no lo se
     cout<<endl<<"Cliente: "<< nombre;
 
-    cargarDetalle(nv); //>> desarrollar falta subtotal < OK
-
+    total=cargarDetalle(nv); //>> desarrollar falta subtotal < OK
+    reg.setPrecioTotal(total);
+    reg.setEstado(true);
+    cout<<"Total: $"<<total;
     //>> pasar por parametro numero de venta para identificar al detalle OK
     //leer archivo detalle>> calcular total
 
-
-    /*ArchivoDetalle arcDet("detalles.dat");
-    ArchivoVenta arcVen("ventas.dat");
-    float total;
-    Venta reg;
-    reg.Cargar(); ///(aun vacia) Pensar si hace falta cargar algo
-
-    reg.setNumVenta(nv);
-    reg.setFecha(fec);
-    reg.setCliente(cli); /// no hay obj cli aun. Traerlo entero en vez de solo nombre?
-    reg.setEstado(true);
-
-    int cantReg=arcDet.contarRegistros();
-    for(i=0;i<cantReg;i++){
-        det=arcDet.leerRegistros(i);
-        if(nv=det.getNumeroVenta()){    /// numero de venta en det aun no esta
-            reg.setDetalle(det);        ///resolver vector, o no guardarlo, y que no este en archivo ventas
-            total+=det.getSubt();
-        }
-    }
-    reg.setPrecioTotal(total)
-    arcVen.agregarRegistro(reg);*/
 }
 
 void listarPorNumVenta(){//incompleta, el archivo venta solo mostraria una parte, falta mostrar el detalle y eso se hace reccoriendo det.dat y trayendo lo que coincida con el nv

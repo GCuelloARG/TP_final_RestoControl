@@ -113,7 +113,7 @@ class ArchivoDetalle{
             }
 };
 
-void cargarDetalle(int nv){
+float cargarDetalle(int nv){
     ArchivoProducto arcProd("productos.dat");
     ArchivoDetalle arcDet("detalles.dat");
     Detalle det;
@@ -126,7 +126,9 @@ void cargarDetalle(int nv){
     while(id!=0){
         det.setID(id);
         int pos=arcProd.buscarRegistro(id);
+        if(pos>=0){
         prod=arcProd.leerRegistro(pos);
+        //falta validar prod
         det.setNombre(prod.getNombre());
         cout<<det.getNombre()<<endl;
         cout<<"CANTIDAD: ";
@@ -147,14 +149,12 @@ void cargarDetalle(int nv){
         /*//destruir obj detalle >> REVISAR. SALE ERROR CUANDO LLEGA A ESTA PARTE.
         QUIZAS SI USA PUNTERO NO HACE FALTA DESTRUIRLO
         delete det;*/
-
+        }else{cout<<"No existe producto con ese ID";}
         cout<<"ID PRODUCTO: ";
         cin>>id;
     }
-    cout<<endl;
-    cout<<"Total venta: $"<<totalCompra<<endl;
     cout<<endl<<" ** Venta cargada con exito **";
-    cout<<endl;
+    return totalCompra;
 }
 
 void mostrarListaDetalles(){    // es por numero de venta
