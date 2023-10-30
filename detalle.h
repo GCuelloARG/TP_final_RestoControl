@@ -1,6 +1,7 @@
 #ifndef DETALLE_H_INCLUDED
 #define DETALLE_H_INCLUDED
 #include "productos.h"
+#include "ventas.h"
 
 using namespace std;
 
@@ -8,7 +9,7 @@ class Detalle{
 	private:
             int id;
             int cant;
-            //agregar numero de venta
+            int numVen;
             char nombre[30];
             float subTotal;
             bool estado;
@@ -16,7 +17,7 @@ class Detalle{
 
             void setID(int i){id=i;}
             void setCant(int c){cant=c;}
-            ///void setNumVen(int nv){numVen=nv;}
+            void setNumVen(int nv){numVen=nv;}
             void setNombre(const char *nomb){
                 strcpy(nombre,nomb);
             }
@@ -25,7 +26,7 @@ class Detalle{
 
             int getId(){return id;}
             int getCant(){return cant;}
-            ///int getNumVen(){return numVen;}
+            int getNumVen(){return numVen;}
             const char *getNombre(){return nombre;}
             float getSubt(){return subTotal;}
             bool getEstado(){return estado;}
@@ -39,9 +40,11 @@ class Detalle{
             }
 
             void Mostrar(){
-                cout << id << endl;
-                cout << cant << endl;
-                cout << subTotal << endl;
+                cout << "ID PROD:" << id << endl;
+                cout << "NOMBRE: " << nombre << endl;
+                cout << "CANT:" << cant << endl;
+                cout << "SUBTOTAL: $" << subTotal << endl;
+                cout << endl;
             }
 
 };
@@ -110,14 +113,14 @@ class ArchivoDetalle{
             }
 };
 
-void cargarDetalle(){
+void cargarDetalle(int nv){
     ArchivoProducto arcProd("productos.dat");
     ArchivoDetalle arcDet("detalles.dat");
     Detalle det;
     Producto prod;
-    int id, cant, totalcompra;
-    float subtotal, acum;
-    acum=0;
+    det.setNumVen(nv);
+    int id, cant;
+    float subtotal, totalCompra=0;
     cout<<endl<<"ID PRODUCTO: ";
     cin>>id;
     while(id!=0){
@@ -125,19 +128,21 @@ void cargarDetalle(){
         int pos=arcProd.buscarRegistro(id);
         prod=arcProd.leerRegistro(pos);
         det.setNombre(prod.getNombre());
-        cout<<det.getNombre()<<endl; /// o prod.getNombre() << para mi directo del detalle que es el objeto en cuestion
+        cout<<det.getNombre()<<endl;
         cout<<"CANTIDAD: ";
         cin>>cant;
         det.setCant(cant);
         det.setEstado(true);
         subtotal=prod.getPrecio()*cant;
+        det.setSubTotal(subtotal);
+        totalCompra+=subtotal;
+
         cout<<"Importe: $"<<subtotal<<endl;
-        acum=acum+subtotal;
-        totalcompra=acum;
         cout<<endl;
 
         //agregar a archivo
-        arcDet.agregarRegistro(det);
+        bool grabo=arcDet.agregarRegistro(det);
+        cout<<endl<<grabo<<endl;                //CONTROL
 
         /*//destruir obj detalle >> REVISAR. SALE ERROR CUANDO LLEGA A ESTA PARTE.
         QUIZAS SI USA PUNTERO NO HACE FALTA DESTRUIRLO
@@ -147,12 +152,12 @@ void cargarDetalle(){
         cin>>id;
     }
     cout<<endl;
-    cout<<"Total venta: $"<<totalcompra<<endl;
+    cout<<"Total venta: $"<<totalCompra<<endl;
     cout<<endl<<" ** Venta cargada con exito **";
     cout<<endl;
 }
 
-void mostrarListaDetalles(){// es por numero de venta
+void mostrarListaDetalles(){    // es por numero de venta
     Detalle det;
     ArchivoDetalle arcDet("detalles.dat");
     int cantReg=arcDet.contarRegistros();
@@ -166,11 +171,10 @@ void mostrarListaDetalles(){// es por numero de venta
     system("cls");
 }
 
-void limpiarArchivoDetalles(){// funcion solo de control >> deberia borrarse para la entrega, o comentarla por las dudas
+void limpiarArchivoDetalles(){  // BORRAR/COMENTAR
     FILE *p=fopen("detalles.dat","wb");
     cout<<endl<<"Archivo BORRADO"<<endl;
     fclose(p);
 }
-
 
 #endif // DETALLE_H_INCLUDED

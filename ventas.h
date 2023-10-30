@@ -12,23 +12,18 @@ class Venta{
 private:
         int numVenta;
         Fecha fechaVenta;
-        Cliente cli;
-        Detalle det;
+        int idCli;
         float precioTotal;
         bool estado;
 
 public:
         void setNumVenta(int nv) {numVenta=nv;}
         void setFecha(Fecha f){fechaVenta=f;}
-        void setCliente(Cliente c){cli=c;}
-        void setDetalle(Detalle d){det=d;}
         void setPrecioTotal(float pt){precioTotal=pt;}
         void setEstado(bool e){estado=e;}
 
         int getNumVenta(){return numVenta;}
         Fecha getFechaVenta(){return fechaVenta;}
-        Cliente getCliente(){return cli;}
-        Detalle getDetalle(){return det;}
         float getPrecioTotal(){return precioTotal;}
         bool getEstado(){return estado;}
 
@@ -43,7 +38,7 @@ public:
             cout << "Fecha: ";
             fechaVenta.Mostrar();
             cout << "Cliente: ";
-            id=cli.getId();
+            id=cli.getId();             ///si no lee pasamos cliente entero.
             cout << id << endl;
             cout << "Detalle: ";
             det.Mostrar();
@@ -268,9 +263,8 @@ void nuevaVenta(){
     int nv=traerNumeroVenta();
     Fecha fec;
     fechaActual(fec);
-    float acum;
     cout<<"Comanda n"<<(char)167<<": "<<nv;
-    //preguntar por cliente, si no existe dejarlo en blanco > lo tre, todavia no lo escribe
+    //preguntar por cliente, si no existe dejarlo en blanco > lo trae, todavia no lo escribe
     int ic;
     char nombre[30];
     cout << "\nID CLIENTE: ";
@@ -278,14 +272,14 @@ void nuevaVenta(){
     traerNombreCliente(ic, nombre); ///Quizas habria que mostrar solo el nombre, pero traer el cliente entero, para despues setCliente en obj venta << no creo que haga falta, si traer direccion "ponele" en caso de envios, pero no lo se
     cout<<endl<<"Cliente: "<< nombre;
 
-    cargarDetalle(); //>> desarrollar falta subtotal
+    cargarDetalle(nv); //>> desarrollar falta subtotal < OK
 
-    //>> pasar por parametro numero de venta para identificar al detalle
+    //>> pasar por parametro numero de venta para identificar al detalle OK
     //leer archivo detalle>> calcular total
 
 
     /*ArchivoDetalle arcDet("detalles.dat");
-    ArchivoVenta arcVen("ventas.dat")
+    ArchivoVenta arcVen("ventas.dat");
     float total;
     Venta reg;
     reg.Cargar(); ///(aun vacia) Pensar si hace falta cargar algo

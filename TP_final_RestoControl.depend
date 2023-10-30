@@ -57,7 +57,7 @@
 	"configuracion.h"
 	"detalle.h"
 
-1698631188 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/ventas.h
+1698677073 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/ventas.h
 	<iostream>
 	<cstring>
 	"globales.h"
@@ -73,10 +73,11 @@
 	<cstring>
 	"globales.h"
 
-1698631932 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/detalle.h
+1698677160 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/detalle.h
 	"productos.h"
+	"ventas.h"
 
-1698631622 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/productos.h
+1698674103 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/productos.h
 	<iostream>
 	<cstdio>
 	<cstring>
