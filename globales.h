@@ -37,7 +37,7 @@ class Fecha{
         void Mostrar(){
             cout<<dia<<" / ";
             cout<<mes<<" / ";
-            cout<<anio<<endl;
+            cout<<anio;
         }
         int getDia(){return dia;}
         int getMes(){return mes;}

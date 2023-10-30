@@ -34,15 +34,9 @@ public:
         }
 
         void Mostrar(){
-            cout << "Comanda n: ";
-            cout << numVenta<<endl;
-            cout << "Id del cliente: ";
-            cout << idCli<<endl;
-            cout << "Fecha: ";
+            cout<<"\t"<<numVenta<<"\t"<<idCli<<"\t";
             fechaVenta.Mostrar();
-            cout << "Precio total: $";
-            cout << precioTotal<<endl;
-            cout << endl;
+            cout<<"  \t$"<<precioTotal<<endl;
         }
 };
 
@@ -352,6 +346,7 @@ void mostrarListaVentas(){
     ArchivoVenta arcVen("ventas.dat");
     int cantReg, i;
     cantReg=arcVen.contarRegistros();
+    cout<<"   Comanda   Cliente   \tFecha               Total\n";
     for(i=0;i<cantReg;i++){
         ven=arcVen.leerRegistro(i);
         if(ven.getEstado()==true){
