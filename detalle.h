@@ -140,11 +140,11 @@ float cargarDetalle(int nv){
             cout<<endl;
             arcDet.agregarRegistro(det);
 
-        }else{cout<<"No existe producto con ese ID";}
+        }else{cout<<"No existe producto con ese ID"<<endl;}
             cout<<"ID PRODUCTO: ";
             cin>>id;
     }
-    cout<<endl<<" ** Venta cargada con exito **";
+    cout<<endl<<" ** Venta cargada con exito **"<<endl;
     return totalCompra;
 }
 
