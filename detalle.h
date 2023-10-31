@@ -12,6 +12,7 @@ class Detalle{
             int cant;
             int numVen;
             char nombre[30];
+            float pu;
             float subTotal;
             bool estado;
 	public:
@@ -21,6 +22,7 @@ class Detalle{
             void setNombre(const char *nomb){
                 strcpy(nombre,nomb);
             }
+            void setPu(float n){pu=n;}
             void setSubTotal(float st){subTotal=st;}
             void setEstado(bool e){estado=e;}
 
@@ -29,6 +31,7 @@ class Detalle{
             int getNumVen(){return numVen;}
             const char *getNombre(){return nombre;}
             float getSubt(){return subTotal;}
+            float getPu(){return pu;}
             bool getEstado(){return estado;}
 
             void Cargar(){
@@ -39,10 +42,12 @@ class Detalle{
             }
 
             void Mostrar(int x, int y){
-                gotoxy(x, y);
+                gotoxy(x+1, y);
                 cout << id<<"\t"<<nombre;
-                gotoxy(x+21, y);
-                cout<<cant<<"\t\t"<<subTotal<< endl;
+                gotoxy(x+18,y);
+                cout<<"$"<<pu;
+                gotoxy(x+24, y);
+                cout<<cant<<"\t$"<<subTotal<< endl;
             }
 };
 
@@ -121,9 +126,10 @@ float cargarDetalle(int nv){
     Detalle det;
     Producto prod;
     det.setNumVen(nv);
-    int id, cant;
+    int id, cant,x=2,y=4;
     float subtotal, totalCompra=0;
-    cout<<endl<<"ID PRODUCTO: ";
+    cout<<endl<<"ID  NOMBRE    P.U.  Cant   SubT";
+    gotoxy(x,y);
     cin>>id;
     while(id!=0){
         det.setID(id);
@@ -132,23 +138,32 @@ float cargarDetalle(int nv){
             prod=arcProd.leerRegistro(pos);
             //falta validar prod
             det.setNombre(prod.getNombre());
-            cout<<det.getNombre()<<endl;
-            cout<<"CANTIDAD: ";
+            gotoxy(x+3,y);
+            cout<<det.getNombre();
+            gotoxy(x+13,y);
+            cout<<"$"<<prod.getPrecio();
+            det.setPu(prod.getPrecio());
+            gotoxy(x+20,y);
             cin>>cant;
             det.setCant(cant);
             det.setEstado(true);
             subtotal=prod.getPrecio()*cant;
             det.setSubTotal(subtotal);
             totalCompra+=subtotal;
-            cout<<"Importe: $"<<subtotal<<endl;
-            cout<<endl;
-            arcDet.agregarRegistro(det);
+            gotoxy(x+26,y);
+            cout<<"$"<<subtotal;
 
+            arcDet.agregarRegistro(det);
+            y++;
         }else{cout<<"No existe producto con ese ID"<<endl;}
-            cout<<"ID PRODUCTO: ";
+            gotoxy(x,y);
             cin>>id;
     }
-    cout<<endl<<" ** Venta cargada con exito **"<<endl;
+    gotoxy(x+19,y+2);
+    cout<<"Total: $"<<totalCompra<<endl;
+    cout<<endl<<"\n\n ** Venta cargada con exito **"<<endl;
+    system("pause");
+    system("cls");
     return totalCompra;
 }
 

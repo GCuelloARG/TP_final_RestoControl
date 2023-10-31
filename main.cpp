@@ -41,7 +41,8 @@ int main()
                 return 0;
             default:
                 cout << "Opcion no valida." << endl;
-                system("pause");
+                system ("pause");
+                system("cls");
                 break;
         }
     }

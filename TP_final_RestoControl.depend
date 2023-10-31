@@ -173,3 +173,63 @@
 	<sys/types.h>
 	<sys/time.h>
 
+1698785842 source:c:\users\usuario\documents\github\tp_final_restocontrol\main.cpp
+	<iostream>
+	"submenues.h"
+	"ventas.h"
+
+1698796078 c:\users\usuario\documents\github\tp_final_restocontrol\submenues.h
+	<iostream>
+	"ventas.h"
+	"configuracion.h"
+	"detalle.h"
+
+1698795863 c:\users\usuario\documents\github\tp_final_restocontrol\ventas.h
+	<iostream>
+	<cstring>
+	"globales.h"
+	"clientes.h"
+	"detalle.h"
+
+1698785842 c:\users\usuario\documents\github\tp_final_restocontrol\globales.h
+	<iostream>
+	<ctime>
+
+1698795705 c:\users\usuario\documents\github\tp_final_restocontrol\clientes.h
+	<iostream>
+	<cstring>
+	<iomanip>
+	"globales.h"
+
+1698795446 c:\users\usuario\documents\github\tp_final_restocontrol\detalle.h
+	"productos.h"
+	"ventas.h"
+	"rlutil.h"
+
+1698794613 c:\users\usuario\documents\github\tp_final_restocontrol\productos.h
+	<iostream>
+	<cstdio>
+	<cstring>
+	<iomanip>
+	"globales.h"
+	"rlutil.h"
+
+1698785842 c:\users\usuario\documents\github\tp_final_restocontrol\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1698785842 c:\users\usuario\documents\github\tp_final_restocontrol\configuracion.h
+	<iostream>
+	"clientes.h"
+	"productos.h"
+

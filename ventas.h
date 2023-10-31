@@ -230,7 +230,7 @@ void nuevaVenta(){
     Fecha fec;
     fechaActual(fec);
     reg.setFecha(fec);
-    cout<<"Comanda n"<<(char)167<<": "<<nv;
+    cout<<"Comanda n"<<(char)167<<": "<<setfill('0')<<setw(4)<<nv;
     //preguntar por cliente, si no existe dejarlo en blanco > lo trae, todavia no lo escribe
     int ic;
     char nombre[30];
@@ -238,20 +238,21 @@ void nuevaVenta(){
     cin >> ic;
     reg.setCliente(ic);
     traerNombreCliente(ic, nombre);
-    cout<<endl<<"Cliente: "<< nombre;
+    gotoxy(14,2);
+    cout<<" - "<< nombre;
     total=cargarDetalle(nv);
     reg.setPrecioTotal(total);
     reg.setEstado(true);
     arcVen.agregarRegistro(reg);
     system("cls");
-    cout << "Detalle comanda n "<<nv<<endl;
+    cout << "Detalle comanda n "<<(char)167<<setfill('0')<<setw(4)<<nv<<endl;
     cout << "Fecha operacion: ";
     fec.Mostrar();
     cout << "\nNumero de cliente: "<<reg.getCliente()<<endl;
     traerNombreCliente(reg.getCliente(),nombre);
     cout << "Nombre del cliente: "<<nombre<<endl<<endl;
     cout << "---- Detalle ---- "<<endl;
-    cout << "ID     Nombre      Cant    Subtotal"<<endl;
+    cout << "ID     Nombre    P.U.  Cant    Subtotal"<<endl;
     cout << "------------------------------------\n";
     int cantDet=arcDet.contarRegistros();
     int x=1, y=9;
@@ -263,8 +264,10 @@ void nuevaVenta(){
             y++;
         }
     }
-    cout << "------------------------------------\n";
-    cout <<"\n\t\tImporte total: "<<reg.getPrecioTotal()<<endl;
+    cout << "\n------------------------------------";
+    cout <<"\n\t\t Importe total: $"<<reg.getPrecioTotal()<<endl;
+    cout << "------------------------------------\n\n\n\n";
+
     system("pause");
     system("cls");
 }
@@ -284,7 +287,7 @@ void listarPorNumVenta(){
     int pos=arcVen.buscarRegistro(nv);
     if(pos>=0){
     ven=arcVen.leerRegistro(pos);
-    cout << "Detalle comanda n "<<nv<<endl;
+    cout << "Detalle comanda n "<<(char)167<<setfill('0')<<setw(4)<<nv<<endl;
     cout << "Fecha operacion: ";
     fec=ven.getFechaVenta();
     fec.Mostrar();
@@ -292,7 +295,7 @@ void listarPorNumVenta(){
     traerNombreCliente(ven.getCliente(),nombre);
     cout << "Nombre del cliente: "<<nombre<<endl<<endl;
     cout << "---- Detalle ---- "<<endl;
-    cout << "ID     Nombre      Cant    Subtotal"<<endl;
+    cout << "ID     Nombre    P.U.  Cant    Subtotal"<<endl;
     cout << "------------------------------------\n";
     cantDet=arcDet.contarRegistros();
     int x=1, y=9;
@@ -304,8 +307,9 @@ void listarPorNumVenta(){
             y++;
         }
     }
-    cout << "------------------------------------\n";
-    cout <<"\n\t\tImporte total: "<<ven.getPrecioTotal()<<endl;
+    cout << "\n------------------------------------";
+    cout <<"\n\t\t Importe total: $"<<ven.getPrecioTotal()<<endl;
+    cout << "------------------------------------\n\n\n\n";
     system("pause");
     system("cls");
     }else{
@@ -346,6 +350,7 @@ void mostrarListaVentas(){
     ArchivoVenta arcVen("ventas.dat");
     int cantReg, i;
     cantReg=arcVen.contarRegistros();
+    if(cantReg>0){
     cout<<"   Comanda   Cliente   \tFecha               Total\n";
     for(i=0;i<cantReg;i++){
         ven=arcVen.leerRegistro(i);
@@ -353,6 +358,9 @@ void mostrarListaVentas(){
             ven.Mostrar();
         }
     }
+    }else{cout<<"\n\n\tNo hay registros de ventas\n\n\n\n";}
+    system("pause");
+    system("cls");
 }
 
 #endif // VENTAS_H_INCLUDED

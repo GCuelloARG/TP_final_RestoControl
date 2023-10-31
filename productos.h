@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdio>
 #include <cstring>
+#include <iomanip>
 #include "globales.h"
 #include "rlutil.h"
 
@@ -58,7 +59,7 @@ class Producto{
 
         void Mostrar(){
             cout << "ID Producto: ";
-            cout << id << endl;
+            cout <<setfill('0')<<setw(4)<< id << endl;
             cout << "Nombre: ";
             cout << nombre << endl;
             cout <<"Descripcion :";
@@ -176,8 +177,8 @@ void nuevoProd(){
     ArchivoProducto arcProd("productos.dat");
     int id;
     bool escribio=false;
-    cout << "ID Producto: ";
-    cin >> id;
+    id=arcProd.contarRegistros();
+    cout << "ID Producto: "<<setfill('0')<<setw(4)<<id<<"\n";
     int pos=arcProd.buscarRegistro(id);
     if(pos==-1){
         prod.Cargar(id);
@@ -196,6 +197,8 @@ void nuevoProd(){
     if(escribio==true){
             cout<<endl<<"PRODUCTO agregado con exito."<<endl;
         }
+        system("pause");
+        system("cls");
 
 }
 
@@ -219,6 +222,7 @@ void mostrarIDProd(){
     int id;
     cout<<endl<<"Ingrese el ID del PRODUCTO: ";
     cin>>id;
+    system("cls");
     int pos=arcProd.buscarRegistro(id);
     if(pos>=0){
         prod=arcProd.leerRegistro(pos);
@@ -313,6 +317,7 @@ void cambiarPrecioProducto(){
         }
     }else if(choice=='N'||choice=='n'){
         cout<<"Operacion cancelada.";
+        system("pause");
         system("cls");
     }
 

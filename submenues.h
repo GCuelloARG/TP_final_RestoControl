@@ -40,17 +40,21 @@ void subMenuVentas(){
                 bajaLogicaVenta();
                 break;
             case 5:
-                limpiarArchivoDetalles(); /// OCULTO - Limpia registros del archivo detalles
+
                 break;
             case 6:
+                limpiarArchivoDetalles(); /// OCULTO - Limpia registros del archivo detalles
                 limpiarArchivoVentas(); /// OCULTO - Limpia registros del archivo ventas
                 break;
             case 0:
-                cout << "Regresando al menu principal..." << endl;
+                cout << "\n\n\n\tRegresando al menu principal...\n\n\n" << endl;
                 system ("pause");
+                system("cls");
                 return;
             default:
                 cout << "Opcion no valida." << endl;
+                system ("pause");
+                system("cls");
                 break;
         }
     }
@@ -95,12 +99,14 @@ void subMenuClientes(){
                 limpiarArchivoClientes(); /// OCULTO / Para limpiar todos los registros del archivo
                 break;
             case 0:
-                cout << "Regresando al menu principal..." << endl;
+                cout << "\n\n\n\tRegresando al menu principal...\n\n\n" << endl;
                 system ("pause");
                 system("cls");
                 return;
             default:
                 cout << "Opcion no valida." << endl;
+                system ("pause");
+                system("cls");
                 break;
         }
     }
@@ -144,12 +150,14 @@ void subMenuProductos(){
                 limpiarArchivoProductos(); /// OCULTO - Para limpiar todos los registros del archivo.
                 break;
             case 0:
-                cout << "Regresando al menu principal..." << endl;
+                cout << "\n\n\n\tRegresando al menu principal...\n\n\n" << endl;
                 system ("pause");
                 system ("cls");
                 return;
             default:
                 cout << "Opcion no valida." << endl;
+                system ("pause");
+                system("cls");
                 break;
         }
     }
@@ -195,12 +203,14 @@ void subMenuConfiguracion(){
                 restaurarProductos();
                 break;
             case 0:
-                cout << "Regresando al menu principal..." << endl;
+                cout << "\n\n\n\tRegresando al menu principal...\n\n\n" << endl;
                 system ("pause");
                 system("cls");
                 return;
             default:
                 cout << "Opcion no valida." << endl;
+                system ("pause");
+                system("cls");
                 break;
         }
     }

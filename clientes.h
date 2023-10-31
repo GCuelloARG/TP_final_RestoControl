@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <cstring>
+#include <iomanip>
 
 using namespace std;
 
@@ -61,7 +62,7 @@ class Cliente{
 
         void Mostrar(){
             cout << "ID Cliente: ";
-            cout << id << endl;
+            cout <<setfill('0')<<setw(4)<< id << endl;
             cout << "Nombre: ";
             cout << nombre << endl;
             cout << "Direccion: ";
@@ -182,8 +183,8 @@ void nuevoCliente(){
     ArchivoCliente arcCli("clientes.dat");
     int id;
     bool escribio=false;
-    cout<<"ID de CLIENTE: ";
-    cin>>id;
+    id=arcCli.contarRegistros();
+    cout<<"ID de CLIENTE: "<<setfill('0')<<setw(4)<<id<<"\n";
     int pos=arcCli.buscarRegistro(id);
     if(pos==-1){
         cli.Cargar(id);
@@ -202,6 +203,8 @@ void nuevoCliente(){
     if(escribio==true){
         cout<<endl<<"CLIENTE agregado con exito."<<endl;
     }
+    system("pause");
+    system("cls");
 }
 
 void mostrarListaClientes(){
@@ -224,6 +227,7 @@ void mostrarIDCli(){
     int id;
     cout<<endl<<"Ingrese el ID del CLIENTE: ";
     cin>>id;
+    system("cls");
     int pos=arcCli.buscarRegistro(id);
     if(pos>=0){
         cli=arcCli.leerRegistro(pos);
@@ -308,6 +312,8 @@ void cambiarDatosCliente(){
     cli=arcCli.leerRegistro(pos);
     tel=cli.getTel();
     strcpy(dir, cli.getDireccion());
+    cout<<endl;
+    system("cls");
     cout<<endl;
     cli.Mostrar();
     cout<<"Modificar DIRECCION? Y/N: ";
