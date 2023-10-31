@@ -48,6 +48,7 @@ void subMenuVentas(){
             case 0:
                 cout << "Regresando al menu principal..." << endl;
                 system ("pause");
+                system("cls");
                 return;
             default:
                 cout << "Opcion no valida." << endl;

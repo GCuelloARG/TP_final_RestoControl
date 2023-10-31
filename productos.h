@@ -57,11 +57,12 @@ class Producto{
         }
 
         void Mostrar(){
+            gotoxy(8,15);
             cout << "ID Producto: ";
             cout << id << endl;
             cout << "Nombre: ";
             cout << nombre << endl;
-            cout <<"Descripcion :";
+            cout <<"Descripcion: ";
             cout << descripcion<<endl;
             cout << "Precio Unitario: $";
             cout << precioUnitario << endl<<endl;
@@ -315,8 +316,12 @@ void cambiarPrecioProducto(){
         cout<<"Operacion cancelada.";
         system("cls");
     }
-
-
+    else if(choice!='N'||choice!='n'||choice!='Y'||choice!='y'){
+        cout<<"Opcion invalida."<<endl;
+        system("pause");
+        system("cls");
+        return;
+    }
 }
 
 #endif // PRODUCTOS_H_INCLUDED

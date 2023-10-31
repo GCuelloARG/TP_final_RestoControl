@@ -250,7 +250,7 @@ void nuevaVenta(){
     cout << "\nNumero de cliente: "<<reg.getCliente()<<endl;
     traerNombreCliente(reg.getCliente(),nombre);
     cout << "Nombre del cliente: "<<nombre<<endl<<endl;
-    cout << "---- Detalle ---- "<<endl;
+    cout << "-------------DETALLE---------------- "<<endl;
     cout << "ID     Nombre      Cant    Subtotal"<<endl;
     cout << "------------------------------------\n";
     int cantDet=arcDet.contarRegistros();
@@ -291,7 +291,7 @@ void listarPorNumVenta(){
     cout << "\nNumero de cliente: "<<ven.getCliente()<<endl;
     traerNombreCliente(ven.getCliente(),nombre);
     cout << "Nombre del cliente: "<<nombre<<endl<<endl;
-    cout << "---- Detalle ---- "<<endl;
+    cout << "-------------DETALLE---------------- "<<endl;
     cout << "ID     Nombre      Cant    Subtotal"<<endl;
     cout << "------------------------------------\n";
     cantDet=arcDet.contarRegistros();
@@ -305,7 +305,8 @@ void listarPorNumVenta(){
         }
     }
     cout << "------------------------------------\n";
-    cout <<"\n\t\tImporte total: "<<ven.getPrecioTotal()<<endl;
+    cout <<"\n\t\tImporte total: $"<<ven.getPrecioTotal()<<endl;
+    gotoxy(1,30);
     system("pause");
     system("cls");
     }else{
