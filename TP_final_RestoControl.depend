@@ -88,7 +88,7 @@
 	"globales.h"
 	"rlutil.h"
 
-1698787261 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\ventas.h
+1698787559 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\ventas.h
 	<iostream>
 	<cstring>
 	"globales.h"
@@ -104,7 +104,7 @@
 	<cstring>
 	"globales.h"
 
-1698770174 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\detalle.h
+1698787804 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\detalle.h
 	"productos.h"
 	"ventas.h"
 	"rlutil.h"

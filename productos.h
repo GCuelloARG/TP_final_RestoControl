@@ -57,7 +57,6 @@ class Producto{
         }
 
         void Mostrar(){
-            gotoxy(8,15);
             cout << "ID Producto: ";
             cout << id << endl;
             cout << "Nombre: ";

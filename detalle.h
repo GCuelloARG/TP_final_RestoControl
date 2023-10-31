@@ -132,7 +132,8 @@ float cargarDetalle(int nv){
             prod=arcProd.leerRegistro(pos);
             //falta validar prod
             det.setNombre(prod.getNombre());
-            cout<<det.getNombre()<<endl;
+            cout<<"Producto:"<<det.getNombre()<<endl;
+            cout<<"Precio unitario $"<<prod.getPrecio()<<endl;
             cout<<"CANTIDAD: ";
             cin>>cant;
             det.setCant(cant);

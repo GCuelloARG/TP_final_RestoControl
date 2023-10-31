@@ -238,7 +238,7 @@ void nuevaVenta(){
     cin >> ic;
     reg.setCliente(ic);
     traerNombreCliente(ic, nombre);
-    cout<<endl<<"Cliente: "<< nombre;
+    cout<<"Cliente: "<< nombre;
     total=cargarDetalle(nv);
     reg.setPrecioTotal(total);
     reg.setEstado(true);
