@@ -255,25 +255,35 @@ void listarPorNumVenta(){
     int nv, cantDet, i;
     cout<<endl<<"Ingrese el NUMERO DE VENTA: ";
     cin>>nv;
+    system("cls");
     int pos=arcVen.buscarRegistro(nv);
+    if(pos>=0){
     ven=arcVen.leerRegistro(pos);
     cout << "Detalle comanda n "<<nv<<endl;
     cout << "Fecha operacion: ";
     fec=ven.getFechaVenta();
     fec.Mostrar();
-    cout << "Numero de cliente: "<<ven.getCliente()<<endl;
+    cout << "\nNumero de cliente: "<<ven.getCliente()<<endl;
     traerNombreCliente(ven.getCliente(),nombre);
     cout << "Nombre del cliente: "<<nombre<<endl<<endl;
     cout << "---- Detalle ---- "<<endl;
     cout << "ID     Nombre      Cant    Subtotal"<<endl;
     cantDet=arcDet.contarRegistros();
     for(i=0;i<cantDet;i++){
+
         det=arcDet.leerRegistro(i);
         if(det.getNumVen()==nv){
             det.Mostrar();
         }
     }
-    cout <<"Importe total: "<<ven.getPrecioTotal()<<endl;
+    cout <<"\n\t\tImporte total: "<<ven.getPrecioTotal()<<endl;
+    system("pause");
+    system("cls");
+    }else{
+        cout<<"No hay comandas con ese numero\n";
+        system("pause");
+        system("cls");
+    }
 }
 
 void bajaLogicaVenta(){

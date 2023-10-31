@@ -10,18 +10,18 @@
 	"configuracion.h"
 	"detalle.h"
 
-1698696410 source:c:\users\gonza\desktop\tp_final_restocontrol\main.cpp
+1698706318 source:c:\users\gonza\desktop\tp_final_restocontrol\main.cpp
 	<iostream>
 	"submenues.h"
 	"ventas.h"
 
-1698696497 c:\users\gonza\desktop\tp_final_restocontrol\submenues.h
+1698706318 c:\users\gonza\desktop\tp_final_restocontrol\submenues.h
 	<iostream>
 	"ventas.h"
 	"configuracion.h"
 	"detalle.h"
 
-1698697548 c:\users\gonza\desktop\tp_final_restocontrol\ventas.h
+1698724990 c:\users\gonza\desktop\tp_final_restocontrol\ventas.h
 	<iostream>
 	<cstring>
 	"globales.h"
@@ -32,20 +32,22 @@
 	<iostream>
 	<ctime>
 
-1698690495 c:\users\gonza\desktop\tp_final_restocontrol\clientes.h
+1698726339 c:\users\gonza\desktop\tp_final_restocontrol\clientes.h
 	<iostream>
 	<cstring>
 	"globales.h"
 
-1698696410 c:\users\gonza\desktop\tp_final_restocontrol\detalle.h
+1698724603 c:\users\gonza\desktop\tp_final_restocontrol\detalle.h
 	"productos.h"
 	"ventas.h"
+	"rlutil.h"
 
-1698680504 c:\users\gonza\desktop\tp_final_restocontrol\productos.h
+1698726517 c:\users\gonza\desktop\tp_final_restocontrol\productos.h
 	<iostream>
 	<cstdio>
 	<cstring>
 	"globales.h"
+	"rlutil.h"
 
 1698702743 source:/Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/main.cpp
 	<iostream>
@@ -124,4 +126,18 @@
 	<iostream>
 	"clientes.h"
 	"productos.h"
+
+1698696526 c:\users\gonza\desktop\tp_final_restocontrol\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
 

@@ -206,10 +206,12 @@ void darAltaCli(int num, Cliente cl, ArchivoCliente archi){
         cl.setEstado(true);
         pos=archi.buscarRegistro(num);
         archi.modificarRegistro(pos, cl);
-        cout<<endl<<"El producto fue dado de alta"<<endl;
+        cout<<endl<<"El cliente fue dado de alta\n";
     }else if(letra=='N'||letra=='n'){
-        cout<<endl<<"El producto no fue modificado"<<endl;
+        cout<<endl<<"El cliente no fue modificado"<<endl;
     }
+    system("pause");
+    system("cls");
 }
 
 void mostrarIDCli(){
@@ -219,7 +221,7 @@ void mostrarIDCli(){
     cout<<endl<<"Ingrese el ID del CLIENTE: ";
     cin>>id;
     int pos=arcCli.buscarRegistro(id);
-    if(pos>0){
+    if(pos>=0){
         cli=arcCli.leerRegistro(pos);
         if(cli.getEstado()==true){
             cli.Mostrar();
@@ -236,7 +238,8 @@ void mostrarIDCli(){
 void bajaLogicaCli(){
     ArchivoCliente archi("clientes.dat");
     int id, pos;
-    cout << "Ingrese el ID del CLIENTE a borrar: ";
+    char choice;
+    cout << "Ingrese el ID del CLIENTE: ";
     cin >> id;
     pos=archi.buscarRegistro(id);
     if(pos==-1){
@@ -249,17 +252,22 @@ void bajaLogicaCli(){
         }
     }
     Cliente reg=archi.leerRegistro(pos);
+    reg.Mostrar();
+    cout<<"\nQuiere dar de baja el registro?\tY/N\n";
+    cin>>choice;
+    if(choice=='Y'||choice=='y'){
     reg.setEstado(false);
     bool quePaso=archi.modificarRegistro(pos, reg);
     if(quePaso==true){
         cout<<endl<<"CLIENTE borrado con exito"<<endl;
-        system("pause");
-        system("cls");
     }else{
         cout<<endl<<"No se pudo borrar el CLIENTE"<<endl;
-        system("pause");
-        system("cls");
     }
+    }else if(choice=='N'||choice=='n'){
+        cout<<"Operacion cancelada\n";
+    }
+    system("pause");
+    system("cls");
 }
 
 

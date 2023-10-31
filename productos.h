@@ -5,6 +5,7 @@
 #include <cstdio>
 #include <cstring>
 #include "globales.h"
+#include "rlutil.h"
 
 using namespace std;
 
@@ -56,10 +57,13 @@ class Producto{
         }
 
         void Mostrar(){
+            gotoxy(3,15);
             cout << "ID Producto: ";
             cout << id << endl;
             cout << "Nombre: ";
             cout << nombre << endl;
+            cout <<"Descripcion :";
+            cout << descripcion<<endl;
             cout << "Precio Unitario: $";
             cout << precioUnitario << endl<<endl;
         }
@@ -207,7 +211,7 @@ void mostrarIDProd(){
     cout<<endl<<"Ingrese el ID del PRODUCTO: ";
     cin>>id;
     int pos=arcProd.buscarRegistro(id);
-    if(pos>0){
+    if(pos>=0){
         prod=arcProd.leerRegistro(pos);
         if(prod.getEstado()==true){
             prod.Mostrar();
@@ -217,14 +221,17 @@ void mostrarIDProd(){
             darAltaProd(id, prod, arcProd);
         }
     }else{
-        cout<<endl<<"No existe PROODUCTO con este ID"<<endl;
+        cout<<endl<<"No existe PRODUCTO con este ID"<<endl;
     }
+    system("pause");
+    system("cls");
 }
 
 void bajaLogicaProd(){
     ArchivoProducto arc ("productos.dat");
     int id, pos;
-    cout << "Ingrese el ID a dar de baja: ";
+    char choice;
+    cout << "Ingrese el ID del PRODUCTO: ";
     cin >> id;
     pos=arc.buscarRegistro(id);
     if(pos==-1){
@@ -237,14 +244,22 @@ void bajaLogicaProd(){
         }
     }
     Producto reg=arc.leerRegistro(pos);
+    reg.Mostrar();
+    cout<<"\nQuiere dar de baja el registro?\tY/N\n";
+    cin>>choice;
+    if(choice=='Y'||choice=='y'){
     reg.setEstado(false);
     bool quePaso=arc.modificarRegistro(pos, reg);
     if(quePaso==true){
         cout<<endl<<"PRODUCTO borrado con exito"<<endl;
     }else{
         cout<<endl<<"No se pudo borrar el PRODUCTO"<<endl;
-    }
-    return;
+        }
+    }else if(choice=='N'||choice=='n'){
+        cout<<"Operacion cancelada\n";
+}
+    system("pause");
+    system("cls");
 }
 
 

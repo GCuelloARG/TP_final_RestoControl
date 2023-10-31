@@ -2,6 +2,7 @@
 #define DETALLE_H_INCLUDED
 #include "productos.h"
 #include "ventas.h"
+#include "rlutil.h"
 
 using namespace std;
 
@@ -38,7 +39,7 @@ class Detalle{
             }
 
             void Mostrar(){
-                cout << id<<"\t"<<nombre<<"\t\t"<<cant<<"\t\t"<<subTotal<< endl;
+                cout << id<<"\t"<<nombre<<"\t\t"<<cant<<"\t"<<subTotal<< endl;
             }
 };
 
