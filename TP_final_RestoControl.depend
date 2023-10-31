@@ -104,12 +104,12 @@
 	<cstring>
 	"globales.h"
 
-1698787804 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\detalle.h
+1698788028 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\detalle.h
 	"productos.h"
 	"ventas.h"
 	"rlutil.h"
 
-1698786745 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\productos.h
+1698787943 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\productos.h
 	<iostream>
 	<cstdio>
 	<cstring>
