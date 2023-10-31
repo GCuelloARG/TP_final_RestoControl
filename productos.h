@@ -62,7 +62,7 @@ class Producto{
             cout <<setfill('0')<<setw(4)<< id << endl;
             cout << "Nombre: ";
             cout << nombre << endl;
-            cout <<"Descripcion :";
+            cout <<"Descripcion: ";
             cout << descripcion<<endl;
             cout << "Precio Unitario: $";
             cout << precioUnitario << endl<<endl;
@@ -320,8 +320,12 @@ void cambiarPrecioProducto(){
         system("pause");
         system("cls");
     }
-
-
+    else if(choice!='N'||choice!='n'||choice!='Y'||choice!='y'){
+        cout<<"Opcion invalida."<<endl;
+        system("pause");
+        system("cls");
+        return;
+    }
 }
 
 #endif // PRODUCTOS_H_INCLUDED
