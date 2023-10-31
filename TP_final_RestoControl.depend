@@ -21,7 +21,7 @@
 	"configuracion.h"
 	"detalle.h"
 
-1698724990 c:\users\gonza\desktop\tp_final_restocontrol\ventas.h
+1698757236 c:\users\gonza\desktop\tp_final_restocontrol\ventas.h
 	<iostream>
 	<cstring>
 	"globales.h"
@@ -37,7 +37,7 @@
 	<cstring>
 	"globales.h"
 
-1698724603 c:\users\gonza\desktop\tp_final_restocontrol\detalle.h
+1698757112 c:\users\gonza\desktop\tp_final_restocontrol\detalle.h
 	"productos.h"
 	"ventas.h"
 	"rlutil.h"

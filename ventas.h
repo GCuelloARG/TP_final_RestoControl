@@ -221,7 +221,9 @@ void limpiarArchivoVentas(){
 
 void nuevaVenta(){
     ArchivoVenta arcVen("ventas.dat");
+    ArchivoDetalle arcDet("detalles.dat");
     Venta reg;
+    Detalle det;
     int nv=traerNumeroVenta();
     reg.setNumVenta(nv);
     float total;
@@ -241,7 +243,30 @@ void nuevaVenta(){
     reg.setPrecioTotal(total);
     reg.setEstado(true);
     arcVen.agregarRegistro(reg);
-    cout<<"Total: $"<<total;
+    system("cls");
+    cout << "Detalle comanda n "<<nv<<endl;
+    cout << "Fecha operacion: ";
+    fec.Mostrar();
+    cout << "\nNumero de cliente: "<<reg.getCliente()<<endl;
+    traerNombreCliente(reg.getCliente(),nombre);
+    cout << "Nombre del cliente: "<<nombre<<endl<<endl;
+    cout << "---- Detalle ---- "<<endl;
+    cout << "ID     Nombre      Cant    Subtotal"<<endl;
+    cout << "------------------------------------\n";
+    int cantDet=arcDet.contarRegistros();
+    int x=1, y=9;
+    for(int i=0;i<cantDet;i++){
+
+        det=arcDet.leerRegistro(i);
+        if(det.getNumVen()==nv){
+            det.Mostrar(x, y);
+            y++;
+        }
+    }
+    cout << "------------------------------------\n";
+    cout <<"\n\t\tImporte total: "<<reg.getPrecioTotal()<<endl;
+    system("pause");
+    system("cls");
 }
 
 void listarPorNumVenta(){
@@ -268,14 +293,18 @@ void listarPorNumVenta(){
     cout << "Nombre del cliente: "<<nombre<<endl<<endl;
     cout << "---- Detalle ---- "<<endl;
     cout << "ID     Nombre      Cant    Subtotal"<<endl;
+    cout << "------------------------------------\n";
     cantDet=arcDet.contarRegistros();
+    int x=1, y=9;
     for(i=0;i<cantDet;i++){
 
         det=arcDet.leerRegistro(i);
         if(det.getNumVen()==nv){
-            det.Mostrar();
+            det.Mostrar(x, y);
+            y++;
         }
     }
+    cout << "------------------------------------\n";
     cout <<"\n\t\tImporte total: "<<ven.getPrecioTotal()<<endl;
     system("pause");
     system("cls");

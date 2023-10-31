@@ -38,8 +38,11 @@ class Detalle{
                cin>>cant;
             }
 
-            void Mostrar(){
-                cout << id<<"\t"<<nombre<<"\t\t"<<cant<<"\t"<<subTotal<< endl;
+            void Mostrar(int x, int y){
+                gotoxy(x, y);
+                cout << id<<"\t"<<nombre;
+                gotoxy(x+21, y);
+                cout<<cant<<"\t\t"<<subTotal<< endl;
             }
 };
 
