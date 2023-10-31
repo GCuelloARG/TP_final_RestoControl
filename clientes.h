@@ -314,10 +314,15 @@ void cambiarDatosCliente(){
     cin>>choice;
     if(choice=='Y'||choice=='y'){
         cout<<"Ingrese la nueva direccion: ";
-        cin>>dir;
+        cargarCadena(dir,29);
         cout<<endl;
     }else if(choice=='N'||choice=='n'){
         cout<<"No se modifico la DIRECCION"<<endl;
+    }else if(choice!='N'||choice!='n'||choice!='Y'||choice!='y'){
+        cout<<"Opcion invalida."<<endl;
+        system("pause");
+        system("cls");
+        return;
     }
     cout<<"Modificar TELEFONO? Y/N: ";
     cin>>choice;
@@ -325,8 +330,14 @@ void cambiarDatosCliente(){
         cout<<"Ingrese el nuevo telefono: ";
         cin>>tel;
     }else if(choice=='N'||choice=='n'){
-        cout<<"No se modifico el TEELEFONO"<<endl;
+        cout<<"No se modifico el TELEFONO"<<endl;
     }
+    else if(choice!='N'||choice!='n'||choice!='Y'||choice!='y'){
+        cout<<"Opcion invalida."<<endl;
+        system("pause");
+        system("cls");
+        return;
+        }
     cout<<endl;
     cout<<"Confirmar? Y/N: ";
     cin>>choice;
@@ -346,6 +357,7 @@ void cambiarDatosCliente(){
         }
     }else if(choice=='N'||choice=='n'){
         cout<<"Operacion cancelada.";
+        system("pause");
         system("cls");
     }
 }

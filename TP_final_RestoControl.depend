@@ -4,7 +4,7 @@
 	"submenues.h"
 	"ventas.h"
 
-1698780701 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\submenues.h
+1698785014 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\submenues.h
 	<iostream>
 	"ventas.h"
 	"configuracion.h"
@@ -99,7 +99,7 @@
 	<iostream>
 	<ctime>
 
-1698781527 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\clientes.h
+1698786021 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\clientes.h
 	<iostream>
 	<cstring>
 	"globales.h"
@@ -109,7 +109,7 @@
 	"ventas.h"
 	"rlutil.h"
 
-1698781997 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\productos.h
+1698785014 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\productos.h
 	<iostream>
 	<cstdio>
 	<cstring>
