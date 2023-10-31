@@ -287,6 +287,68 @@ void traerNombreCliente(int ic, char *vec){
     }
 }
 
+void cambiarDatosCliente(){
+    Cliente cli;
+    ArchivoCliente arcCli("clientes.dat");
+    int id, pos, tel;
+    char choice, dir[30];
+    bool quePaso=false;
+    cout<<"Ingrese el ID del CLIENTE a modificar: ";
+    cin>>id;
+    pos=arcCli.buscarRegistro(id);
+    if(pos==-1){
+        cout<<"No existe CLIENTE con ese ID"<<endl;
+        return;
+    } else {
+        if(pos==-2){
+            cout<<"ERROR DE ARCHIVO - cambiar"<<endl;
+            return;
+        }
+    }
+    cli=arcCli.leerRegistro(pos);
+    tel=cli.getTel();
+    strcpy(dir, cli.getDireccion());
+    cout<<endl;
+    cli.Mostrar();
+    cout<<"Modificar DIRECCION? Y/N: ";
+    cin>>choice;
+    if(choice=='Y'||choice=='y'){
+        cout<<"Ingrese la nueva direccion: ";
+        cin>>dir;
+        cout<<endl;
+    }else if(choice=='N'||choice=='n'){
+        cout<<"No se modifico la DIRECCION"<<endl;
+    }
+    cout<<"Modificar TELEFONO? Y/N: ";
+    cin>>choice;
+    if(choice=='Y'||choice=='y'){
+        cout<<"Ingrese el nuevo telefono: ";
+        cin>>tel;
+    }else if(choice=='N'||choice=='n'){
+        cout<<"No se modifico el TEELEFONO"<<endl;
+    }
+    cout<<endl;
+    cout<<"Confirmar? Y/N: ";
+    cin>>choice;
+    if(choice=='Y'||choice=='y'){
+        cli.setDireccion(dir);
+        cli.setTel(tel);
+        bool quePaso=arcCli.modificarRegistro(pos,cli);
+        if(quePaso==true){
+            system("cls");
+            cout<<endl<<"CLIENTE modificado con exito"<<endl;
+            cout<<endl;
+            cli.Mostrar();
+            system("pause");
+            system("cls");
+        }else{
+            cout<<endl<<"No se pudo modificar el CLIENTE"<<endl;
+        }
+    }else if(choice=='N'||choice=='n'){
+        cout<<"Operacion cancelada.";
+        system("cls");
+    }
+}
 
 
 #endif // CLIENTES_H_INCLUDED

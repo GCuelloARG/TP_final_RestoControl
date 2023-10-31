@@ -66,7 +66,8 @@ void subMenuClientes(){
         cout << "1. CARGAR Cliente           ."<< endl;
         cout << "2. BUSCAR Cliente           ."<< endl;
         cout << "3. VER Clientes             ."<< endl;
-        cout << "4. BORRAR Cliente           ."<< endl;
+        cout << "4. MODIFICAR DATOS Cliente  ."<< endl;
+        cout << "5. BORRAR Cliente           ."<< endl;
         cout << "_____________________________"<< endl;
         cout << endl;
         cout << "0. VOLVER AL MENU PRINCIPAL"<< endl;
@@ -85,9 +86,12 @@ void subMenuClientes(){
                 mostrarListaClientes();
                 break;
             case 4:
-                bajaLogicaCli();
+                cambiarDatosCliente();
                 break;
             case 5:
+                bajaLogicaCli();
+                break;
+            case 6:
                 limpiarArchivoClientes(); /// OCULTO / Para limpiar todos los registros del archivo
                 break;
             case 0:

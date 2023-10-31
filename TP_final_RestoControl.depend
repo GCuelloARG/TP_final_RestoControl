@@ -49,18 +49,18 @@
 	"globales.h"
 	"rlutil.h"
 
-1698702743 source:/Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/main.cpp
+1698782127 source:/Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/main.cpp
 	<iostream>
 	"submenues.h"
 	"ventas.h"
 
-1698702743 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/submenues.h
+1698783837 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/submenues.h
 	<iostream>
 	"ventas.h"
 	"configuracion.h"
 	"detalle.h"
 
-1698703339 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/ventas.h
+1698782127 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/ventas.h
 	<iostream>
 	<cstring>
 	"globales.h"
@@ -71,20 +71,22 @@
 	<iostream>
 	<ctime>
 
-1698703339 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/clientes.h
+1698784946 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/clientes.h
 	<iostream>
 	<cstring>
 	"globales.h"
 
-1698703620 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/detalle.h
+1698761896 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/detalle.h
 	"productos.h"
 	"ventas.h"
+	"rlutil.h"
 
-1698703339 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/productos.h
+1698784271 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/productos.h
 	<iostream>
 	<cstdio>
 	<cstring>
 	"globales.h"
+	"rlutil.h"
 
 1698779691 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\ventas.h
 	<iostream>
@@ -144,6 +146,20 @@
 	<sys/time.h>
 
 1698697988 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1698699665 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/rlutil.h
 	<iostream>
 	<string>
 	<cstdio>

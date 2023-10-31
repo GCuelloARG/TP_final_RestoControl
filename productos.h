@@ -295,22 +295,22 @@ void cambiarPrecioProducto(){
     cout<<"Ingrese el nuevo precio: $";
     cin>>np;
     cout<<"El nuevo precio va a ser de: $"<<np<<endl;
-    cout<<"¿Confirmar? Y/N: ";
+    cout<<"Confirmar? Y/N: ";
     cin>>choice;
     if(choice=='Y'||choice=='y'){
-    prod.setPrecioUnitario(np);
-    bool quePaso=arcProd.modificarRegistro(pos,prod);
-    if(quePaso==true){
-    system("cls");
-    cout<<endl<<"PRODUCTO modificado con exito"<<endl;
-    cout<<endl;
-    cout<<"El nuevo producto: "<<endl;
-    prod.Mostrar();
-    system("pause");
-    system("cls");
-    }else{
-        cout<<endl<<"No se pudo modificar el PRODUCTO"<<endl;
-    }
+        prod.setPrecioUnitario(np);
+        bool quePaso=arcProd.modificarRegistro(pos,prod);
+        if(quePaso==true){
+            system("cls");
+            cout<<endl<<"PRODUCTO modificado con exito"<<endl;
+            cout<<endl;
+            cout<<"El nuevo producto: "<<endl;
+            prod.Mostrar();
+            system("pause");
+            system("cls");
+        }else{
+            cout<<endl<<"No se pudo modificar el PRODUCTO"<<endl;
+        }
     }else if(choice=='N'||choice=='n'){
         cout<<"Operacion cancelada.";
         system("cls");
