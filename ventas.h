@@ -278,7 +278,7 @@ void listarPorNumVenta(){
     ArchivoDetalle arcDet("detalles.dat");
     ArchivoCliente arcCli("clientes.dat");
     int nv, cantDet, i;
-    cout<<endl<<"Ingrese el NUMERO DE VENTA: ";
+    cout<<endl<<"Ingrese el NUMERO DE COMANDA: ";
     cin>>nv;
     system("cls");
     int pos=arcVen.buscarRegistro(nv);

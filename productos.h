@@ -57,7 +57,6 @@ class Producto{
         }
 
         void Mostrar(){
-            gotoxy(3,15);
             cout << "ID Producto: ";
             cout << id << endl;
             cout << "Nombre: ";
@@ -148,6 +147,7 @@ class ArchivoProducto{
             fclose(pProd);
             return escribio;
         }
+
 };
 
 void limpiarArchivoProductos(){
@@ -156,23 +156,47 @@ void limpiarArchivoProductos(){
     fclose(p);
 }
 
+void darAltaProd(int num, Producto pr, ArchivoProducto archi){
+    char letra;
+    int pos;
+    cout<<"Quiere dar de alta el producto? Y/N: ";
+    cin>>letra;
+    if(letra=='Y'||letra=='y'){
+        pr.setEstado(true);
+        pos=archi.buscarRegistro(num);
+        archi.modificarRegistro(pos, pr);
+        cout<<endl<<"El producto fue dado de alta"<<endl;
+    }else if(letra=='N'||letra=='n'){
+        cout<<endl<<"El producto no fue modificado"<<endl;
+    }
+}
+
 void nuevoProd(){
     Producto prod;
     ArchivoProducto arcProd("productos.dat");
     int id;
+    bool escribio=false;
     cout << "ID Producto: ";
     cin >> id;
     int pos=arcProd.buscarRegistro(id);
     if(pos==-1){
         prod.Cargar(id);
-        bool escribio=arcProd.agregarRegistro(prod);
-
-        if(escribio==true){
-            cout<<endl<<"PRODUCTO agregado con exito."<<endl;
-        }else{
-            cout<<endl<<"Ya existe un PRODUCTO con ese ID"<<endl;
+        escribio=arcProd.agregarRegistro(prod);
+        }else if(pos>=0){
+            if(prod.getEstado()==true){
+            cout<<endl<<"Ya existe un PRODUCTO con ese ID."<<endl;
+            }else{
+            cout<<endl<<"El PRODUCTO con ese ID fue dado de baja."<<endl;
+            prod=arcProd.leerRegistro(pos);
+            prod.Mostrar();
+            cout<<endl;
+            darAltaProd(id,prod,arcProd);
+            }
         }
-    }
+    if(escribio==true){
+            cout<<endl<<"PRODUCTO agregado con exito."<<endl;
+        }
+
 }
 
 void mostrarListaProductos(){
@@ -187,21 +211,6 @@ void mostrarListaProductos(){
     }
     system("pause");
     system("cls");
-}
-
-void darAltaProd(int num, Producto pr, ArchivoProducto archi){
-    char letra;
-    int pos;
-    cout<<"Quiere dar de alta el producto? Y/N"<<endl;
-    cin>>letra;
-    if(letra=='Y'||letra=='y'){
-        pr.setEstado(true);
-        pos=archi.buscarRegistro(num);
-        archi.modificarRegistro(pos, pr);
-        cout<<endl<<"El producto fue dado de alta"<<endl;
-    }else if(letra=='N'||letra=='n'){
-        cout<<endl<<"El producto no fue modificado"<<endl;
-    }
 }
 
 void mostrarIDProd(){
@@ -245,7 +254,7 @@ void bajaLogicaProd(){
     }
     Producto reg=arc.leerRegistro(pos);
     reg.Mostrar();
-    cout<<"\nQuiere dar de baja el registro?\tY/N\n";
+    cout<<"\nQuiere dar de baja el registro?\tY/N: ";
     cin>>choice;
     if(choice=='Y'||choice=='y'){
     reg.setEstado(false);
@@ -262,6 +271,52 @@ void bajaLogicaProd(){
     system("cls");
 }
 
+void cambiarPrecioProducto(){
+    Producto prod;
+    ArchivoProducto arcProd("productos.dat");
+    int id, pos;
+    float np;
+    char choice;
+    cout<<"Ingrese el ID del producto a modificar: ";
+    cin>>id;
+    pos=arcProd.buscarRegistro(id);
+    if(pos==-1){
+        cout<<"No existe PRODUCTO con ese ID"<<endl;
+        return;
+    } else {
+        if(pos==-2){
+            cout<<"ERROR DE ARCHIVO - modificar"<<endl;
+            return;
+        }
+    }
+    prod=arcProd.leerRegistro(pos);
+    cout<<endl;
+    prod.Mostrar();
+    cout<<"Ingrese el nuevo precio: $";
+    cin>>np;
+    cout<<"El nuevo precio va a ser de: $"<<np<<endl;
+    cout<<"¿Confirmar? Y/N: ";
+    cin>>choice;
+    if(choice=='Y'||choice=='y'){
+    prod.setPrecioUnitario(np);
+    bool quePaso=arcProd.modificarRegistro(pos,prod);
+    if(quePaso==true){
+    system("cls");
+    cout<<endl<<"PRODUCTO modificado con exito"<<endl;
+    cout<<endl;
+    cout<<"El nuevo producto: "<<endl;
+    prod.Mostrar();
+    system("pause");
+    system("cls");
+    }else{
+        cout<<endl<<"No se pudo modificar el PRODUCTO"<<endl;
+    }
+    }else if(choice=='N'||choice=='n'){
+        cout<<"Operacion cancelada.";
+        system("cls");
+    }
 
+
+}
 
 #endif // PRODUCTOS_H_INCLUDED

@@ -154,43 +154,6 @@ class ArchivoCliente{
         }
 };
 
-void nuevoCliente(){
-    Cliente cli;
-    ArchivoCliente arcCli("clientes.dat");
-    int id;
-    cout<<"ID de CLIENTE: ";
-    cin>>id;
-    int pos=arcCli.buscarRegistro(id);
-    bool escribio=false;
-    if(pos==-1){
-        cli.Cargar(id);
-        escribio=arcCli.agregarRegistro(cli);
-    }
-    if(escribio==true){
-        cout<<endl<<"CLIENTE agregado con exito"<<endl;
-        system("pause");
-        system("cls");
-    }else{
-        cout<<endl<<"Ya existe un CLIENTE con ese ID"<<endl;
-        system("pause");
-        system("cls");
-    }
-}
-
-void mostrarListaClientes(){
-    Cliente cli;
-    ArchivoCliente arcCli("clientes.dat");
-    int cantReg=arcCli.contarRegistros();
-    for(int i=0;i<cantReg;i++){
-        cli=arcCli.leerRegistro(i);
-        if(cli.getEstado()==true){
-        cli.Mostrar();
-        }
-    }
-    system("pause");
-    system("cls");
-}
-
 void limpiarArchivoClientes(){
     FILE *p=fopen("clientes.dat","wb");
     cout<<endl<<"Archivo BORRADO"<<endl;
@@ -209,6 +172,47 @@ void darAltaCli(int num, Cliente cl, ArchivoCliente archi){
         cout<<endl<<"El cliente fue dado de alta\n";
     }else if(letra=='N'||letra=='n'){
         cout<<endl<<"El cliente no fue modificado"<<endl;
+    }
+    system("pause");
+    system("cls");
+}
+
+void nuevoCliente(){
+    Cliente cli;
+    ArchivoCliente arcCli("clientes.dat");
+    int id;
+    bool escribio=false;
+    cout<<"ID de CLIENTE: ";
+    cin>>id;
+    int pos=arcCli.buscarRegistro(id);
+    if(pos==-1){
+        cli.Cargar(id);
+        escribio=arcCli.agregarRegistro(cli);
+    }else if(pos>=0){
+        if(cli.getEstado()==true){
+        cout<<endl<<"Ya existe un CLIENTE con ese ID"<<endl;
+    }else{
+        cout<<endl<<"El CLIENTE con ese ID fue dado de baja."<<endl;
+        cli=arcCli.leerRegistro(pos);
+        cli.Mostrar();
+        cout<<endl;
+        darAltaCli(id,cli,arcCli);
+        }
+    }
+    if(escribio==true){
+        cout<<endl<<"CLIENTE agregado con exito."<<endl;
+    }
+}
+
+void mostrarListaClientes(){
+    Cliente cli;
+    ArchivoCliente arcCli("clientes.dat");
+    int cantReg=arcCli.contarRegistros();
+    for(int i=0;i<cantReg;i++){
+        cli=arcCli.leerRegistro(i);
+        if(cli.getEstado()==true){
+        cli.Mostrar();
+        }
     }
     system("pause");
     system("cls");
@@ -253,7 +257,7 @@ void bajaLogicaCli(){
     }
     Cliente reg=archi.leerRegistro(pos);
     reg.Mostrar();
-    cout<<"\nQuiere dar de baja el registro?\tY/N\n";
+    cout<<"\nQuiere dar de baja el registro?\tY/N: ";
     cin>>choice;
     if(choice=='Y'||choice=='y'){
     reg.setEstado(false);
@@ -282,6 +286,7 @@ void traerNombreCliente(int ic, char *vec){
         }
     }
 }
+
 
 
 #endif // CLIENTES_H_INCLUDED
