@@ -15,7 +15,7 @@
 	"submenues.h"
 	"ventas.h"
 
-1698877883 c:\users\gonza\desktop\tp_final_restocontrol\submenues.h
+1698879104 c:\users\gonza\desktop\tp_final_restocontrol\submenues.h
 	<iostream>
 	"ventas.h"
 	"configuracion.h"
@@ -247,7 +247,7 @@
 	"rlutil.h"
 	"globales.h"
 
-1698878125 c:\users\gonza\desktop\tp_final_restocontrol\rep.h
+1698879084 c:\users\gonza\desktop\tp_final_restocontrol\rep.h
 	"rlutil.h"
 	"globales.h"
 

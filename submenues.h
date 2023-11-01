@@ -186,6 +186,7 @@ void subMenuReportes(){
                 ventasPorMes();
                 break;
             case 3:
+                reportePorCliente();
                 break;
             case 0:
                 cout << endl << "\n\n\n\tRegresando al menu principal...\n\n\n" << endl;

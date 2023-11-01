@@ -25,7 +25,7 @@ void ventasPorMes(){
             fec=ven.getFechaVenta();
             auxMes=fec.getMes();
             auxAnio=fec.getAnio();
-            if(mm==auxMes&&aaaa==auxAnio){
+            if(mm==auxMes&&aaaa==auxAnio&&ven.getEstado()==true){
                 ven.Mostrar();
                 cont++;
                 fact+=ven.getPrecioTotal();
@@ -41,41 +41,62 @@ void ventasPorMes(){
 
 void reporteDiario(){
     ArchivoVenta arcVen("ventas.dat");
-    ArchivoVenta arcDiario("ventasDiarias.dat");
     Venta ven;
-    Venta diario;
     Fecha fec;
     fechaActual(fec);
     int dia=fec.getDia(), mes=fec.getMes(), anio=fec.getAnio();
     int cantVen=arcVen.contarRegistros();
-    int cantDiarias;
-    float totalDiario=0;
+    float totalDiario=0.00;
     cout<<"Reporte de ventas Diario"<<endl;
     cout<<"Fecha :";
     fec.Mostrar();
-
+    cout<<"      Comanda  Cliente\tFecha    \tTotal\n";
     for(int i=0;i<cantVen;i++){
         ven=arcVen.leerRegistro(i);
 
         if(ven.getFechaVenta().getAnio()==anio&&ven.getFechaVenta().getMes()==mes&&ven.getFechaVenta().getDia()==dia){
                 if(ven.getEstado()==true){
-                arcDiario.agregarRegistro(ven);
+                    ven.Mostrar();
+                    totalDiario+=ven.getPrecioTotal();
                 }
         }
 
     }
-    cantDiarias=arcDiario.contarRegistros();
-    if(cantDiarias>0){
-    cout<<"      Comanda  Cliente\tFecha    \tTotal\n";
-    for(int x=0;x<cantDiarias;x++){
-        diario=arcDiario.leerRegistro(x);
-        totalDiario+=diario.getPrecioTotal();
-        diario.Mostrar();
+    cout <<"\n\t\t    Recaudacion total: $"<<totalDiario<<endl;
+
+
+    system("pause");
+    system("cls");
+}
+
+void reportePorCliente(){
+    Cliente cli;
+    ArchivoCliente archi("clientes.dat");
+    Venta ven;
+    ArchivoVenta arcVen ("ventas.dat");
+    int pos=0, id, i;
+    cout<<"Ingrese el ID del cliente: ";
+    cin>>id;
+    int cantVen, cont=0;
+    char nombre[30];
+    float acum=0;
+    pos=archi.buscarRegistro(id);
+    cli=archi.leerRegistro(pos);
+    cantVen=arcVen.contarRegistros();
+    traerNombreCliente(id,nombre);
+    cout << "Las ventas del cliente "<<nombre<<" fueron las siguientes: "<<endl;
+    for(i=0;i<cantVen;i++){
+        ven=arcVen.leerRegistro(i);
+        if(ven.getCliente()==id){
+            ven.Mostrar();
+            cont++;
+            acum+=ven.getPrecioTotal();
+        }
+
     }
-    cout <<"\n\t\t Recaudacion total: $"<<totalDiario<<endl;
-    }else{
-    cout<<"Aun no hay registros de ventas para hoy\n";
-    }
+    cout<<endl;
+    cout<<"La cantidad de compras realizadas por "<<nombre<<" fueron: "<<cont<<endl;
+    cout<<"La cantidad gastada por el usuario: $"<<acum<<endl;
     system("pause");
     system("cls");
 }
