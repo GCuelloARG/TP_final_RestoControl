@@ -39,5 +39,44 @@ void ventasPorMes(){
        system("cls");
 }
 
+void reporteDiario(){
+    ArchivoVenta arcVen("ventas.dat");
+    ArchivoVenta arcDiario("ventasDiarias.dat");
+    Venta ven;
+    Venta diario;
+    Fecha fec;
+    fechaActual(fec);
+    int dia=fec.getDia(), mes=fec.getMes(), anio=fec.getAnio();
+    int cantVen=arcVen.contarRegistros();
+    int cantDiarias;
+    float totalDiario=0;
+    cout<<"Reporte de ventas Diario"<<endl;
+    cout<<"Fecha :";
+    fec.Mostrar();
 
+    for(int i=0;i<cantVen;i++){
+        ven=arcVen.leerRegistro(i);
+
+        if(ven.getFechaVenta().getAnio()==anio&&ven.getFechaVenta().getMes()==mes&&ven.getFechaVenta().getDia()==dia){
+                if(ven.getEstado()==true){
+                arcDiario.agregarRegistro(ven);
+                }
+        }
+
+    }
+    cantDiarias=arcDiario.contarRegistros();
+    if(cantDiarias>0){
+    cout<<"      Comanda  Cliente\tFecha    \tTotal\n";
+    for(int x=0;x<cantDiarias;x++){
+        diario=arcDiario.leerRegistro(x);
+        totalDiario+=diario.getPrecioTotal();
+        diario.Mostrar();
+    }
+    cout <<"\n\t\t Recaudacion total: $"<<totalDiario<<endl;
+    }else{
+    cout<<"Aun no hay registros de ventas para hoy\n";
+    }
+    system("pause");
+    system("cls");
+}
 #endif // REP_H_INCLUDED

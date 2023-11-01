@@ -10,16 +10,17 @@
 	"configuracion.h"
 	"detalle.h"
 
-1698814938 source:c:\users\gonza\desktop\tp_final_restocontrol\main.cpp
+1698877401 source:c:\users\gonza\desktop\tp_final_restocontrol\main.cpp
 	<iostream>
 	"submenues.h"
 	"ventas.h"
 
-1698814508 c:\users\gonza\desktop\tp_final_restocontrol\submenues.h
+1698877883 c:\users\gonza\desktop\tp_final_restocontrol\submenues.h
 	<iostream>
 	"ventas.h"
 	"configuracion.h"
 	"detalle.h"
+	"rep.h"
 
 1698872464 c:\users\gonza\desktop\tp_final_restocontrol\ventas.h
 	<iostream>
@@ -243,6 +244,10 @@
 	"productos.h"
 
 1698875809 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/rep.h
+	"rlutil.h"
+	"globales.h"
+
+1698878125 c:\users\gonza\desktop\tp_final_restocontrol\rep.h
 	"rlutil.h"
 	"globales.h"
 

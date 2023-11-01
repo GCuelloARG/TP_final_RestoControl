@@ -59,7 +59,6 @@ void subMenuVentas(){
     }
 }
 
-
 void subMenuClientes(){
     int opc;
     while(true){
@@ -181,6 +180,7 @@ void subMenuReportes(){
         system("cls");
         switch(opc){
             case 1:
+                reporteDiario();
                 break;
             case 2:
                 ventasPorMes();
