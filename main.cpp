@@ -14,7 +14,8 @@ int main()
         cout << "\t::      1. VENTAS            ::"<< endl;
         cout << "\t::      2. CLIENTES          ::"<< endl;
         cout << "\t::      3. PRODUCTOS         ::"<< endl;
-        cout << "\t::      4. CONFIGURACION     ::"<< endl;
+        cout << "\t::      4. REPORTES          ::"<< endl;
+        cout << "\t::      5. CONFIGURACION     ::"<< endl;
         cout << "\t:::::::::::::::::::::::::::::::"<< endl;
         cout << "\t0. SALIR" << endl;
         cout << endl;
@@ -32,6 +33,9 @@ int main()
                 subMenuProductos();
                 break;
             case 4:
+                subMenuReportes();
+                break;
+            case 5:
                 subMenuConfiguracion();
                 break;
             case 0:

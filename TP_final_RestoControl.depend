@@ -53,16 +53,17 @@
 	"globales.h"
 	"rlutil.h"
 
-1698874336 source:/Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/main.cpp
+1698875558 source:/Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/main.cpp
 	<iostream>
 	"submenues.h"
 	"ventas.h"
 
-1698874472 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/submenues.h
+1698875748 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/submenues.h
 	<iostream>
 	"ventas.h"
 	"configuracion.h"
 	"detalle.h"
+	"rep.h"
 
 1698873765 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/ventas.h
 	<iostream>
@@ -240,4 +241,8 @@
 	<iostream>
 	"clientes.h"
 	"productos.h"
+
+1698875809 /Volumes/FlorRodVar/ESTUDIO/UTN/TP_final_RestoControl/rep.h
+	"rlutil.h"
+	"globales.h"
 

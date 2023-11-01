@@ -4,6 +4,8 @@
 #include "ventas.h"
 #include "configuracion.h"
 #include "detalle.h"
+#include "rep.h"
+
 
 
 using namespace std;
@@ -150,6 +152,45 @@ void subMenuProductos(){
                 cout << endl << "\n\n\n\tRegresando al menu principal...\n\n\n" << endl;
                 system ("pause");
                 system ("cls");
+                return;
+            default:
+                cout << endl << "Opcion no valida." << endl;
+                system ("pause");
+                system("cls");
+                break;
+        }
+    }
+}
+
+void subMenuReportes(){
+    int opc;
+    while(true){
+        cout << endl;
+        cout << "**          MENU REPORTES          **"<< endl;
+        cout << "_____________________________________"<< endl;
+        cout << endl;
+        cout << "1. INFORME venta del DIA            ."<< endl;
+        cout << "2. Buscar VENTAS por MES            ."<< endl;
+        cout << "3. Buscar VENTAS por CLIENTE        ."<< endl;
+        cout << "_____________________________________"<< endl;
+        cout << endl;
+        cout << "0. VOLVER AL MENU PRINCIPAL"<< endl;
+        cout << endl;
+        cout << "Elija una opcion: ";
+        cin >> opc;
+        system("cls");
+        switch(opc){
+            case 1:
+                break;
+            case 2:
+                ventasPorMes();
+                break;
+            case 3:
+                break;
+            case 0:
+                cout << endl << "\n\n\n\tRegresando al menu principal...\n\n\n" << endl;
+                system ("pause");
+                system("cls");
                 return;
             default:
                 cout << endl << "Opcion no valida." << endl;
