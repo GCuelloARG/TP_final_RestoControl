@@ -148,7 +148,6 @@ class ArchivoProducto{
             fclose(pProd);
             return escribio;
         }
-
 };
 
 void limpiarArchivoProductos(){
