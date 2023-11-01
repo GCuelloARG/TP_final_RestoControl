@@ -36,10 +36,13 @@ int main()
                 subMenuConfiguracion();
                 break;
             case 0:
+                gotoxy(10,3);
                 cout<<"Saliendo del programa. Hasta luego!"<<endl;
-                cout<<endl<<"\t\t\t\t\t       - RestoControl 2023 -"<<endl;
-                cout<<"\t\t\t\t\t** Balzarini; Cuello; R.Varangot ** \n\n\n";
-
+                gotoxy(16,6);
+                cout<<"- RestoControl 2023 -"<<endl;
+                gotoxy(10,9);
+                cout<<"** Balzarini; Cuello; R.Varangot ** \n\n\n";
+                gotoxy(1,20);
                 system("pause");
                 return 0;
             default:
