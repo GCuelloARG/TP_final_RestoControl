@@ -170,8 +170,8 @@ void subMenuReportes(){
         cout << "_____________________________________"<< endl;
         cout << endl;
         cout << "1. INFORME venta del DIA            ."<< endl;
-        cout << "2. Buscar VENTAS por MES            ."<< endl;
-        cout << "3. Buscar VENTAS por CLIENTE        ."<< endl;
+        cout << "2. Ver VENTAS por MES y ANIO        ."<< endl;
+        cout << "3. Ver VENTAS por CLIENTE           ."<< endl;
         cout << "_____________________________________"<< endl;
         cout << endl;
         cout << "0. VOLVER AL MENU PRINCIPAL"<< endl;
