@@ -36,11 +36,14 @@ int main()
                 subMenuConfiguracion();
                 break;
             case 0:
-                cout << "Saliendo del programa. Hasta luego!" << endl;
+                cout<<"Saliendo del programa. Hasta luego!"<<endl;
+                cout<<endl<<"\t\t\t\t\t       - RestoControl 2023 -"<<endl;
+                cout<<"\t\t\t\t\t** Balzarini; Cuello; R.Varangot ** \n\n\n";
+
                 system("pause");
                 return 0;
             default:
-                cout << "Opcion no valida." << endl;
+                cout<<"Opcion no valida."<<endl;
                 system ("pause");
                 system("cls");
                 break;

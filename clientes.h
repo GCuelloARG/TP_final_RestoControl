@@ -350,7 +350,7 @@ void cambiarDatosCliente(){
     if(choice=='Y'||choice=='y'){
         cli.setDireccion(dir);
         cli.setTel(tel);
-        bool quePaso=arcCli.modificarRegistro(pos,cli);
+        quePaso=arcCli.modificarRegistro(pos,cli);
         if(quePaso==true){
             system("cls");
             cout<<endl<<"CLIENTE modificado con exito"<<endl;

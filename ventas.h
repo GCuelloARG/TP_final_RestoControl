@@ -50,7 +50,6 @@ class ArchivoVenta{
                         cout<<"ERROR DE ARCHIVO-ag"<<endl;
                         return false;
                     }
-
                 bool escribio=fwrite(&reg, sizeof reg, 1, p);
                 fclose(p);
                 return escribio;
@@ -63,7 +62,6 @@ class ArchivoVenta{
                     cout<<"ERROR DE ARCHIVO"<<endl;
                     return -2;
                 }
-
                 int cont=0;
                 while(fread(&reg, sizeof reg, 1, p)==1){
                     if(id==reg.getNumVenta()){
@@ -159,7 +157,7 @@ class ArchivoVenta{
                     return false;
                 }else{
                     if(pos==-2){
-                        cout<<"NO SE PUDO ABRIR EL ARCHIVO"<<endl;
+                        cout<<"NO SE PUDO ABRIR EL ARCHIVO-modif"<<endl;
                         return false;
                     }
                 }
@@ -257,7 +255,6 @@ void nuevaVenta(){
     int cantDet=arcDet.contarRegistros();
     int x=1, y=9;
     for(int i=0;i<cantDet;i++){
-
         det=arcDet.leerRegistro(i);
         if(det.getNumVen()==nv){
             det.Mostrar(x, y);
@@ -286,32 +283,31 @@ void listarPorNumVenta(){
     system("cls");
     int pos=arcVen.buscarRegistro(nv);
     if(pos>=0){
-    ven=arcVen.leerRegistro(pos);
-    cout << "Detalle comanda n "<<(char)167<<setfill('0')<<setw(4)<<nv<<endl;
-    cout << "Fecha operacion: ";
-    fec=ven.getFechaVenta();
-    fec.Mostrar();
-    cout << "\nNumero de cliente: "<<ven.getCliente()<<endl;
-    traerNombreCliente(ven.getCliente(),nombre);
-    cout << "Nombre del cliente: "<<nombre<<endl<<endl;
-    cout << "---- Detalle ---- "<<endl;
-    cout << "ID     Nombre    P.U.  Cant    Subtotal"<<endl;
-    cout << "------------------------------------\n";
-    cantDet=arcDet.contarRegistros();
-    int x=1, y=9;
-    for(i=0;i<cantDet;i++){
-
-        det=arcDet.leerRegistro(i);
-        if(det.getNumVen()==nv){
-            det.Mostrar(x, y);
-            y++;
+        ven=arcVen.leerRegistro(pos);
+        cout << "Detalle comanda n "<<(char)167<<setfill('0')<<setw(4)<<nv<<endl;
+        cout << "Fecha operacion: ";
+        fec=ven.getFechaVenta();
+        fec.Mostrar();
+        cout << "\nNumero de cliente: "<<ven.getCliente()<<endl;
+        traerNombreCliente(ven.getCliente(),nombre);
+        cout << "Nombre del cliente: "<<nombre<<endl<<endl;
+        cout << "---- Detalle ---- "<<endl;
+        cout << "ID     Nombre    P.U.  Cant    Subtotal"<<endl;
+        cout << "------------------------------------\n";
+        cantDet=arcDet.contarRegistros();
+        int x=1, y=9;
+        for(i=0;i<cantDet;i++){
+            det=arcDet.leerRegistro(i);
+            if(det.getNumVen()==nv){
+                det.Mostrar(x, y);
+                y++;
+            }
         }
-    }
-    cout << "\n------------------------------------";
-    cout <<"\n\t\t Importe total: $"<<ven.getPrecioTotal()<<endl;
-    cout << "------------------------------------\n\n\n\n";
-    system("pause");
-    system("cls");
+        cout << "\n------------------------------------";
+        cout <<"\n\t\t Importe total: $"<<ven.getPrecioTotal()<<endl;
+        cout << "------------------------------------\n\n\n\n";
+        system("pause");
+        system("cls");
     }else{
         cout<<"No hay comandas con ese numero\n";
         system("pause");
@@ -322,11 +318,11 @@ void listarPorNumVenta(){
 void bajaLogicaVenta(){
     ArchivoVenta archi ("ventas.dat");
     int nv, pos;
-    cout<<"Ingrese el NUMERO DE VENTA a eliminar: ";
+    cout<<"Ingrese el NUMERO DE COMANDA a anular: ";
     cin>>nv;
     pos=archi.buscarRegistro(nv);
     if(pos==-1){
-        cout<<endl<<"No existe VENTA con ese numero"<<endl;
+        cout<<endl<<"No existe COMANDA con ese numero"<<endl;
         return;
     } else {
         if(pos==-2){
@@ -338,9 +334,9 @@ void bajaLogicaVenta(){
     reg.setEstado(false);
     bool quePaso=archi.modificarRegistro(pos, reg);
     if(quePaso==true){
-        cout<<endl<<"VENTA eliminada con exito"<<endl;
+        cout<<endl<<"VENTA anulada con exito"<<endl;
     }else{
-        cout<<endl<<"No se pudo eliminar la VENTA"<<endl;
+        cout<<endl<<"No se pudo anular la VENTA"<<endl;
     }
     return;
 }

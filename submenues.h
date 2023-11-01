@@ -39,9 +39,6 @@ void subMenuVentas(){
             case 4:
                 bajaLogicaVenta();
                 break;
-            case 5:
-
-                break;
             case 6:
                 limpiarArchivoDetalles(); /// OCULTO - Limpia registros del archivo detalles
                 limpiarArchivoVentas(); /// OCULTO - Limpia registros del archivo ventas
