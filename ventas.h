@@ -30,7 +30,7 @@ public:
         int getCliente(){return idCli;}
 
         void Mostrar(){
-            cout<<"\t"<<numVenta<<"\t"<<idCli<<"\t";
+            cout<<"\t"<<setfill('0')<<setw(4)<<numVenta<<"\t"<<setfill('0')<<setw(4)<<idCli<<"\t";
             fechaVenta.Mostrar();
             cout<<"  \t$"<<precioTotal<<endl;
         }
@@ -143,41 +143,6 @@ class ArchivoVenta{
                 return tam/sizeof(Venta);
             }
 
-            bool modificarFecha(){
-                ArchivoVenta archi("ventas.dat");
-                int nv;
-                int pos;
-                Fecha fec;
-                cout<<"Ingrese el NUMERO DE VENTA: ";
-                cin>>nv;
-
-                pos=archi.buscarRegistro(nv);
-                if(pos==-1){
-                    cout<<"No existe registro con este NUMERO DE VENTA"<<endl;
-                    return false;
-                }else{
-                    if(pos==-2){
-                        cout<<"NO SE PUDO ABRIR EL ARCHIVO-modif"<<endl;
-                        return false;
-                    }
-                }
-                Venta reg=archi.leerRegistro(pos);
-                reg.Mostrar();
-                cout<<"Ingrese la nueva fecha de VENTA: "<<endl;
-                fec.Cargar();
-                reg.setFecha(fec);
-
-                bool whatPass=archi.modificarRegistro(pos, reg);
-                if(whatPass==true){
-                    cout<<"Fecha de VENTA modificada con exito"<<endl;
-                }else{
-                    cout<<"No se pudo modificar el registro"<<endl;
-                }
-
-                cout<<endl;
-                return true;
-            }
-
             void copiaDeSeguridad(){
                 FILE* p;
                 FILE* pBackUp;
@@ -217,11 +182,38 @@ void limpiarArchivoVentas(){
     fclose(p);
 }
 
+void mostrarDetalle(int nv, Fecha fec, char *nombre, int numCli, float total){
+
+    ArchivoDetalle arcDet("detalles.dat");
+    Detalle det;
+    cout << "Detalle comanda n"<<(char)167<<" "<<setfill('0')<<setw(4)<<nv<<endl;
+    cout << "Fecha operacion: ";
+    fec.Mostrar();
+    cout << "\nNumero de cliente: "<<numCli<<endl;
+    cout << "Nombre del cliente: "<<nombre<<endl<<endl;
+    cout << "---------------- Detalle --------------- "<<endl;
+    cout << "ID     Nombre    P.U.  Cant    Subtotal"<<endl;
+    cout << "----------------------------------------\n";
+    int cantDet=arcDet.contarRegistros();
+    int x=1, y=9;
+    for(int i=0;i<cantDet;i++){
+        det=arcDet.leerRegistro(i);
+        if(det.getNumVen()==nv){
+            det.Mostrar(x, y);
+            y++;
+        }
+    }
+    cout << "\n----------------------------------------";
+    cout <<"\n\t\t Importe total: $"<<total<<endl;
+    cout << "----------------------------------------\n\n\n\n";
+
+    system("pause");
+    system("cls");
+}
+
 void nuevaVenta(){
     ArchivoVenta arcVen("ventas.dat");
-    ArchivoDetalle arcDet("detalles.dat");
     Venta reg;
-    Detalle det;
     int nv=traerNumeroVenta();
     reg.setNumVenta(nv);
     float total;
@@ -243,71 +235,30 @@ void nuevaVenta(){
     reg.setEstado(true);
     arcVen.agregarRegistro(reg);
     system("cls");
-    cout << "Detalle comanda n "<<(char)167<<setfill('0')<<setw(4)<<nv<<endl;
-    cout << "Fecha operacion: ";
-    fec.Mostrar();
-    cout << "\nNumero de cliente: "<<reg.getCliente()<<endl;
-    traerNombreCliente(reg.getCliente(),nombre);
-    cout << "Nombre del cliente: "<<nombre<<endl<<endl;
-    cout << "---- Detalle ---- "<<endl;
-    cout << "ID     Nombre    P.U.  Cant    Subtotal"<<endl;
-    cout << "------------------------------------\n";
-    int cantDet=arcDet.contarRegistros();
-    int x=1, y=9;
-    for(int i=0;i<cantDet;i++){
-        det=arcDet.leerRegistro(i);
-        if(det.getNumVen()==nv){
-            det.Mostrar(x, y);
-            y++;
-        }
-    }
-    cout << "\n------------------------------------";
-    cout <<"\n\t\t Importe total: $"<<reg.getPrecioTotal()<<endl;
-    cout << "------------------------------------\n\n\n\n";
 
-    system("pause");
-    system("cls");
+    mostrarDetalle(nv, fec, nombre, ic, total);
 }
 
 void listarPorNumVenta(){
     Venta ven;
-    Detalle det;
     Fecha fec;
     char nombre[30];
     ArchivoVenta arcVen("ventas.dat");
-    ArchivoDetalle arcDet("detalles.dat");
-    ArchivoCliente arcCli("clientes.dat");
-    int nv, cantDet, i;
+    int nv, idc;
+    float total;
     cout<<endl<<"Ingrese el NUMERO DE COMANDA: ";
     cin>>nv;
-    system("cls");
+    system("cls");// mostarDetalle(int nv, char *nombre, archivoventa, archivodetalle, fec
     int pos=arcVen.buscarRegistro(nv);
     if(pos>=0){
         ven=arcVen.leerRegistro(pos);
-        cout << "Detalle comanda n "<<(char)167<<setfill('0')<<setw(4)<<nv<<endl;
-        cout << "Fecha operacion: ";
         fec=ven.getFechaVenta();
-        fec.Mostrar();
-        cout << "\nNumero de cliente: "<<ven.getCliente()<<endl;
-        traerNombreCliente(ven.getCliente(),nombre);
-        cout << "Nombre del cliente: "<<nombre<<endl<<endl;
-        cout << "---- Detalle ---- "<<endl;
-        cout << "ID     Nombre    P.U.  Cant    Subtotal"<<endl;
-        cout << "------------------------------------\n";
-        cantDet=arcDet.contarRegistros();
-        int x=1, y=9;
-        for(i=0;i<cantDet;i++){
-            det=arcDet.leerRegistro(i);
-            if(det.getNumVen()==nv){
-                det.Mostrar(x, y);
-                y++;
-            }
-        }
-        cout << "\n------------------------------------";
-        cout <<"\n\t\t Importe total: $"<<ven.getPrecioTotal()<<endl;
-        cout << "------------------------------------\n\n\n\n";
-        system("pause");
-        system("cls");
+        idc=ven.getCliente();
+        traerNombreCliente(idc, nombre);
+        total=ven.getPrecioTotal();
+
+        mostrarDetalle(nv, fec, nombre, idc, total);
+
     }else{
         cout<<"No hay comandas con ese numero\n";
         system("pause");
@@ -347,7 +298,7 @@ void mostrarListaVentas(){
     int cantReg, i;
     cantReg=arcVen.contarRegistros();
     if(cantReg>0){
-    cout<<"   Comanda   Cliente   \tFecha               Total\n";
+    cout<<"      Comanda  Cliente\tFecha    \tTotal\n";
     for(i=0;i<cantReg;i++){
         ven=arcVen.leerRegistro(i);
         if(ven.getEstado()==true){

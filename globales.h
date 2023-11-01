@@ -2,6 +2,8 @@
 #define UNTITLED_H_INCLUDED
 #include <iostream>
 #include <ctime>
+#include <iomanip>
+#include "rlutil.h"
 
 using namespace std;
 
@@ -35,8 +37,8 @@ class Fecha{
             setAnio(anio);
         }
         void Mostrar(){
-            cout<<dia<<" / ";
-            cout<<mes<<" / ";
+            cout<<setfill('0')<<setw(2)<<dia<<"/";
+            cout<<setfill('0')<<setw(2)<<mes<<"/";
             cout<<anio;
         }
         int getDia(){return dia;}
@@ -75,7 +77,13 @@ void fechaActual(Fecha& reg) {
     reg.setDia(fecha->tm_mday);
 }
 
-
+void limpiarMensaje(int x, int y){
+gotoxy(x,y);
+            cout<<"                                       "<<endl;
+            cout<<"                                       "<<endl;
+            cout<<"                                       "<<endl;
+            cout<<"                                       "<<endl;
+}
 
 
 #endif // UNTITLED_H_INCLUDED

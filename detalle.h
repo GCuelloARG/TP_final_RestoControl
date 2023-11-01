@@ -154,7 +154,12 @@ float cargarDetalle(int nv){
             cout<<"$"<<subtotal;
             arcDet.agregarRegistro(det);
             y++;
-        }else{cout<<"No existe producto con ese ID"<<endl;}
+        }else{
+            cout<<"\nNo existe producto con ese ID"<<endl;
+            system("pause");
+            limpiarMensaje(x, y);
+
+        }
             gotoxy(x,y);
             cin>>id;
     }
