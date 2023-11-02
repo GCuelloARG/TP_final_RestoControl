@@ -191,9 +191,9 @@ void mostrarDetalle(int nv, Fecha fec, char *nombre, int numCli, float total){
     fec.Mostrar();
     cout << "\nNumero de cliente: "<<numCli<<endl;
     cout << "Nombre del cliente: "<<nombre<<endl<<endl;
-    cout << "---------------- Detalle --------------- "<<endl;
-    cout << "ID     Nombre    P.U.  Cant    Subtotal"<<endl;
-    cout << "----------------------------------------\n";
+    cout << "---------------------- Detalle --------------------- "<<endl;
+    cout << "ID     Nombre                P.U.  Cant    Subtotal"<<endl;
+    cout << "----------------------------------------------------\n";
     int cantDet=arcDet.contarRegistros();
     int x=1, y=9;
     for(int i=0;i<cantDet;i++){
@@ -203,9 +203,9 @@ void mostrarDetalle(int nv, Fecha fec, char *nombre, int numCli, float total){
             y++;
         }
     }
-    cout << "\n----------------------------------------";
+    cout << "\n----------------------------------------------------";
     cout <<"\n\t\t Importe total: $"<<total<<endl;
-    cout << "----------------------------------------\n\n\n\n";
+    cout << "----------------------------------------------------\n\n\n\n";
 
     system("pause");
     system("cls");
@@ -331,5 +331,29 @@ void mostrarListaVentas(){
     system("pause");
     system("cls");
 }
+
+void modificarFechaVenta(){//La fecha se carga de manera automatica, agregamos esta funcion para poder chequear el funncionamineto de otros metodos
+    ArchivoVenta arcVenta("ventas.dat");
+    Venta ven;
+    Fecha fec;
+    int nv, dia, mes, ano;
+    cout<<"Numero de comanda: ";
+    cin>>nv;
+    int pos=arcVenta.buscarRegistro(nv);
+    ven=arcVenta.leerRegistro(pos);
+    cout<<"Dia: ";
+    cin>>dia;
+    cout<<"Mes: ";
+    cin>>mes;
+    cout<<"Ano: ";
+    cin>>ano;
+    fec.setDia(dia);
+    fec.setMes(mes);
+    fec.setAnio(ano);
+    ven.setFecha(fec);
+    bool que=arcVenta.modificarRegistro(pos, ven);
+    if(que==true){cout<<"Facha modificada";}
+}
+
 
 #endif // VENTAS_H_INCLUDED

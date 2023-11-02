@@ -44,10 +44,10 @@ class Detalle{
             void Mostrar(int x, int y){
                 gotoxy(x+1, y);
                 cout << id<<"\t"<<nombre;
-                gotoxy(x+18,y);
+                gotoxy(x+28,y);
                 cout<<"$"<<pu;
-                gotoxy(x+24, y);
-                cout<<cant<<"\t$"<<subTotal<< endl;
+                gotoxy(x+36, y);
+                cout<<cant<<"\t   $"<<subTotal<< endl;
             }
 };
 

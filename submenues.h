@@ -20,9 +20,9 @@ void subMenuVentas(){
         cout << "\t::     2. BUSCAR venta              ::"<< endl;
         cout << "\t::     3. VER ventas                ::"<< endl;
         cout << "\t::     4. ANULAR venta              ::"<< endl;
-        cout << "\t::     5. MODIFICAR FECHA venta     ::"<< endl;
+        //cout << "\t::                                  ::"<< endl;
         cout << "\t::::::::::::::::::::::::::::::::::::::"<< endl;
-        cout << "\t0. VOLVER al menu principal"<< endl;
+        cout << "\n\t       0. VOLVER al menu principal"<< endl;
         cout << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
@@ -41,7 +41,7 @@ void subMenuVentas(){
                 bajaLogicaVenta();
                 break;
             case 5:
-
+                modificarFechaVenta();///OCULTO - solo para probar metodos que requieren fechas pasadas
                 break;
             case 6:
                 limpiarArchivoDetalles(); /// OCULTO - Limpia registros del archivo detalles
@@ -73,7 +73,7 @@ void subMenuClientes(){
         cout << "\t::     4. MODIFICAR DATOS cliente     ::"<< endl;
         cout << "\t::     5. BORRAR cliente              ::"<< endl;
         cout << "\t::::::::::::::::::::::::::::::::::::::::"<< endl;
-        cout << "\t0. VOLVER al menu principal"<< endl;
+        cout << "\n\t       0. VOLVER al menu principal"<< endl;
         cout << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
@@ -123,7 +123,7 @@ void subMenuProductos(){
         cout << "\t::     4. MODIFICAR PRECIO producto     ::"<< endl;
         cout << "\t::     5. BORRAR producto               ::"<< endl;
         cout << "\t::::::::::::::::::::::::::::::::::::::::::"<< endl;
-        cout << "\t0. VOLVER al menu principal"<< endl;
+        cout << "\n\t       0. VOLVER al menu principal"<< endl;
         cout << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
@@ -171,7 +171,7 @@ void subMenuReportes(){
         cout << "\t::     2. Ver VENTAS por MES y ANIO     ::"<< endl;
         cout << "\t::     3. Ver VENTAS por CLIENTE        ::"<< endl;
         cout << "\t::::::::::::::::::::::::::::::::::::::::::"<< endl;
-        cout << "\t0. VOLVER al menu principal"<< endl;
+        cout << "\n\t       0. VOLVER al menu principal"<< endl;
         cout << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
@@ -213,7 +213,7 @@ void subMenuConfiguracion(){
         cout << "\t::     5. RESTAURAR Clientes                ::"<< endl;
         cout << "\t::     6. RESTAURAR Productos               ::"<< endl;
         cout << "\t::::::::::::::::::::::::::::::::::::::::::::::"<< endl;
-        cout << "\t0. VOLVER al menu principal"<< endl;
+        cout << "\n\t       0. VOLVER al menu principal"<< endl;
         cout << endl;
         cout << "Elija una opcion: ";
         cin >> opc;

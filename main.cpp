@@ -2,6 +2,7 @@
 #include "submenues.h"
 #include "ventas.h"
 
+
 using namespace std;
 
 int main()
@@ -18,7 +19,7 @@ int main()
         cout << "\t::          4. Menu REPORTES               ::"<< endl;
         cout << "\t::          5. Menu CONFIGURACION          ::"<< endl;
         cout << "\t:::::::::::::::::::::::::::::::::::::::::::::"<< endl;
-        cout << "\t0. Salir" << endl;
+        cout << "\n\t            0. Salir" << endl;
         cout << endl;
         cout << "Elija una opcion: ";
         cin >> opc;

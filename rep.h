@@ -5,6 +5,7 @@
 
 using namespace std;
 
+void reporteProductos(Venta reg);
 
 void ventasPorMes(){
     Venta ven;
@@ -18,7 +19,7 @@ void ventasPorMes(){
     cout<<"Ingrese el MES (mm) que desea reportar: ";
     cin>>mm;
     system("cls");
-    cout<<"\t   -  VENTAS DE "<<mm<<"/"<<aaaa<<"  -"<<endl;
+    cout<<"\n\n\t\t   -  VENTAS DE "<<mm<<"/"<<aaaa<<"  -"<<endl;
     if(cantReg>0){
         for(i=0; i<cantReg; i++){
             ven=arcVen.leerRegistro(i);
@@ -32,8 +33,9 @@ void ventasPorMes(){
             }
        }
     }
-       cout<<endl<<"Cantidad de ventas del mes "<<mm<<" de "<<aaaa<<": "<<cont<<endl;
-       cout<<"Total facturado: $"<<fact<<endl<<endl;
+       cout<<"\n\n\n";
+       cout<<"              Cantidad de ventas:  "<<cont<<endl;
+       cout<<"                 Total facturado: $"<<fact<<endl<<endl;
 
        system("pause");
        system("cls");
@@ -50,7 +52,7 @@ void reporteDiario(){
     cout<<"Reporte de ventas Diario"<<endl;
     cout<<"Fecha :";
     fec.Mostrar();
-    cout<<"      Comanda  Cliente\tFecha    \tTotal\n";
+    cout<<"\n      Comanda  Cliente\tFecha    \tTotal\n";
     for(int i=0;i<cantVen;i++){
         ven=arcVen.leerRegistro(i);
 
@@ -92,7 +94,6 @@ void reportePorCliente(){
             cont++;
             acum+=ven.getPrecioTotal();
         }
-
     }
     cout<<endl;
     cout<<"Cantidad de compras: "<<cont<<endl;
@@ -100,4 +101,6 @@ void reportePorCliente(){
     system("pause");
     system("cls");
 }
+
+
 #endif // REP_H_INCLUDED
