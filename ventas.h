@@ -230,7 +230,9 @@ void darAltaVen(int num, Venta ven, ArchivoVenta archi){
 
 void nuevaVenta(){
     ArchivoVenta arcVen("ventas.dat");
+    ArchivoCliente arcCli("clientes.dat");
     Venta reg;
+    Cliente cli;
     int nv=traerNumeroVenta();
     reg.setNumVenta(nv);
     float total;
@@ -243,9 +245,12 @@ void nuevaVenta(){
     char nombre[30];
     cout << "\nID CLIENTE: ";
     cin >> ic;
+    int pos=arcCli.buscarRegistro(ic);
+    cli=arcCli.leerRegistro(pos);
+    if(cli.getEstado()==true){
     reg.setCliente(ic);
     traerNombreCliente(ic, nombre);
-    gotoxy(14,2);
+    gotoxy(15,2);
     cout<<" - "<< nombre;
     total=cargarDetalle(nv);
     reg.setPrecioTotal(total);
@@ -254,6 +259,11 @@ void nuevaVenta(){
     system("cls");
 
     mostrarDetalle(nv, fec, nombre, ic, total);
+    }else{
+        cout<<"Cliente dado de baja\n";
+    }
+    system("pause");
+    system("cls");
 }
 
 void listarPorNumVenta(){

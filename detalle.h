@@ -128,32 +128,39 @@ float cargarDetalle(int nv){
     det.setNumVen(nv);
     int id, cant,x=2,y=4;
     float subtotal, totalCompra=0;
-    cout<<endl<<"ID  NOMBRE    P.U.  Cant   SubT";
+        gotoxy(42, 3);
+        cout<<"\t\t Ingrese ID del Producto."<<endl;
+        gotoxy(42, 4);
+        cout<<"\t\t      (0 para salir)\n"<<endl;
+
+    gotoxy(1, 3);
+    cout<<"ID  NOMBRE                 P.U.  Cant   SubT";
     gotoxy(x,y);
     cin>>id;
     while(id!=0){
         det.setID(id);
         int pos=arcProd.buscarRegistro(id);
-        if(pos>=0){
+
             prod=arcProd.leerRegistro(pos);
-            //falta validar prod
+            if(pos>=0&&prod.getEstado()==true){
             det.setNombre(prod.getNombre());
             gotoxy(x+3,y);
             cout<<det.getNombre();
-            gotoxy(x+13,y);
+            gotoxy(x+25,y);
             cout<<"$"<<prod.getPrecio();
             det.setPu(prod.getPrecio());
-            gotoxy(x+20,y);
+            gotoxy(x+33,y);
             cin>>cant;
             det.setCant(cant);
             det.setEstado(true);
             subtotal=prod.getPrecio()*cant;
             det.setSubTotal(subtotal);
             totalCompra+=subtotal;
-            gotoxy(x+26,y);
+            gotoxy(x+38,y);
             cout<<"$"<<subtotal;
             arcDet.agregarRegistro(det);
             y++;
+
         }else{
             cout<<"\nNo existe producto con ese ID"<<endl;
             system("pause");

@@ -11,7 +11,7 @@
 	"detalle.h"
 	"rep.h"
 
-1698899773 source:c:\users\gonza\desktop\tp_final_restocontrol\main.cpp
+1698900048 source:c:\users\gonza\desktop\tp_final_restocontrol\main.cpp
 	<iostream>
 	"submenues.h"
 	"ventas.h"
@@ -23,7 +23,7 @@
 	"detalle.h"
 	"rep.h"
 
-1698897629 c:\users\gonza\desktop\tp_final_restocontrol\ventas.h
+1698930295 c:\users\gonza\desktop\tp_final_restocontrol\ventas.h
 	<iostream>
 	<cstring>
 	"globales.h"
@@ -36,13 +36,13 @@
 	<iomanip>
 	"rlutil.h"
 
-1698897205 c:\users\gonza\desktop\tp_final_restocontrol\clientes.h
+1698929469 c:\users\gonza\desktop\tp_final_restocontrol\clientes.h
 	<iostream>
 	<cstring>
 	<iomanip>
 	"globales.h"
 
-1698897533 c:\users\gonza\desktop\tp_final_restocontrol\detalle.h
+1698930560 c:\users\gonza\desktop\tp_final_restocontrol\detalle.h
 	"productos.h"
 	"ventas.h"
 	"rlutil.h"

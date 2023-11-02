@@ -293,7 +293,13 @@ void traerNombreCliente(int ic, char *vec){
     for(int i=0; i<cant;i++){
         reg=arcCli.leerRegistro(i);
         if(reg.getId()==ic){
+            if(reg.getEstado()==true){
             strcpy(vec, reg.getNombre());
+            return;
+            }
+
+        }else{
+            strcpy(vec, "Cliente inexistente");
         }
     }
 }
