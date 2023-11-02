@@ -8,16 +8,17 @@ int main()
 {
     int opc;
     while (true) {
+        cout << "\t        ---- RestoControl 2023 ----" <<endl;
         cout << endl;
-        cout << "\t****    MENU  PRINCIPAL    ****"<< endl;
-        cout << "\t:::::::::::::::::::::::::::::::"<< endl;
-        cout << "\t::      1. VENTAS            ::"<< endl;
-        cout << "\t::      2. CLIENTES          ::"<< endl;
-        cout << "\t::      3. PRODUCTOS         ::"<< endl;
-        cout << "\t::      4. REPORTES          ::"<< endl;
-        cout << "\t::      5. CONFIGURACION     ::"<< endl;
-        cout << "\t:::::::::::::::::::::::::::::::"<< endl;
-        cout << "\t0. SALIR" << endl;
+        cout << "\t*****          MENU  PRINCIPAL          *****"<< endl;
+        cout << "\t:::::::::::::::::::::::::::::::::::::::::::::"<< endl;
+        cout << "\t::          1. Menu VENTAS                 ::"<< endl;
+        cout << "\t::          2. Menu CLIENTES               ::"<< endl;
+        cout << "\t::          3. Menu PRODUCTOS              ::"<< endl;
+        cout << "\t::          4. Menu REPORTES               ::"<< endl;
+        cout << "\t::          5. Menu CONFIGURACION          ::"<< endl;
+        cout << "\t:::::::::::::::::::::::::::::::::::::::::::::"<< endl;
+        cout << "\t0. Salir" << endl;
         cout << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
