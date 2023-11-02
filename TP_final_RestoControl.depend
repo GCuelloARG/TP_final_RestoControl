@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
-1698879420 source:c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\main.cpp
+1698922529 source:c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\main.cpp
 	<iostream>
 	"submenues.h"
 	"ventas.h"
 
-1698879421 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\submenues.h
+1698922529 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\submenues.h
 	<iostream>
 	"ventas.h"
 	"configuracion.h"
@@ -99,7 +99,7 @@
 	"globales.h"
 	"rlutil.h"
 
-1698883101 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\ventas.h
+1698922529 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\ventas.h
 	<iostream>
 	<cstring>
 	"globales.h"
@@ -118,7 +118,7 @@
 	<iomanip>
 	"globales.h"
 
-1698873768 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\detalle.h
+1698922529 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\detalle.h
 	"productos.h"
 	"ventas.h"
 	"rlutil.h"
@@ -256,7 +256,7 @@
 	"rlutil.h"
 	"globales.h"
 
-1698883323 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\rep.h
+1698922529 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\rep.h
 	"rlutil.h"
 	"globales.h"
 
