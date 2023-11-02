@@ -18,6 +18,8 @@ void copiaDeSeguridadClientes(){
         }
     }
     cout << "Copia de seguridad de CLIENTES realizada correctamente" << endl;
+    system("pause");
+    system("cls");
 }
 
 void restaurarClientes(){
@@ -33,6 +35,8 @@ void restaurarClientes(){
         }
     }
     cout << "Restauracion de CLIENTES desde copia de seguridad realizada correctamente" << endl;
+    system("pause");
+    system("cls");
 }
 
 void copiaDeSeguridadProductos(){
@@ -47,7 +51,9 @@ void copiaDeSeguridadProductos(){
         archibkp.agregarRegistro(reg);
         }
     }
-    cout << "Copia de seguridad de CLIENTES realizada correctamente" << endl;
+    cout << "Copia de seguridad de PRODUCTOS realizada correctamente" << endl;
+    system("pause");
+    system("cls");
 }
 
 void restaurarProductos(){
@@ -63,6 +69,8 @@ void restaurarProductos(){
         }
     }
     cout << "Restauracion de PRODUCTOS desde copia de seguridad realizada correctamente" << endl;
+    system("pause");
+    system("cls");
 }
 
 void copiaDeSeguridadVentas(){
@@ -78,6 +86,8 @@ void copiaDeSeguridadVentas(){
         }
     }
     cout << "Copia de seguridad de VENTAS realizada correctamente" << endl;
+    system("pause");
+    system("cls");
 }
 
 void restaurarVentas(){
@@ -93,6 +103,8 @@ void restaurarVentas(){
         }
     }
     cout << "Restauracion de VENTAS desde copia de seguridad realizada correctamente" << endl;
+    system("pause");
+    system("cls");
 }
 
 

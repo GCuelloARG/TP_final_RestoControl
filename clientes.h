@@ -183,7 +183,7 @@ void nuevoCliente(){
     ArchivoCliente arcCli("clientes.dat");
     int id;
     bool escribio=false;
-    id=arcCli.contarRegistros();
+    id=arcCli.contarRegistros()+1;
     cout<<"ID de CLIENTE: "<<setfill('0')<<setw(4)<<id<<"\n";
     int pos=arcCli.buscarRegistro(id);
     if(pos==-1){
@@ -211,14 +211,19 @@ void mostrarListaClientes(){
     Cliente cli;
     ArchivoCliente arcCli("clientes.dat");
     int cantReg=arcCli.contarRegistros();
-    for(int i=0;i<cantReg;i++){
+    if(cantReg>0){
+       for(int i=0;i<cantReg;i++){
         cli=arcCli.leerRegistro(i);
         if(cli.getEstado()==true){
         cli.Mostrar();
+            }
         }
+    }else{
+    cout << "No hay CLIENTES ingresados."<<endl;
     }
     system("pause");
     system("cls");
+
 }
 
 void mostrarIDCli(){
@@ -241,6 +246,8 @@ void mostrarIDCli(){
     }else{
         cout<<endl<<"No existe CLIENTE con este ID";
     }
+    system("pause");
+    system("cls");
 }
 
 void bajaLogicaCli(){

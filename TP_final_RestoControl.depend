@@ -1,14 +1,15 @@
 # depslib dependency file v1.0
-1698779363 source:c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\main.cpp
+1698879420 source:c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\main.cpp
 	<iostream>
 	"submenues.h"
 	"ventas.h"
 
-1698787342 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\submenues.h
+1698879421 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\submenues.h
 	<iostream>
 	"ventas.h"
 	"configuracion.h"
 	"detalle.h"
+	"rep.h"
 
 1698877401 source:c:\users\gonza\desktop\tp_final_restocontrol\main.cpp
 	<iostream>
@@ -98,31 +99,35 @@
 	"globales.h"
 	"rlutil.h"
 
-1698787559 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\ventas.h
+1698883101 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\ventas.h
 	<iostream>
 	<cstring>
 	"globales.h"
 	"clientes.h"
 	"detalle.h"
 
-1698697988 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\globales.h
+1698873768 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\globales.h
 	<iostream>
 	<ctime>
+	<iomanip>
+	"rlutil.h"
 
-1698786021 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\clientes.h
+1698880758 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\clientes.h
 	<iostream>
 	<cstring>
+	<iomanip>
 	"globales.h"
 
-1698788028 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\detalle.h
+1698873768 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\detalle.h
 	"productos.h"
 	"ventas.h"
 	"rlutil.h"
 
-1698787943 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\productos.h
+1698881802 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\productos.h
 	<iostream>
 	<cstdio>
 	<cstring>
+	<iomanip>
 	"globales.h"
 	"rlutil.h"
 
@@ -136,7 +141,7 @@
 	"clientes.h"
 	"productos.h"
 
-1698670213 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\configuracion.h
+1698881802 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\configuracion.h
 	<iostream>
 	"clientes.h"
 	"productos.h"
@@ -248,6 +253,10 @@
 	"globales.h"
 
 1698879084 c:\users\gonza\desktop\tp_final_restocontrol\rep.h
+	"rlutil.h"
+	"globales.h"
+
+1698883323 c:\users\pc\desktop\gaston facultad\tp lab 2 final\tp_final_restocontrol\rep.h
 	"rlutil.h"
 	"globales.h"
 

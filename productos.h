@@ -14,7 +14,7 @@ class Producto{
     private:
         int id;
         char nombre[30];
-        char descripcion[30];
+        char descripcion[50];
         float precioUnitario;
         bool estado;
     public:
@@ -176,7 +176,7 @@ void nuevoProd(){
     ArchivoProducto arcProd("productos.dat");
     int id;
     bool escribio=false;
-    id=arcProd.contarRegistros();
+    id=arcProd.contarRegistros()+1;
     cout << "ID Producto: "<<setfill('0')<<setw(4)<<id<<"\n";
     int pos=arcProd.buscarRegistro(id);
     if(pos==-1){
@@ -205,12 +205,16 @@ void mostrarListaProductos(){
     Producto prod;
     ArchivoProducto arcProd("productos.dat");
     int cantReg=arcProd.contarRegistros();
-    for(int i=0;i<cantReg;i++){
+    if(cantReg>0){
+        for(int i=0;i<cantReg;i++){
         prod=arcProd.leerRegistro(i);
         if(prod.getEstado()==true){
             prod.Mostrar();
         }
     }
+}else{
+    cout << "No hay PRODUCTOS ingresados."<<endl;
+}
     system("pause");
     system("cls");
 }
@@ -257,7 +261,7 @@ void bajaLogicaProd(){
     }
     Producto reg=arc.leerRegistro(pos);
     reg.Mostrar();
-    cout<<"\nQuiere dar de baja el registro?\tY/N: ";
+    cout<<"\nQuiere dar de baja el producto?\tY/N: ";
     cin>>choice;
     if(choice=='Y'||choice=='y'){
     reg.setEstado(false);

@@ -211,6 +211,23 @@ void mostrarDetalle(int nv, Fecha fec, char *nombre, int numCli, float total){
     system("cls");
 }
 
+void darAltaVen(int num, Venta ven, ArchivoVenta archi){
+    char letra;
+    int pos;
+    cout<<"Quiere dar de alta la VENTA?    Y/N: ";
+    cin>>letra;
+    if(letra=='Y'||letra=='y'){
+        ven.setEstado(true);
+        pos=archi.buscarRegistro(num);
+        archi.modificarRegistro(pos, ven);
+        cout<<endl<<"La venta fue dada de alta\n";
+    }else if(letra=='N'||letra=='n'){
+        cout<<endl<<"La venta no fue modificada"<<endl;
+    }
+    system("pause");
+    system("cls");
+}
+
 void nuevaVenta(){
     ArchivoVenta arcVen("ventas.dat");
     Venta reg;
@@ -252,13 +269,16 @@ void listarPorNumVenta(){
     int pos=arcVen.buscarRegistro(nv);
     if(pos>=0){
         ven=arcVen.leerRegistro(pos);
-        fec=ven.getFechaVenta();
-        idc=ven.getCliente();
-        traerNombreCliente(idc, nombre);
-        total=ven.getPrecioTotal();
-
-        mostrarDetalle(nv, fec, nombre, idc, total);
-
+            if(ven.getEstado()==true){
+                fec=ven.getFechaVenta();
+                idc=ven.getCliente();
+                traerNombreCliente(idc, nombre);
+                total=ven.getPrecioTotal();
+                mostrarDetalle(nv, fec, nombre, idc, total);
+            }else{
+                cout<<endl<<"La venta fue anulada"<<endl;
+                darAltaVen(nv,ven,arcVen);
+            }
     }else{
         cout<<"No hay comandas con ese numero\n";
         system("pause");
@@ -289,6 +309,8 @@ void bajaLogicaVenta(){
     }else{
         cout<<endl<<"No se pudo anular la VENTA"<<endl;
     }
+    system("pause");
+    system("cls");
     return;
 }
 

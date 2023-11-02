@@ -84,7 +84,7 @@ void reportePorCliente(){
     cli=archi.leerRegistro(pos);
     cantVen=arcVen.contarRegistros();
     traerNombreCliente(id,nombre);
-    cout << "Las ventas del cliente "<<nombre<<" fueron las siguientes: "<<endl;
+    cout << "Compras del cliente "<<nombre<<": "<<endl;
     for(i=0;i<cantVen;i++){
         ven=arcVen.leerRegistro(i);
         if(ven.getCliente()==id){
@@ -95,8 +95,8 @@ void reportePorCliente(){
 
     }
     cout<<endl;
-    cout<<"La cantidad de compras realizadas por "<<nombre<<" fueron: "<<cont<<endl;
-    cout<<"La cantidad gastada por el usuario: $"<<acum<<endl;
+    cout<<"Cantidad de compras: "<<cont<<endl;
+    cout<<"Recaudacion: $"<<acum<<endl;
     system("pause");
     system("cls");
 }
