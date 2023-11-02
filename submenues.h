@@ -14,15 +14,15 @@ void subMenuVentas(){
     int opc;
     while(true){
         cout << endl;
-        cout << "\t            Menu de VENTAS"<< endl;
+        cout << "\t            Menu de ventas"<< endl;
         cout << "\t::::::::::::::::::::::::::::::::::::::"<< endl;
-        cout << "\t::     1. CARGAR venta              ::"<< endl;
-        cout << "\t::     2. BUSCAR venta              ::"<< endl;
-        cout << "\t::     3. VER ventas                ::"<< endl;
-        cout << "\t::     4. ANULAR venta              ::"<< endl;
+        cout << "\t::     1. Cargar venta              ::"<< endl;
+        cout << "\t::     2. Buscar venta              ::"<< endl;
+        cout << "\t::     3. Ver ventas                ::"<< endl;
+        cout << "\t::     4. Anular venta              ::"<< endl;
         //cout << "\t::                                  ::"<< endl;
         cout << "\t::::::::::::::::::::::::::::::::::::::"<< endl;
-        cout << "\n\t       0. VOLVER al menu principal"<< endl;
+        cout << "\n\t       0. Volver al menu principal"<< endl;
         cout << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
@@ -65,15 +65,15 @@ void subMenuClientes(){
     int opc;
     while(true){
         cout << endl;
-        cout << "\t            Menu de CLIENTES"<< endl;
+        cout << "\t            Menu de clientes"<< endl;
         cout << "\t::::::::::::::::::::::::::::::::::::::::"<< endl;
-        cout << "\t::     1. CARGAR cliente              ::"<< endl;
-        cout << "\t::     2. BUSCAR cliente              ::"<< endl;
-        cout << "\t::     3. VER clientes                ::"<< endl;
-        cout << "\t::     4. MODIFICAR DATOS cliente     ::"<< endl;
-        cout << "\t::     5. BORRAR cliente              ::"<< endl;
+        cout << "\t::     1. Cargar cliente              ::"<< endl;
+        cout << "\t::     2. Buscar cliente              ::"<< endl;
+        cout << "\t::     3. Ver clientes                ::"<< endl;
+        cout << "\t::     4. Modificar datos cliente     ::"<< endl;
+        cout << "\t::     5. Borrar cliente              ::"<< endl;
         cout << "\t::::::::::::::::::::::::::::::::::::::::"<< endl;
-        cout << "\n\t       0. VOLVER al menu principal"<< endl;
+        cout << "\n\t       0. Volver al menu principal"<< endl;
         cout << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
@@ -115,15 +115,15 @@ void subMenuProductos(){
     int opc;
     while(true){
         cout << endl;
-        cout << "\t            Menu de PRODUCTOS"<< endl;
+        cout << "\t            Menu de productos"<< endl;
         cout << "\t::::::::::::::::::::::::::::::::::::::::::"<< endl;
-        cout << "\t::     1. CARGAR producto               ::"<< endl;
-        cout << "\t::     2. BUSCAR producto               ::"<< endl;
-        cout << "\t::     3. VER productos                 ::"<< endl;
-        cout << "\t::     4. MODIFICAR PRECIO producto     ::"<< endl;
-        cout << "\t::     5. BORRAR producto               ::"<< endl;
+        cout << "\t::     1. Cargar producto               ::"<< endl;
+        cout << "\t::     2. Buscar producto               ::"<< endl;
+        cout << "\t::     3. Ver productos                 ::"<< endl;
+        cout << "\t::     4. Modificar precio producto     ::"<< endl;
+        cout << "\t::     5. Borrar producto               ::"<< endl;
         cout << "\t::::::::::::::::::::::::::::::::::::::::::"<< endl;
-        cout << "\n\t       0. VOLVER al menu principal"<< endl;
+        cout << "\n\t       0. Volver al menu principal"<< endl;
         cout << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
@@ -165,13 +165,13 @@ void subMenuReportes(){
     int opc;
     while(true){
         cout << endl;
-        cout << "\t             Menu de REPORTES"<< endl;
+        cout << "\t             Menu de reportes"<< endl;
         cout << "\t::::::::::::::::::::::::::::::::::::::::::"<< endl;
-        cout << "\t::     1. Ver VENTAS del DIA            ::"<< endl;
-        cout << "\t::     2. Ver VENTAS por MES y ANIO     ::"<< endl;
-        cout << "\t::     3. Ver VENTAS por CLIENTE        ::"<< endl;
+        cout << "\t::     1. Ver ventas del dia            ::"<< endl;
+        cout << "\t::     2. Ver ventas por mes y anio     ::"<< endl;
+        cout << "\t::     3. Ver ventas por cliente        ::"<< endl;
         cout << "\t::::::::::::::::::::::::::::::::::::::::::"<< endl;
-        cout << "\n\t       0. VOLVER al menu principal"<< endl;
+        cout << "\n\t       0. Volver al menu principal"<< endl;
         cout << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
@@ -204,14 +204,14 @@ void subMenuConfiguracion(){
     int opc;
     while(true){
         cout << endl;
-        cout << "\t            Menu de  CONFIGURACION"<< endl;
+        cout << "\t            Menu de  configuracion"<< endl;
         cout << "\t::::::::::::::::::::::::::::::::::::::::::::::"<< endl;
-        cout << "\t::     1. COPIA de SEGURIDAD: Ventas        ::"<< endl;
-        cout << "\t::     2. COPIA de SEGURIDAD: Clientes      ::"<< endl;
-        cout << "\t::     3. COPIA de SEGURIDAD: Productos     ::"<< endl;
-        cout << "\t::     4. RESTAURAR Ventas                  ::"<< endl;
-        cout << "\t::     5. RESTAURAR Clientes                ::"<< endl;
-        cout << "\t::     6. RESTAURAR Productos               ::"<< endl;
+        cout << "\t::     1. Copia de seguridad: ventas        ::"<< endl;
+        cout << "\t::     2. Copia de seguridad: clientes      ::"<< endl;
+        cout << "\t::     3. Copia de seguridad: productos     ::"<< endl;
+        cout << "\t::     4. Restaurar ventas                  ::"<< endl;
+        cout << "\t::     5. Restaurar clientes                ::"<< endl;
+        cout << "\t::     6. Restaurar productos               ::"<< endl;
         cout << "\t::::::::::::::::::::::::::::::::::::::::::::::"<< endl;
         cout << "\n\t       0. VOLVER al menu principal"<< endl;
         cout << endl;

@@ -13,11 +13,11 @@ int main()
         cout << endl;
         cout << "\t*****          MENU  PRINCIPAL          *****"<< endl;
         cout << "\t:::::::::::::::::::::::::::::::::::::::::::::"<< endl;
-        cout << "\t::          1. Menu VENTAS                 ::"<< endl;
-        cout << "\t::          2. Menu CLIENTES               ::"<< endl;
-        cout << "\t::          3. Menu PRODUCTOS              ::"<< endl;
-        cout << "\t::          4. Menu REPORTES               ::"<< endl;
-        cout << "\t::          5. Menu CONFIGURACION          ::"<< endl;
+        cout << "\t::          1. Menu ventas                 ::"<< endl;
+        cout << "\t::          2. Menu clientes               ::"<< endl;
+        cout << "\t::          3. Menu productos              ::"<< endl;
+        cout << "\t::          4. Menu reportes               ::"<< endl;
+        cout << "\t::          5. Menu configuracion          ::"<< endl;
         cout << "\t:::::::::::::::::::::::::::::::::::::::::::::"<< endl;
         cout << "\n\t            0. Salir" << endl;
         cout << endl;
