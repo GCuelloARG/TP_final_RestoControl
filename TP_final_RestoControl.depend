@@ -11,12 +11,12 @@
 	"detalle.h"
 	"rep.h"
 
-1698900048 source:c:\users\gonza\desktop\tp_final_restocontrol\main.cpp
+1698930819 source:c:\users\gonza\desktop\tp_final_restocontrol\main.cpp
 	<iostream>
 	"submenues.h"
 	"ventas.h"
 
-1698899599 c:\users\gonza\desktop\tp_final_restocontrol\submenues.h
+1698930819 c:\users\gonza\desktop\tp_final_restocontrol\submenues.h
 	<iostream>
 	"ventas.h"
 	"configuracion.h"
